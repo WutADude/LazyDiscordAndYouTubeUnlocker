@@ -8,7 +8,7 @@
 
 
 # Как запустить?
-**1) Загружаем ZIP архив из релизов: https://github.com/WutADude/LazyDiscordAndYouTubeUnlocker/releases**
+**1) Загружаем LazyDisYTUnlocker.zip из релизов: https://github.com/WutADude/LazyDiscordAndYouTubeUnlocker/releases**
 
 **1.1) Либо компилируем программу самостоятельно при помощи исходников**
 
