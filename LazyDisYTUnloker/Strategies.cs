@@ -14,9 +14,16 @@ namespace LazyDisYTUnloker
             {
                 if (!update)
                 {
-                    DiscordStrategy = File.ReadAllText("dsstrat.txt");
-                    YouTubeStrategy = File.ReadAllText("ytstrat.txt");
-                    return true;
+                    try
+                    {
+                        DiscordStrategy = File.ReadAllText("dsstrat.txt");
+                        YouTubeStrategy = File.ReadAllText("ytstrat.txt");
+                        return true;
+                    }
+                    catch 
+                    { 
+                        return await UpdateStrategies(true);
+                    }
                 }
                 using (HttpClient client = new HttpClient())
                 {
