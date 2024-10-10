@@ -44,9 +44,14 @@
             LauncherDevLabel = new Label();
             WarningInfoLabel = new Label();
             HideInTrayCB = new CheckBox();
+            AdditionalOptionsGB = new GroupBox();
+            UpdateStrategiesButton = new Button();
+            label2 = new Label();
+            WindivertServiceCB = new CheckBox();
             StatusGB.SuspendLayout();
             Status.SuspendLayout();
             InfoGB.SuspendLayout();
+            AdditionalOptionsGB.SuspendLayout();
             SuspendLayout();
             // 
             // MainButton
@@ -67,7 +72,7 @@
             StatusGB.Controls.Add(YouTubeDomainsCountLabel);
             StatusGB.Controls.Add(DiscordDomainsCountLabel);
             StatusGB.Controls.Add(BundleStatusLabel);
-            StatusGB.Location = new Point(12, 48);
+            StatusGB.Location = new Point(12, 63);
             StatusGB.Name = "StatusGB";
             StatusGB.Size = new Size(501, 74);
             StatusGB.TabIndex = 1;
@@ -77,7 +82,7 @@
             // YouTubeDomainsCountLabel
             // 
             YouTubeDomainsCountLabel.AutoSize = true;
-            YouTubeDomainsCountLabel.Location = new Point(6, 49);
+            YouTubeDomainsCountLabel.Location = new Point(6, 50);
             YouTubeDomainsCountLabel.Name = "YouTubeDomainsCountLabel";
             YouTubeDomainsCountLabel.Size = new Size(187, 15);
             YouTubeDomainsCountLabel.TabIndex = 2;
@@ -95,17 +100,17 @@
             // BundleStatusLabel
             // 
             BundleStatusLabel.AutoSize = true;
-            BundleStatusLabel.Location = new Point(6, 19);
+            BundleStatusLabel.Location = new Point(6, 18);
             BundleStatusLabel.Name = "BundleStatusLabel";
-            BundleStatusLabel.Size = new Size(128, 15);
+            BundleStatusLabel.Size = new Size(148, 15);
             BundleStatusLabel.TabIndex = 0;
-            BundleStatusLabel.Text = "Запрет-бандл: {status}";
+            BundleStatusLabel.Text = "Состояние Zapret: {status}";
             // 
             // Status
             // 
             Status.BackColor = Color.Transparent;
             Status.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, WorkStatusLabel });
-            Status.Location = new Point(0, 242);
+            Status.Location = new Point(0, 334);
             Status.Name = "Status";
             Status.Size = new Size(525, 22);
             Status.SizingGrip = false;
@@ -121,8 +126,8 @@
             // WorkStatusLabel
             // 
             WorkStatusLabel.Name = "WorkStatusLabel";
-            WorkStatusLabel.Size = new Size(126, 17);
-            WorkStatusLabel.Text = "сейчас не работает :P";
+            WorkStatusLabel.Size = new Size(16, 17);
+            WorkStatusLabel.Text = "...";
             // 
             // InfoGB
             // 
@@ -130,10 +135,9 @@
             InfoGB.Controls.Add(MainDevLabel);
             InfoGB.Controls.Add(label1);
             InfoGB.Controls.Add(LauncherDevLabel);
-            InfoGB.Controls.Add(WarningInfoLabel);
-            InfoGB.Location = new Point(12, 122);
+            InfoGB.Location = new Point(12, 240);
             InfoGB.Name = "InfoGB";
-            InfoGB.Size = new Size(501, 100);
+            InfoGB.Size = new Size(501, 93);
             InfoGB.TabIndex = 3;
             InfoGB.TabStop = false;
             InfoGB.Text = "Информация";
@@ -141,10 +145,10 @@
             // RepositoryZapretLabel
             // 
             RepositoryZapretLabel.Cursor = Cursors.Hand;
-            RepositoryZapretLabel.ForeColor = Color.DarkSeaGreen;
-            RepositoryZapretLabel.Location = new Point(271, 52);
+            RepositoryZapretLabel.ForeColor = Color.ForestGreen;
+            RepositoryZapretLabel.Location = new Point(6, 64);
             RepositoryZapretLabel.Name = "RepositoryZapretLabel";
-            RepositoryZapretLabel.Size = new Size(218, 21);
+            RepositoryZapretLabel.Size = new Size(489, 21);
             RepositoryZapretLabel.TabIndex = 5;
             RepositoryZapretLabel.Text = "Репозиторий \"Zapret\"";
             RepositoryZapretLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -154,18 +158,18 @@
             // 
             MainDevLabel.Cursor = Cursors.Hand;
             MainDevLabel.ForeColor = Color.ForestGreen;
-            MainDevLabel.Location = new Point(12, 52);
+            MainDevLabel.Location = new Point(6, 45);
             MainDevLabel.Name = "MainDevLabel";
-            MainDevLabel.Size = new Size(218, 21);
+            MainDevLabel.Size = new Size(489, 21);
             MainDevLabel.TabIndex = 4;
-            MainDevLabel.Text = "Гений, разработчик \"запрета\": bol-van";
+            MainDevLabel.Text = "Разработчик \"Zapret\": bol-van";
             MainDevLabel.TextAlign = ContentAlignment.MiddleCenter;
             MainDevLabel.Click += MainDevLabel_Click;
             // 
             // label1
             // 
             label1.Font = new Font("Segoe UI", 5F);
-            label1.Location = new Point(12, 32);
+            label1.Location = new Point(12, 33);
             label1.Name = "label1";
             label1.Size = new Size(477, 10);
             label1.TabIndex = 3;
@@ -175,9 +179,9 @@
             // LauncherDevLabel
             // 
             LauncherDevLabel.Cursor = Cursors.Hand;
-            LauncherDevLabel.Location = new Point(12, 15);
+            LauncherDevLabel.Location = new Point(6, 15);
             LauncherDevLabel.Name = "LauncherDevLabel";
-            LauncherDevLabel.Size = new Size(477, 21);
+            LauncherDevLabel.Size = new Size(489, 21);
             LauncherDevLabel.TabIndex = 2;
             LauncherDevLabel.Text = "Разработчик заглушки/лаунчера: WutADude (aka wDude)";
             LauncherDevLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -186,9 +190,9 @@
             // WarningInfoLabel
             // 
             WarningInfoLabel.ForeColor = Color.Red;
-            WarningInfoLabel.Location = new Point(6, 82);
+            WarningInfoLabel.Location = new Point(12, 48);
             WarningInfoLabel.Name = "WarningInfoLabel";
-            WarningInfoLabel.Size = new Size(489, 15);
+            WarningInfoLabel.Size = new Size(501, 15);
             WarningInfoLabel.TabIndex = 1;
             WarningInfoLabel.Text = "Разработчик заглушки не гарантирует работоспособность чего-либо после запуска!";
             WarningInfoLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -196,23 +200,70 @@
             // HideInTrayCB
             // 
             HideInTrayCB.AutoSize = true;
-            HideInTrayCB.Location = new Point(151, 223);
+            HideInTrayCB.Location = new Point(12, 17);
             HideInTrayCB.Name = "HideInTrayCB";
-            HideInTrayCB.Size = new Size(219, 19);
+            HideInTrayCB.Size = new Size(249, 19);
             HideInTrayCB.TabIndex = 3;
-            HideInTrayCB.Text = "Cпрятать в трей при сворачивании";
+            HideInTrayCB.Text = "Cпрятать окно в трей при сворачивании";
             HideInTrayCB.UseVisualStyleBackColor = true;
+            // 
+            // AdditionalOptionsGB
+            // 
+            AdditionalOptionsGB.Controls.Add(UpdateStrategiesButton);
+            AdditionalOptionsGB.Controls.Add(label2);
+            AdditionalOptionsGB.Controls.Add(WindivertServiceCB);
+            AdditionalOptionsGB.Controls.Add(HideInTrayCB);
+            AdditionalOptionsGB.Location = new Point(12, 138);
+            AdditionalOptionsGB.Name = "AdditionalOptionsGB";
+            AdditionalOptionsGB.Size = new Size(501, 104);
+            AdditionalOptionsGB.TabIndex = 4;
+            AdditionalOptionsGB.TabStop = false;
+            AdditionalOptionsGB.Text = "Доп. параметры:";
+            // 
+            // UpdateStrategiesButton
+            // 
+            UpdateStrategiesButton.Cursor = Cursors.Hand;
+            UpdateStrategiesButton.Enabled = false;
+            UpdateStrategiesButton.FlatStyle = FlatStyle.Flat;
+            UpdateStrategiesButton.Location = new Point(12, 74);
+            UpdateStrategiesButton.Name = "UpdateStrategiesButton";
+            UpdateStrategiesButton.Size = new Size(477, 24);
+            UpdateStrategiesButton.TabIndex = 6;
+            UpdateStrategiesButton.Text = "Обновить стратегии обхода замедлений/блокировок";
+            UpdateStrategiesButton.UseVisualStyleBackColor = true;
+            UpdateStrategiesButton.Click += UpdateStrategiesButton_Click;
+            // 
+            // label2
+            // 
+            label2.ForeColor = SystemColors.WindowText;
+            label2.Location = new Point(12, 56);
+            label2.Name = "label2";
+            label2.Size = new Size(483, 15);
+            label2.TabIndex = 5;
+            label2.Text = "Что-то не работает? Попробуйте нажать на кнопку ниже чтобы обновить стратегии";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // WindivertServiceCB
+            // 
+            WindivertServiceCB.AutoSize = true;
+            WindivertServiceCB.Location = new Point(12, 34);
+            WindivertServiceCB.Name = "WindivertServiceCB";
+            WindivertServiceCB.Size = new Size(282, 19);
+            WindivertServiceCB.TabIndex = 4;
+            WindivertServiceCB.Text = "Отключаем Windivert сервис после остановки";
+            WindivertServiceCB.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(525, 264);
-            Controls.Add(HideInTrayCB);
+            ClientSize = new Size(525, 356);
+            Controls.Add(AdditionalOptionsGB);
             Controls.Add(InfoGB);
             Controls.Add(Status);
             Controls.Add(StatusGB);
+            Controls.Add(WarningInfoLabel);
             Controls.Add(MainButton);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -229,6 +280,8 @@
             Status.ResumeLayout(false);
             Status.PerformLayout();
             InfoGB.ResumeLayout(false);
+            AdditionalOptionsGB.ResumeLayout(false);
+            AdditionalOptionsGB.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -250,5 +303,9 @@
         private Label label1;
         private Label RepositoryZapretLabel;
         private CheckBox HideInTrayCB;
+        private GroupBox AdditionalOptionsGB;
+        public CheckBox WindivertServiceCB;
+        private Button UpdateStrategiesButton;
+        private Label label2;
     }
 }

@@ -19,7 +19,7 @@ namespace LazyDisYTUnloker
 
         private async Task CheckFilesAndSetup()
         {
-            Task.Run(async() =>
+            Task.Run(async () =>
             {
                 FilesAndDirectories.Form = this;
                 if (!FilesAndDirectories.IsZapretBundleDirectoriesLoaded())
@@ -28,10 +28,15 @@ namespace LazyDisYTUnloker
                     {
 
                         FilesAndDirectories.SetupDirectory();
-                        if (await FilesAndDirectories.DownloadUnpackAndSetupZapret() && FilesAndDirectories.IsZapretBundleDirectoriesLoaded())
+                        ChangeStatus("провер€ю файлы и обновл€ю стратегии...");
+                        if (await FilesAndDirectories.DownloadUnpackAndSetupZapret() && FilesAndDirectories.IsZapretBundleDirectoriesLoaded() && await Strategies.UpdateStrategies(true))
                         {
                             ChangeZapretBundleStatus("готов к работе");
-                            BeginInvoke(() => MainButton.Enabled = true);
+                            BeginInvoke(() =>
+                            {
+                                MainButton.Enabled = true;
+                                UpdateStrategiesButton.Enabled = true;
+                            });
                         }
 
                     }
@@ -43,12 +48,22 @@ namespace LazyDisYTUnloker
                     }
                 }
                 else
-                    BeginInvoke(() => MainButton.Enabled = true);
+                {
+                    if (await Strategies.UpdateStrategies(false))
+                    {
+                        BeginInvoke(() =>
+                        {
+                            MainButton.Enabled = true;
+                            UpdateStrategiesButton.Enabled = true;
+                        });
+                        ChangeStatus("готов к работе");
+                    }
+                }
             });
         }
 
 
-        internal void ChangeZapretBundleStatus(string status) => BeginInvoke(() => BundleStatusLabel.Text = $"«апрет-бандл: {status}");
+        internal void ChangeZapretBundleStatus(string status) => BeginInvoke(() => BundleStatusLabel.Text = $"—осто€ние Zapret: {status}");
 
         internal void ChangeDiscordDomainsCountLabel(int count) => BeginInvoke(() => DiscordDomainsCountLabel.Text = $"„исло доменов Discord: {count}");
 
@@ -60,7 +75,7 @@ namespace LazyDisYTUnloker
         {
             if (!currentlyWorking)
             {
-                if (ProcessManager.RunUnlocks())
+                if (ProcessManager.RunStrategies())
                 {
                     currentlyWorking = true;
                     ChangeStatus("работает :O");
@@ -70,9 +85,9 @@ namespace LazyDisYTUnloker
             }
             else
             {
-                ProcessManager.StopUnlocks();
+                ProcessManager.StopStrategies();
                 currentlyWorking = false;
-                ChangeStatus("сейчас не работает :P");
+                ChangeStatus("готов к работе");
                 (sender as Button).Text = "«апустить";
             }
         }
@@ -95,17 +110,16 @@ namespace LazyDisYTUnloker
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (currentlyWorking)
-                ProcessManager.StopUnlocks();
+                ProcessManager.StopStrategies();
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Minimized && HideInTrayCB.Checked)
             {
-                if (notifIcon is null)
-                    notifIcon = new NotifyIcon();
+                notifIcon ??= new NotifyIcon();
                 notifIcon.BalloonTipText = "—пр€чусь здесь!";
-                notifIcon.Text = "Lazy DS & YT unlocker";
+                notifIcon.Text = "DS and YT unlock launcher";
                 notifIcon.Icon = Icon;
                 notifIcon.Visible = true;
                 notifIcon.ShowBalloonTip(500);
@@ -129,6 +143,28 @@ namespace LazyDisYTUnloker
             notifIcon.Visible = false;
             ShowInTaskbar = true;
             Show();
+        }
+
+        private async void UpdateStrategiesButton_Click(object sender, EventArgs e)
+        {
+            Task.Run(async () =>
+            {
+                ChangeStatus("обновл€ю стратегии...");
+                BeginInvoke(() =>
+                {
+                    MainButton.Enabled = false;
+                    UpdateStrategiesButton.Enabled = false;
+                });
+                if (await Strategies.UpdateStrategies(true))
+                {
+                    BeginInvoke(() =>
+                    {
+                        MainButton.Enabled = true;
+                        UpdateStrategiesButton.Enabled = true;
+                    });
+                    ChangeStatus("готов к работе");
+                }
+            });
         }
     }
 }

@@ -6,7 +6,7 @@ namespace LazyDisYTUnloker
 {
     internal static class FilesAndDirectories
     {
-        internal static MainForm Form { private get; set; } = null!;
+        internal static MainForm Form { get; set; } = null!;
 
         internal const string MainZapretDirectory = "zapret-win-bundle-master";
         internal const string WinwsDirectory = "zapret-winws";
