@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace LazyDisYTUnloker
+﻿namespace LazyDisYTUnloker
 {
     internal static class Strategies
     {
@@ -14,25 +11,22 @@ namespace LazyDisYTUnloker
             {
                 if (!update)
                 {
-                    try
+                    if (File.Exists("dsstrat.txt") && File.Exists("ytstrat.txt"))
                     {
                         DiscordStrategy = File.ReadAllText("dsstrat.txt");
                         YouTubeStrategy = File.ReadAllText("ytstrat.txt");
                         return true;
                     }
-                    catch 
-                    { 
-                        return await UpdateStrategies(true);
-                    }
+                    return await UpdateStrategies(true);
                 }
                 using (HttpClient client = new HttpClient())
                 {
-                    DiscordStrategy = await client.GetStringAsync("https://pastebin.com/raw/QwT7SDkW");
-                    YouTubeStrategy = await client.GetStringAsync("https://pastebin.com/raw/jwMKg0pe");
+                    DiscordStrategy = await client.GetStringAsync("https://raw.githubusercontent.com/WutADude/LazyDiscordAndYouTubeUnlocker/refs/heads/master/Dscord%20Zapret%20strategy.txt");
+                    YouTubeStrategy = await client.GetStringAsync("https://raw.githubusercontent.com/WutADude/LazyDiscordAndYouTubeUnlocker/refs/heads/master/YouTube%20Zapret%20strategy.txt");
                     File.WriteAllText("dsstrat.txt", DiscordStrategy);
                     File.WriteAllText("ytstrat.txt", YouTubeStrategy);
-
                 }
+                
                 return true;
             }
             catch (Exception ex)
@@ -41,6 +35,11 @@ namespace LazyDisYTUnloker
                     $"" +
                     $"{ex.Message}", "Ошибка при получении/обновлении стратегий", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+            finally
+            {
+                if (File.Exists("dsstrat.txt"))
+                    FilesAndDirectories.Form.ChangeLastStrategiesUpdateDate(new FileInfo("dsstrat.txt").LastWriteTime);
             }
         }
     }

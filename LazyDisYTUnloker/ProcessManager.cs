@@ -35,7 +35,12 @@ namespace LazyDisYTUnloker
                     var killWindivert = Process.Start(new ProcessStartInfo() { FileName = "cmd.exe", Arguments = "sc stop windivert", CreateNoWindow = true, UseShellExecute = false });
                     killWindivert.Kill();
                 }
-                catch { }
+                catch (Exception ex) 
+                {
+                    MessageBox.Show($"Не удалось убить службу Windivert.\n\n" +
+                    $"" +
+                    $"Ошибка: {ex.Message}", "Пора нанимать нового хитмана...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

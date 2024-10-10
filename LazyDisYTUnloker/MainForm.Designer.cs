@@ -45,6 +45,7 @@
             WarningInfoLabel = new Label();
             HideInTrayCB = new CheckBox();
             AdditionalOptionsGB = new GroupBox();
+            StrategiesUpdateDateLabel = new Label();
             UpdateStrategiesButton = new Button();
             label2 = new Label();
             WindivertServiceCB = new CheckBox();
@@ -110,7 +111,7 @@
             // 
             Status.BackColor = Color.Transparent;
             Status.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, WorkStatusLabel });
-            Status.Location = new Point(0, 334);
+            Status.Location = new Point(0, 349);
             Status.Name = "Status";
             Status.Size = new Size(525, 22);
             Status.SizingGrip = false;
@@ -135,7 +136,7 @@
             InfoGB.Controls.Add(MainDevLabel);
             InfoGB.Controls.Add(label1);
             InfoGB.Controls.Add(LauncherDevLabel);
-            InfoGB.Location = new Point(12, 240);
+            InfoGB.Location = new Point(12, 258);
             InfoGB.Name = "InfoGB";
             InfoGB.Size = new Size(501, 93);
             InfoGB.TabIndex = 3;
@@ -209,16 +210,27 @@
             // 
             // AdditionalOptionsGB
             // 
+            AdditionalOptionsGB.Controls.Add(StrategiesUpdateDateLabel);
             AdditionalOptionsGB.Controls.Add(UpdateStrategiesButton);
             AdditionalOptionsGB.Controls.Add(label2);
             AdditionalOptionsGB.Controls.Add(WindivertServiceCB);
             AdditionalOptionsGB.Controls.Add(HideInTrayCB);
             AdditionalOptionsGB.Location = new Point(12, 138);
             AdditionalOptionsGB.Name = "AdditionalOptionsGB";
-            AdditionalOptionsGB.Size = new Size(501, 104);
+            AdditionalOptionsGB.Size = new Size(501, 119);
             AdditionalOptionsGB.TabIndex = 4;
             AdditionalOptionsGB.TabStop = false;
             AdditionalOptionsGB.Text = "Доп. параметры:";
+            // 
+            // StrategiesUpdateDateLabel
+            // 
+            StrategiesUpdateDateLabel.Font = new Font("Segoe UI", 6F);
+            StrategiesUpdateDateLabel.Location = new Point(12, 101);
+            StrategiesUpdateDateLabel.Name = "StrategiesUpdateDateLabel";
+            StrategiesUpdateDateLabel.Size = new Size(477, 13);
+            StrategiesUpdateDateLabel.TabIndex = 7;
+            StrategiesUpdateDateLabel.Text = "Дата последнего обновления стратегий: ...";
+            StrategiesUpdateDateLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // UpdateStrategiesButton
             // 
@@ -258,7 +270,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(525, 356);
+            ClientSize = new Size(525, 371);
             Controls.Add(AdditionalOptionsGB);
             Controls.Add(InfoGB);
             Controls.Add(Status);
@@ -307,5 +319,6 @@
         public CheckBox WindivertServiceCB;
         private Button UpdateStrategiesButton;
         private Label label2;
+        private Label StrategiesUpdateDateLabel;
     }
 }

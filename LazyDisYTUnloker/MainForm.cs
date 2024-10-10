@@ -71,6 +71,8 @@ namespace LazyDisYTUnloker
 
         internal void ChangeStatus(string status) => BeginInvoke(() => WorkStatusLabel.Text = status);
 
+        internal void ChangeLastStrategiesUpdateDate(DateTime dateTime) => BeginInvoke(() => StrategiesUpdateDateLabel.Text = $"Дата последнего обновления стратегий: {dateTime.ToString("HH:mm:ss dd.MM.yyyy")}");
+
         private void MainButton_Click(object sender, EventArgs e)
         {
             if (!currentlyWorking)
@@ -79,7 +81,7 @@ namespace LazyDisYTUnloker
                 {
                     currentlyWorking = true;
                     ChangeStatus("работает :O");
-                    (sender as Button).Text = "Остановить";
+                    MainButton.Text = "Остановить";
                 }
 
             }
@@ -88,7 +90,7 @@ namespace LazyDisYTUnloker
                 ProcessManager.StopStrategies();
                 currentlyWorking = false;
                 ChangeStatus("готов к работе");
-                (sender as Button).Text = "Запустить";
+                MainButton.Text = "Запустить";
             }
         }
 
@@ -116,34 +118,10 @@ namespace LazyDisYTUnloker
         private void MainForm_Resize(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Minimized && HideInTrayCB.Checked)
-            {
-                notifIcon ??= new NotifyIcon();
-                notifIcon.BalloonTipText = "Спрячусь здесь!";
-                notifIcon.Text = "DS and YT unlock launcher";
-                notifIcon.Icon = Icon;
-                notifIcon.Visible = true;
-                notifIcon.ShowBalloonTip(500);
-                notifIcon.DoubleClick += NotifIcon_DoubleClick;
-                ShowInTaskbar = false;
-                Hide();
-            }
-            else
-            {
-                if (notifIcon is not null)
-                {
-                    notifIcon.Visible = false;
-                    ShowInTaskbar = true;
-                    Show();
-                }
-            }
+                HideInTray();
         }
 
-        private void NotifIcon_DoubleClick(object? sender, EventArgs e)
-        {
-            notifIcon.Visible = false;
-            ShowInTaskbar = true;
-            Show();
-        }
+        private void NotifIcon_DoubleClick(object? sender, EventArgs e) => RevealFromTray();
 
         private async void UpdateStrategiesButton_Click(object sender, EventArgs e)
         {
@@ -165,6 +143,26 @@ namespace LazyDisYTUnloker
                     ChangeStatus("готов к работе");
                 }
             });
+        }
+
+        private void HideInTray()
+        {
+            notifIcon ??= new NotifyIcon();
+            notifIcon.BalloonTipText = "Спрячусь здесь!";
+            notifIcon.Text = "DS and YT unlock launcher";
+            notifIcon.Icon = Icon;
+            notifIcon.Visible = true;
+            notifIcon.ShowBalloonTip(500);
+            notifIcon.DoubleClick += NotifIcon_DoubleClick;
+            ShowInTaskbar = false;
+            Hide();
+        }
+
+        private void RevealFromTray()
+        {
+            notifIcon.Visible = false;
+            ShowInTaskbar = true;
+            Show();
         }
     }
 }
