@@ -85,27 +85,27 @@
             YouTubeDomainsCountLabel.AutoSize = true;
             YouTubeDomainsCountLabel.Location = new Point(6, 50);
             YouTubeDomainsCountLabel.Name = "YouTubeDomainsCountLabel";
-            YouTubeDomainsCountLabel.Size = new Size(187, 15);
+            YouTubeDomainsCountLabel.Size = new Size(157, 15);
             YouTubeDomainsCountLabel.TabIndex = 2;
-            YouTubeDomainsCountLabel.Text = "Число доменов YouTube: {count}";
+            YouTubeDomainsCountLabel.Text = "Число доменов YouTube: ...";
             // 
             // DiscordDomainsCountLabel
             // 
             DiscordDomainsCountLabel.AutoSize = true;
             DiscordDomainsCountLabel.Location = new Point(6, 34);
             DiscordDomainsCountLabel.Name = "DiscordDomainsCountLabel";
-            DiscordDomainsCountLabel.Size = new Size(181, 15);
+            DiscordDomainsCountLabel.Size = new Size(151, 15);
             DiscordDomainsCountLabel.TabIndex = 1;
-            DiscordDomainsCountLabel.Text = "Число доменов Discord: {count}";
+            DiscordDomainsCountLabel.Text = "Число доменов Discord: ...";
             // 
             // BundleStatusLabel
             // 
             BundleStatusLabel.AutoSize = true;
             BundleStatusLabel.Location = new Point(6, 18);
             BundleStatusLabel.Name = "BundleStatusLabel";
-            BundleStatusLabel.Size = new Size(148, 15);
+            BundleStatusLabel.Size = new Size(118, 15);
             BundleStatusLabel.TabIndex = 0;
-            BundleStatusLabel.Text = "Состояние Zapret: {status}";
+            BundleStatusLabel.Text = "Состояние Zapret: ...";
             // 
             // Status
             // 

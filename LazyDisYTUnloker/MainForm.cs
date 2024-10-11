@@ -29,7 +29,7 @@ namespace LazyDisYTUnloker
 
                         FilesAndDirectories.SetupDirectory();
                         ChangeStatus("провер€ю файлы и обновл€ю стратегии...");
-                        if (await FilesAndDirectories.DownloadUnpackAndSetupZapret() && FilesAndDirectories.IsZapretBundleDirectoriesLoaded() && await Strategies.UpdateStrategies(true))
+                        if (await FilesAndDirectories.DownloadUnpackAndSetupZapret() && FilesAndDirectories.IsZapretBundleDirectoriesLoaded() && await Strategies.GetStrategies(true))
                         {
                             ChangeZapretBundleStatus("готов к работе");
                             BeginInvoke(() =>
@@ -49,7 +49,7 @@ namespace LazyDisYTUnloker
                 }
                 else
                 {
-                    if (await Strategies.UpdateStrategies(false))
+                    if (await Strategies.GetStrategies(false))
                     {
                         BeginInvoke(() =>
                         {
@@ -133,7 +133,7 @@ namespace LazyDisYTUnloker
                     MainButton.Enabled = false;
                     UpdateStrategiesButton.Enabled = false;
                 });
-                if (await Strategies.UpdateStrategies(true))
+                if (await Strategies.GetStrategies(true))
                 {
                     BeginInvoke(() =>
                     {

@@ -8,31 +8,24 @@ namespace LazyDisYTUnloker
     {
         internal static MainForm Form { get; set; } = null!;
 
-        internal const string MainZapretDirectory = "zapret-win-bundle-master";
-        internal const string WinwsDirectory = "zapret-winws";
-        private const string _discordDomainsListFile = "list-discord.txt";
-        private const string _youtubeDomainsListFile = "list-youtube.txt";
-
-        private static List<string> _discordDomains = new List<string>(ConfigurationManager.AppSettings["discordDomains"].Split('\n'));
-        private static List<string> _youtubeDomains = new List<string>(ConfigurationManager.AppSettings["youtubeDomains"].Split('\n'));
+        internal const string _mainZapretDirectory = "zapret-win-bundle-master";
+        internal const string _winwsDirectory = "zapret-winws";
 
         internal static void SetupDirectory()
         {
-            Directory.CreateDirectory(MainZapretDirectory);
+            Directory.CreateDirectory(_mainZapretDirectory);
         }
 
         internal static bool IsZapretBundleDirectoriesLoaded()
         {
-            Form.ChangeDiscordDomainsCountLabel(_discordDomains.Count);
-            Form.ChangeYouTubeDomainsCountLabel(_youtubeDomains.Count);
-            if (Directory.Exists(MainZapretDirectory) && Directory.GetDirectories(MainZapretDirectory).Count() == 5)
+            if (Directory.Exists(_mainZapretDirectory) && Directory.GetDirectories(_mainZapretDirectory).Count() == 5)
             {
                 Form.ChangeZapretBundleStatus("готов к работе");
                 return true;
             }
             Form.ChangeZapretBundleStatus("не загружен и не готов к работе");
-            if (Directory.Exists(MainZapretDirectory))
-                Directory.Delete(MainZapretDirectory, true);
+            if (Directory.Exists(_mainZapretDirectory))
+                Directory.Delete(_mainZapretDirectory, true);
             return false;
         }
 
@@ -47,28 +40,15 @@ namespace LazyDisYTUnloker
                 using (MemoryStream ms = new MemoryStream(data))
                 using (ZipArchive archive = new ZipArchive(ms, ZipArchiveMode.Read))
                     archive.ExtractToDirectory(Directory.GetCurrentDirectory());
-                if (!File.Exists($"{MainZapretDirectory}\\{WinwsDirectory}\\{_discordDomainsListFile}"))
-                    CreateDiscordDomainsFile();
-                if (!File.Exists($"{MainZapretDirectory}\\{WinwsDirectory}\\{_youtubeDomainsListFile}"))
-                    CreateYouTubeDomainsFile();
                 return true;
             }
             catch
             {
-                Form.ChangeZapretBundleStatus("не получилось загрузить или распаковать :(");
+                Form.ChangeZapretBundleStatus("не получилось загрузить или распаковать Zapret :(");
                 return false;
             }
-            
         }
 
-        private static void CreateDiscordDomainsFile()
-        {
-            File.WriteAllLines($"{MainZapretDirectory}\\{WinwsDirectory}\\{_discordDomainsListFile}", _discordDomains);
-        }
-
-        private static void CreateYouTubeDomainsFile()
-        {
-            File.WriteAllLines($"{MainZapretDirectory}\\{WinwsDirectory}\\{_youtubeDomainsListFile}", _youtubeDomains);
-        }
+        internal static string GetWinwsPath => $"{_mainZapretDirectory}\\{_winwsDirectory}";
     }
 }
