@@ -41,8 +41,10 @@ namespace LazyDisYTUnloker
                 currentlyWorking = false;
                 ChangeStatus("готов к работе");
                 MainButton.Text = "Запустить";
-                ChangeYTStrategyButton.Enabled = true;
-                ChangeDSStrategyButton.Enabled = true;
+                if (Strategies.YTStrategiesCount > 1)
+                    ChangeYTStrategyButton.Enabled = true;
+                if (Strategies.DSStrategiesCount > 1)
+                    ChangeDSStrategyButton.Enabled = true;
             }
         }
 

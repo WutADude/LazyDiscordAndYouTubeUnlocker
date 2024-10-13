@@ -81,7 +81,11 @@
                     Form.ChangeDSStrategiesLabel(_discordStrategies.Count, ConfigManager.CurrentConfig.ChoosenDiscordStrategy);
                     break;
             }
-            ConfigManager.SaveConfig(); ;
+            ConfigManager.SaveConfig();
         }
+
+        internal static int YTStrategiesCount => _youTubeStrategies.Count;
+
+        internal static int DSStrategiesCount => _discordStrategies.Count;
     }
 }
