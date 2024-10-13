@@ -18,7 +18,6 @@ namespace LazyDisYTUnloker
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
             CheckFilesAndSetup().ConfigureAwait(false);
         }
 
