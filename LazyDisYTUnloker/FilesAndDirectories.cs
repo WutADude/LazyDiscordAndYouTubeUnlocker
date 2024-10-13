@@ -11,11 +11,6 @@ namespace LazyDisYTUnloker
         internal const string _mainZapretDirectory = "zapret-win-bundle-master";
         internal const string _winwsDirectory = "zapret-winws";
 
-        internal static void SetupDirectory()
-        {
-            Directory.CreateDirectory(_mainZapretDirectory);
-        }
-
         internal static bool IsZapretBundleDirectoriesLoaded()
         {
             if (Directory.Exists(_mainZapretDirectory) && Directory.GetDirectories(_mainZapretDirectory).Count() == 5)
