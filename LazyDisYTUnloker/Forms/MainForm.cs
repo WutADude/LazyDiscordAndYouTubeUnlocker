@@ -12,11 +12,13 @@ namespace LazyDisYTUnloker
         public MainForm()
         {
             InitializeComponent();
+            ConfigManager.SetupConfig();
             (FilesAndDirectories.Form, Strategies.Form, ProcessManager.Form, Version.Form) = (this, this, this, this);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            
             CheckFilesAndSetup().ConfigureAwait(false);
         }
 
@@ -141,7 +143,8 @@ namespace LazyDisYTUnloker
                         ReinstallZapretLinkLabel.Enabled = false;
                         MainButton.Enabled = false;
                     });
-                    Directory.Delete(FilesAndDirectories._mainZapretDirectory, true);
+                    if (Directory.Exists(FilesAndDirectories.MainZapretDirectory))
+                    Directory.Delete(FilesAndDirectories.MainZapretDirectory, true);
                     ChangeStatus("скачиваю/провер€ю файлы...");
                     if (await FilesAndDirectories.DownloadUnpackAndSetupZapret() && FilesAndDirectories.IsZapretBundleDirectoriesLoaded())
                     {

@@ -7,7 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>lock.ico</ApplicationIcon>
+	<ApplicationIcon>lock.ico</ApplicationIcon>
     <Version>1.0.0.3</Version>
     <Authors>WutADude (aka wDude)</Authors>
     <Company>wDude</Company>

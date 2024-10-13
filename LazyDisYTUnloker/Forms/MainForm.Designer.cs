@@ -197,7 +197,7 @@
             WarningInfoLabel.Name = "WarningInfoLabel";
             WarningInfoLabel.Size = new Size(501, 15);
             WarningInfoLabel.TabIndex = 1;
-            WarningInfoLabel.Text = "Разработчик заглушки не гарантирует работоспособность чего-либо после запуска!";
+            WarningInfoLabel.Text = "Разработчик лаунчера не гарантирует работоспособность чего-либо после запуска!";
             WarningInfoLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // HideInTrayCB

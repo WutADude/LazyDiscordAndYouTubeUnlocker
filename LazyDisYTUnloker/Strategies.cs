@@ -9,8 +9,8 @@
         private static List<string> _youTubeStrategies { get; set; } = null!;
         private static List<string> _discordStrategies { get; set; } = null!;
 
-        internal static string DiscordStrategy { get => _discordStrategies[Properties.Settings.Default.ChoosenDiscordStrategy]; }
-        internal static string YouTubeStrategy { get => _youTubeStrategies[Properties.Settings.Default.ChoosenYouTubeStrategy]; }
+        internal static string DiscordStrategy { get => _discordStrategies[ConfigManager.CurrentConfig.ChoosenDiscordStrategy]; }
+        internal static string YouTubeStrategy { get => _youTubeStrategies[ConfigManager.CurrentConfig.ChoosenYouTubeStrategy]; }
 
         internal static async Task<bool> GetStrategies(bool update)
         {
@@ -34,9 +34,9 @@
                     File.WriteAllText("dsstrat.txt", await client.GetStringAsync(DataURLs.DiscordStrategiesURL));
                     File.WriteAllText("ytstrat.txt", await client.GetStringAsync(DataURLs.YouTubeStrategiesURL));
                 }
-                Properties.Settings.Default.ChoosenYouTubeStrategy = 0;
-                Properties.Settings.Default.ChoosenDiscordStrategy = 0;
-                Properties.Settings.Default.Save();
+                ConfigManager.CurrentConfig.ChoosenYouTubeStrategy = 0;
+                ConfigManager.CurrentConfig.ChoosenDiscordStrategy = 0;
+                ConfigManager.SaveConfig();
                 return true;
             }
             catch (Exception ex)
@@ -53,8 +53,8 @@
                 Form.ChangeLastStrategiesUpdateDate(new FileInfo("dsstrat.txt").LastWriteTime);
                 Form.ChangeDiscordDomainsCountLabel(File.ReadAllLines($"{FilesAndDirectories.GetWinwsPath}\\list-discord.txt").Count());
                 Form.ChangeYouTubeDomainsCountLabel(File.ReadAllLines($"{FilesAndDirectories.GetWinwsPath}\\list-youtube.txt").Count());
-                Form.ChangeYTStrategiesLabel(_youTubeStrategies.Count, Properties.Settings.Default.ChoosenYouTubeStrategy);
-                Form.ChangeDSStrategiesLabel(_discordStrategies.Count, Properties.Settings.Default.ChoosenDiscordStrategy);
+                Form.ChangeYTStrategiesLabel(_youTubeStrategies.Count, ConfigManager.CurrentConfig.ChoosenYouTubeStrategy);
+                Form.ChangeDSStrategiesLabel(_discordStrategies.Count, ConfigManager.CurrentConfig.ChoosenDiscordStrategy);
                 if (_youTubeStrategies.Count > 1)
                     Form.BeginInvoke(() => Form.ChangeYTStrategyButton.Enabled = true);
                 if (_discordStrategies.Count > 1)
@@ -67,21 +67,21 @@
             switch (type)
             {
                 case 0:
-                    if ((Properties.Settings.Default.ChoosenYouTubeStrategy + 1) < _youTubeStrategies.Count)
-                        Properties.Settings.Default.ChoosenYouTubeStrategy++;
+                    if ((ConfigManager.CurrentConfig.ChoosenYouTubeStrategy + 1) < _youTubeStrategies.Count)
+                        ConfigManager.CurrentConfig.ChoosenYouTubeStrategy++;
                     else
-                        Properties.Settings.Default.ChoosenYouTubeStrategy = 0;
-                    Form.ChangeYTStrategiesLabel(_youTubeStrategies.Count, Properties.Settings.Default.ChoosenYouTubeStrategy);
+                        ConfigManager.CurrentConfig.ChoosenYouTubeStrategy = 0;
+                    Form.ChangeYTStrategiesLabel(_youTubeStrategies.Count, ConfigManager.CurrentConfig.ChoosenYouTubeStrategy);
                     break;
                 case 1:
-                    if ((Properties.Settings.Default.ChoosenDiscordStrategy + 1) < _discordStrategies.Count)
-                        Properties.Settings.Default.ChoosenDiscordStrategy++;
+                    if ((ConfigManager.CurrentConfig.ChoosenDiscordStrategy + 1) < _discordStrategies.Count)
+                        ConfigManager.CurrentConfig.ChoosenDiscordStrategy++;
                     else
-                        Properties.Settings.Default.ChoosenDiscordStrategy = 0;
-                    Form.ChangeDSStrategiesLabel(_discordStrategies.Count, Properties.Settings.Default.ChoosenDiscordStrategy);
+                        ConfigManager.CurrentConfig.ChoosenDiscordStrategy = 0;
+                    Form.ChangeDSStrategiesLabel(_discordStrategies.Count, ConfigManager.CurrentConfig.ChoosenDiscordStrategy);
                     break;
             }
-            Properties.Settings.Default.Save();
+            ConfigManager.SaveConfig(); ;
         }
     }
 }

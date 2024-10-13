@@ -8,7 +8,7 @@ namespace LazyDisYTUnloker
     {
         internal static MainForm Form { get; set; } = null!;
 
-        internal static string CurrentAppVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion??"empty version";
+        internal static string CurrentAppVersion { get => FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion ?? "empty version"; }
         internal static string LatestAppVersion { get; private set; } = null!;
 
         internal static async Task<bool> IsNewVersionAvailable()

@@ -8,19 +8,19 @@ namespace LazyDisYTUnloker
     {
         internal static MainForm Form { get; set; } = null!;
 
-        internal const string _mainZapretDirectory = "zapret-win-bundle-master";
+        internal const string MainZapretDirectory = "zapret-win-bundle-master";
         internal const string _winwsDirectory = "zapret-winws";
 
         internal static bool IsZapretBundleDirectoriesLoaded()
         {
-            if (Directory.Exists(_mainZapretDirectory) && Directory.GetDirectories(_mainZapretDirectory).Count() == 5)
+            if (Directory.Exists(MainZapretDirectory) && Directory.GetDirectories(MainZapretDirectory).Count() == 5)
             {
                 Form.ChangeZapretBundleStatus("готов к работе");
                 return true;
             }
             Form.ChangeZapretBundleStatus("не загружен и не готов к работе");
-            if (Directory.Exists(_mainZapretDirectory))
-                Directory.Delete(_mainZapretDirectory, true);
+            if (Directory.Exists(MainZapretDirectory))
+                Directory.Delete(MainZapretDirectory, true);
             return false;
         }
 
@@ -44,6 +44,6 @@ namespace LazyDisYTUnloker
             }
         }
 
-        internal static string GetWinwsPath => $"{_mainZapretDirectory}\\{_winwsDirectory}";
+        internal static string GetWinwsPath => $"{MainZapretDirectory}\\{_winwsDirectory}";
     }
 }

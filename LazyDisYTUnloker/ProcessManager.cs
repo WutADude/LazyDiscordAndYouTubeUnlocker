@@ -13,8 +13,8 @@ namespace LazyDisYTUnloker
         {
             try
             {
-                _discordUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = $"{FilesAndDirectories._mainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}\\winws.exe", Arguments = Strategies.DiscordStrategy.Replace("[winwsdir]", $"{FilesAndDirectories._mainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
-                _youtubeUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = $"{FilesAndDirectories._mainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}\\winws.exe", Arguments = Strategies.YouTubeStrategy.Replace("[winwsdir]", $"{FilesAndDirectories._mainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
+                _discordUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}\\winws.exe", Arguments = Strategies.DiscordStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
+                _youtubeUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}\\winws.exe", Arguments = Strategies.YouTubeStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
                 return true;
             }
             catch (Exception ex)
