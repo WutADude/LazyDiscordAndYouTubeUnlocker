@@ -326,7 +326,8 @@
             // 
             // MainForm
             // 
-            AutoScaleMode = AutoScaleMode.None;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = SystemColors.Window;
             ClientSize = new Size(525, 409);
             Controls.Add(StrategiesInfoGB);

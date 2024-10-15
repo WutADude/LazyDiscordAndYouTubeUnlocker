@@ -38,8 +38,8 @@ namespace LazyDisYTUnloker
         {
             try
             {
-                var killWindivert = Process.Start(new ProcessStartInfo() { FileName = "cmd.exe", Arguments = "sc stop windivert", CreateNoWindow = true, UseShellExecute = false });
-                killWindivert.Kill();
+                var killWindivert = Process.Start(new ProcessStartInfo() { FileName = "cmd.exe", Arguments = "/C sc stop windivert", CreateNoWindow = false, UseShellExecute = false });
+                //killWindivert.Kill();
             }
             catch (Exception ex)
             {
