@@ -8,6 +8,7 @@
 **- Лаунчер основан на работе "Zapret": https://github.com/bol-van/zapret**
 >**Огромная благодарность bol-van за его труд! (https://github.com/bol-van)**
 
+**- Это не VPN! Запущенный в фоне лаунчер не должен увеличивать Ping и задержки.**
 
 # Как запустить?
 **1) Загружаем LazyDisYTUnlocker.zip из релизов: https://github.com/WutADude/LazyDiscordAndYouTubeUnlocker/releases**
