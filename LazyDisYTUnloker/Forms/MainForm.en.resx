@@ -120,6 +120,9 @@
   <data name="MainButton.Text" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="StatusGB.Text" xml:space="preserve">
+    <value>Status information:</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="YouTubeDomainsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 15</value>
@@ -151,14 +154,17 @@
   <data name="ReinstallZapretLinkLabel.Text" xml:space="preserve">
     <value>Reinstall/Update "Zapret"</value>
   </data>
+  <data name="Status.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 381</value>
+  </data>
   <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 17</value>
   </data>
   <data name="toolStripStatusLabel1.Text" xml:space="preserve">
     <value>Working status:</value>
   </data>
-  <data name="Status.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 381</value>
+  <data name="InfoGB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 343</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="LocalizationLabel.AutoSize" type="System.Boolean, mscorlib">
@@ -169,7 +175,7 @@
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="LocalizationLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>Inherit</value>
+    <value>NoControl</value>
   </data>
   <data name="LocalizationLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>477, 17</value>
@@ -225,6 +231,12 @@
   <data name="AdditionalOptionsGB.Text" xml:space="preserve">
     <value>Additional parameters:</value>
   </data>
+  <data name="WindivertServiceCB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 19</value>
+  </data>
+  <data name="WindivertServiceCB.Text" xml:space="preserve">
+    <value>Disabling the WinDivert service after stopping</value>
+  </data>
   <data name="StrategiesUpdateDateLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 130</value>
   </data>
@@ -245,6 +257,12 @@
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Is something not working? Try clicking on the button below to update your strategies</value>
+  </data>
+  <data name="StrategiesInfoGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 146</value>
+  </data>
+  <data name="StrategiesInfoGB.Text" xml:space="preserve">
+    <value>Strategies for bypassing slowdowns/blockages</value>
   </data>
   <data name="DSStrategiesLabel.Text" xml:space="preserve">
     <value>Count of Discord strategies available: ... | Selected strategy: ...</value>

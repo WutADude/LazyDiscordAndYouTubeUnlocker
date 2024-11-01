@@ -13,7 +13,7 @@ namespace LazyDisYTUnlocker
 
         internal static bool IsZapretBundleDirectoriesLoaded()
         {
-            if (Directory.Exists(MainZapretDirectory) && Directory.GetDirectories(MainZapretDirectory).Length == 5)
+            if (Directory.Exists(MainZapretDirectory))
             {
                 Form.ChangeZapretBundleStatus(StringsLocalization.ZapretReadyToWorkStatus);
                 return true;
