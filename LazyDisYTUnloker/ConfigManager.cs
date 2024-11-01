@@ -1,12 +1,12 @@
 ﻿using System.Text.Json;
 
-namespace LazyDisYTUnloker
+namespace LazyDisYTUnlocker
 {
     internal static class ConfigManager
     {
         private const string _configName = "appconfig.json";
 
-        private static bool _configExists => File.Exists(_configName);
+        private static bool _configExists { get => File.Exists(_configName); }
 
         internal static Config CurrentConfig { get; private set; } = null!;
         
@@ -34,5 +34,11 @@ namespace LazyDisYTUnloker
         public int ChoosenYouTubeStrategy { get; set; }
 
         public int ChoosenDiscordStrategy { get; set; }
+
+        public bool HideInTrayOnMinimize { get; set; } = false;
+
+        public bool KillWindivertOnStop { get; set; } = true;
+
+        public string ChoosenCulture { get; set; } = "En";
     }
 }

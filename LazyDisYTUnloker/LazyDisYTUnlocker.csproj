@@ -8,7 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
 	<ApplicationIcon>lock.ico</ApplicationIcon>
-    <Version>1.0.0.3</Version>
+    <Version>1.0.0.4</Version>
     <Authors>WutADude (aka wDude)</Authors>
     <Company>wDude</Company>
     <Copyright>wDude</Copyright>
@@ -19,18 +19,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    <Compile Update="Properties\StringsLocalization.Designer.cs">
+      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
+      <DependentUpon>StringsLocalization.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <EmbeddedResource Update="Properties\StringsLocalization.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringsLocalization.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,8 @@
-﻿using System.Configuration;
+﻿using LazyDisYTUnlocker.Properties;
 using System.IO.Compression;
 using System.Net;
 
-namespace LazyDisYTUnloker
+namespace LazyDisYTUnlocker
 {
     internal static class FilesAndDirectories
     {
@@ -13,12 +13,12 @@ namespace LazyDisYTUnloker
 
         internal static bool IsZapretBundleDirectoriesLoaded()
         {
-            if (Directory.Exists(MainZapretDirectory) && Directory.GetDirectories(MainZapretDirectory).Count() == 5)
+            if (Directory.Exists(MainZapretDirectory) && Directory.GetDirectories(MainZapretDirectory).Length == 5)
             {
-                Form.ChangeZapretBundleStatus("готов к работе");
+                Form.ChangeZapretBundleStatus(StringsLocalization.ZapretReadyToWorkStatus);
                 return true;
             }
-            Form.ChangeZapretBundleStatus("не загружен и не готов к работе");
+            Form.ChangeZapretBundleStatus(StringsLocalization.ZapretNotReadyToWorkStatus);
             if (Directory.Exists(MainZapretDirectory))
                 Directory.Delete(MainZapretDirectory, true);
             return false;
@@ -29,9 +29,9 @@ namespace LazyDisYTUnloker
             try
             {
                 using WebClient client = new WebClient();
-                client.DownloadProgressChanged += (s, e) => Form.ChangeZapretBundleStatus($"загружаю {e.ProgressPercentage}%");
+                client.DownloadProgressChanged += (s, e) => Form.ChangeZapretBundleStatus(StringsLocalization.ZapretDownloadingProgress.Replace("%progress%", e.ProgressPercentage.ToString()));
                 var data = await client.DownloadDataTaskAsync(new Uri("https://github.com/bol-van/zapret-win-bundle/archive/refs/heads/master.zip"));
-                Form.ChangeZapretBundleStatus("распаковываю и подготавливаю...");
+                Form.ChangeZapretBundleStatus(StringsLocalization.ZapretUnpackingAndPreparing);
                 using (MemoryStream ms = new MemoryStream(data))
                 using (ZipArchive archive = new ZipArchive(ms, ZipArchiveMode.Read))
                     archive.ExtractToDirectory(Directory.GetCurrentDirectory());
@@ -39,7 +39,7 @@ namespace LazyDisYTUnloker
             }
             catch
             {
-                Form.ChangeZapretBundleStatus("не получилось загрузить или распаковать Zapret :(");
+                Form.ChangeZapretBundleStatus(StringsLocalization.ZapretUnsuccessfullDownloadAndPrepare);
                 return false;
             }
         }

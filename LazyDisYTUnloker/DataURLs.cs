@@ -1,4 +1,4 @@
-﻿namespace LazyDisYTUnloker
+﻿namespace LazyDisYTUnlocker
 {
     internal static class DataURLs
     {

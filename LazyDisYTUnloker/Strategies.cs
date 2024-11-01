@@ -1,4 +1,6 @@
-﻿namespace LazyDisYTUnloker
+﻿using LazyDisYTUnlocker.Properties;
+
+namespace LazyDisYTUnlocker
 {
     internal static class Strategies
     {
@@ -41,9 +43,7 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"При получении/обновлении стратегий обхода произошла ошибка: \n\n" +
-                    $"" +
-                    $"{ex.Message}", "Ошибка при получении/обновлении стратегий", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(StringsLocalization.StrategiesUpdateErrorMessageText.Replace("%error%", ex.Message), StringsLocalization.StrategiesUpdateErrorMessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             finally

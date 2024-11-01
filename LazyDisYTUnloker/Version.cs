@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
-using System.Reflection;
+﻿using LazyDisYTUnlocker.Properties;
+using System.Diagnostics;
 using System.Text.Json;
 
-namespace LazyDisYTUnloker
+namespace LazyDisYTUnlocker
 {
     internal static class Version
     {
@@ -15,8 +15,8 @@ namespace LazyDisYTUnloker
         {
             try
             {
-                Form.ChangeStatus("проверяю версию лаунчера...");
-                using (HttpClient client = new HttpClient())
+                Form.ChangeStatus(StringsLocalization.MainStatusSoftwareVersionCheck);
+                using (HttpClient client = new HttpClient() {Timeout = TimeSpan.FromSeconds(3) })
                 {
                     client.DefaultRequestHeaders.TryAddWithoutValidation("User-agent", $"LazyDiscordAndYouTubeUnlocker(V{CurrentAppVersion})");
                     using (var jsonDocument = JsonDocument.Parse(await client.GetStringAsync(DataURLs.VersionInfoURL)))

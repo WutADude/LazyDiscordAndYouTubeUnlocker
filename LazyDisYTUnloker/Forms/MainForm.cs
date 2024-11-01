@@ -1,7 +1,8 @@
-using LazyDisYTUnloker.Forms;
+using LazyDisYTUnlocker.Properties;
+using LazyDisYTUnlocker.Forms;
 using System.Diagnostics;
 
-namespace LazyDisYTUnloker
+namespace LazyDisYTUnlocker
 {
     public partial class MainForm : Form
     {
@@ -12,7 +13,6 @@ namespace LazyDisYTUnloker
         public MainForm()
         {
             InitializeComponent();
-            ConfigManager.SetupConfig();
             (FilesAndDirectories.Form, Strategies.Form, ProcessManager.Form, Version.Form) = (this, this, this, this);
         }
 
@@ -28,8 +28,8 @@ namespace LazyDisYTUnloker
                 if (ProcessManager.RunStrategies())
                 {
                     currentlyWorking = true;
-                    ChangeStatus("работает :O");
-                    MainButton.Text = "Остановить";
+                    ChangeStatus(StringsLocalization.MainStatusEureekaWorking);
+                    MainButton.Text = StringsLocalization.MainButtonStopText;
                     ChangeYTStrategyButton.Enabled = false;
                     ChangeDSStrategyButton.Enabled = false;
                 }
@@ -39,8 +39,8 @@ namespace LazyDisYTUnloker
             {
                 ProcessManager.StopStrategies();
                 currentlyWorking = false;
-                ChangeStatus("готов к работе");
-                MainButton.Text = "Запустить";
+                ChangeStatus(StringsLocalization.MainStatusReadyToWork);
+                MainButton.Text = StringsLocalization.MainButtonStartText;
                 if (Strategies.YTStrategiesCount > 1)
                     ChangeYTStrategyButton.Enabled = true;
                 if (Strategies.DSStrategiesCount > 1)
@@ -66,7 +66,7 @@ namespace LazyDisYTUnloker
         {
             Task.Run(async () =>
             {
-                ChangeStatus("обновляю стратегии...");
+                ChangeStatus(StringsLocalization.StrategiesUpdate);
                 BeginInvoke(() =>
                 {
                     MainButton.Enabled = false;
@@ -79,7 +79,7 @@ namespace LazyDisYTUnloker
                         MainButton.Enabled = true;
                         UpdateStrategiesButton.Enabled = true;
                     });
-                    ChangeStatus("готов к работе");
+                    ChangeStatus(StringsLocalization.MainStatusReadyToWork);
                 }
             });
         }
@@ -90,29 +90,32 @@ namespace LazyDisYTUnloker
         {
             Task.Run(async () =>
             {
+                BeginInvoke(() =>
+                {
+                    HideInTrayCB.Checked = ConfigManager.CurrentConfig.HideInTrayOnMinimize;
+                    WindivertServiceCB.Checked = ConfigManager.CurrentConfig.KillWindivertOnStop;
+                });
                 if (await Version.IsNewVersionAvailable())
                     BeginInvoke(() => SoftwareVersionLabel.Font = new Font(SoftwareVersionLabel.Font, FontStyle.Underline));
                 if (!FilesAndDirectories.IsZapretBundleDirectoriesLoaded())
                 {
-                    if (MessageBox.Show("Для работы нужно догрузить \"Zapret\" и подготовить кое какие файлы, делаем?", "Чего-то не хватает, но чего?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show(StringsLocalization.ZapretLoadMessageText, StringsLocalization.ZapretLoadMessageCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        ChangeStatus("скачиваю/проверяю файлы и обновляю стратегии...");
+                        ChangeStatus(StringsLocalization.DownloadFilesAndStrategiesStatus);
                         if (await FilesAndDirectories.DownloadUnpackAndSetupZapret() && FilesAndDirectories.IsZapretBundleDirectoriesLoaded() && await Strategies.GetStrategies(true))
                         {
-                            ChangeZapretBundleStatus("готов к работе");
+                            ChangeZapretBundleStatus(StringsLocalization.ZapretReadyToWorkStatus);
                             BeginInvoke(() =>
                             {
                                 MainButton.Enabled = true;
                                 UpdateStrategiesButton.Enabled = true;
                             });
-                            ChangeStatus("готов к работе");
+                            ChangeStatus(StringsLocalization.MainStatusReadyToWork);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Без этого ничего работать не будет, но это ваше право :)\n\n" +
-                            "" +
-                            "Если передумаете - просто перезапустите программу!", "Ну чтож... как хотите!");
+                        MessageBox.Show(StringsLocalization.UserZapretInfoText, StringsLocalization.UserZapretInfoCaption);
                     }
                 }
                 else
@@ -124,7 +127,7 @@ namespace LazyDisYTUnloker
                             MainButton.Enabled = true;
                             UpdateStrategiesButton.Enabled = true;
                         });
-                        ChangeStatus("готов к работе");
+                        ChangeStatus(StringsLocalization.MainStatusReadyToWork);
                     }
                 }
             });
@@ -145,8 +148,8 @@ namespace LazyDisYTUnloker
                         MainButton.Enabled = false;
                     });
                     if (Directory.Exists(FilesAndDirectories.MainZapretDirectory))
-                    Directory.Delete(FilesAndDirectories.MainZapretDirectory, true);
-                    ChangeStatus("скачиваю/проверяю файлы...");
+                        Directory.Delete(FilesAndDirectories.MainZapretDirectory, true);
+                    ChangeStatus(StringsLocalization.ZapretUpdateStatus);
                     if (await FilesAndDirectories.DownloadUnpackAndSetupZapret() && FilesAndDirectories.IsZapretBundleDirectoriesLoaded())
                     {
                         BeginInvoke(() =>
@@ -155,20 +158,18 @@ namespace LazyDisYTUnloker
                             UpdateStrategiesButton.Enabled = true;
                             ReinstallZapretLinkLabel.Enabled = true;
                         });
-                        ChangeStatus("готов к работе");
-                        ChangeZapretBundleStatus("готов к работе");
+                        ChangeStatus(StringsLocalization.MainStatusReadyToWork);
+                        ChangeZapretBundleStatus(StringsLocalization.ZapretReadyToWorkStatus);
                     }
                     else
                     {
-                        ChangeStatus("не удалось загрузить/распаковать Zapret");
-                        ChangeZapretBundleStatus("что-то не то...");
+                        ChangeStatus(StringsLocalization.MainStatusSomethingWentWrong);
+                        ChangeZapretBundleStatus(StringsLocalization.ZapretUnsuccessfullDownloadAndPrepare);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Не удалось обновить Zapret!\n\n" +
-                        "" +
-                        $"Ошибка: {ex.Message}", "Так, обновления не будет!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(StringsLocalization.ZapretUpdateErrorMessageText.Replace("%error%", ex.Message), StringsLocalization.ZapretUpdateErrorMessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             });
         }
@@ -176,7 +177,7 @@ namespace LazyDisYTUnloker
         private void HideInTray()
         {
             notifIcon ??= new NotifyIcon();
-            notifIcon.BalloonTipText = "Спрячусь здесь!";
+            notifIcon.BalloonTipText = StringsLocalization.NotificonMessage;
             notifIcon.Text = "DS and YT unlock launcher";
             notifIcon.Icon = Icon;
             notifIcon.Visible = true;
@@ -208,22 +209,41 @@ namespace LazyDisYTUnloker
 
         private void ChangeDSStrategyButton_Click(object sender, EventArgs e) => Strategies.ChangeStrategy(1);
 
-        internal void ChangeZapretBundleStatus(string status) => BeginInvoke(() => BundleStatusLabel.Text = $"Состояние Zapret: {status}");
+        internal void ChangeZapretBundleStatus(string status) => BeginInvoke(() => BundleStatusLabel.Text = StringsLocalization.ZapretStatusMain.Replace("%status%", status));
 
-        internal void ChangeDiscordDomainsCountLabel(int count) => BeginInvoke(() => DiscordDomainsCountLabel.Text = $"Число доменов Discord: {count}");
+        internal void ChangeDiscordDomainsCountLabel(int count) => BeginInvoke(() => DiscordDomainsCountLabel.Text = StringsLocalization.DiscordDomainsCountLabel.Replace("%count%", count.ToString()));
 
-        internal void ChangeYouTubeDomainsCountLabel(int count) => BeginInvoke(() => YouTubeDomainsCountLabel.Text = $"Число доменов YouTube: {count}");
+        internal void ChangeYouTubeDomainsCountLabel(int count) => BeginInvoke(() => YouTubeDomainsCountLabel.Text = StringsLocalization.YouTubeDomainsCountLabel.Replace("%count%", count.ToString()));
 
         internal void ChangeStatus(string status) => BeginInvoke(() => SoftStatus.Text = status);
 
-        internal void ChangeLastStrategiesUpdateDate(DateTime dateTime) => BeginInvoke(() => StrategiesUpdateDateLabel.Text = $"Дата последнего обновления стратегий: {dateTime.ToString("HH:mm:ss dd.MM.yyyy")}");
+        internal void ChangeLastStrategiesUpdateDate(DateTime dateTime) => BeginInvoke(() => StrategiesUpdateDateLabel.Text =  StringsLocalization.StrategiesUpdateDateLabel.Replace("%date%", dateTime.ToString("HH:mm:ss dd.MM.yyyy")));
 
-        internal void ChangeSoftwareVersionLabel(string currentVersion, string latestVersion) => BeginInvoke(() => SoftwareVersionLabel.Text = $"Текущая версия: {currentVersion} (актуальная: {latestVersion})");
+        internal void ChangeSoftwareVersionLabel(string currentVersion, string latestVersion) => BeginInvoke(() => SoftwareVersionLabel.Text = StringsLocalization.SoftwareVersionLabel.Replace("%current%", currentVersion).Replace("%latest%", latestVersion));
 
-        internal void ChangeYTStrategiesLabel(int strategiesCount, int choosenStrategyIndex) => BeginInvoke(() => YTStrategiesCountLabel.Text = $"Число доступных стратегий YouTube: {strategiesCount} | Выбранная стратегия: №{++choosenStrategyIndex}");
+        internal void ChangeYTStrategiesLabel(int strategiesCount, int choosenStrategyIndex) => BeginInvoke(() => YTStrategiesCountLabel.Text = StringsLocalization.YouTubeStrategiesLabel.Replace("%available%", strategiesCount.ToString()).Replace("%selected%", (++choosenStrategyIndex).ToString()));
 
-        internal void ChangeDSStrategiesLabel(int strategiesCount, int choosenStrategyIndex) => BeginInvoke(() => DSStrategiesLabel.Text = $"Число доступных стратегий Discord: {strategiesCount} | Выбранная стратегия: №{++choosenStrategyIndex}");
+        internal void ChangeDSStrategiesLabel(int strategiesCount, int choosenStrategyIndex) => BeginInvoke(() => DSStrategiesLabel.Text = StringsLocalization.DiscordStrategiesLabel.Replace("%available%", strategiesCount.ToString()).Replace("%selected%", (++choosenStrategyIndex).ToString()));
 
-        
+        private void HideInTrayCB_Click(object sender, EventArgs e)
+        {
+            ConfigManager.CurrentConfig.HideInTrayOnMinimize = HideInTrayCB.Checked;
+            ConfigManager.SaveConfig();
+        }
+
+        private void WindivertServiceCB_Click(object sender, EventArgs e)
+        {
+            ConfigManager.CurrentConfig.KillWindivertOnStop = WindivertServiceCB.Checked;
+            ConfigManager.SaveConfig();
+        }
+
+        private void LocalizationLabel_Click(object sender, EventArgs e)
+        {
+            ConfigManager.CurrentConfig.ChoosenCulture = LocalizationLabel.Text;
+            ConfigManager.SaveConfig();
+            if (currentlyWorking)
+                MainButton.PerformClick();
+            Application.Restart();
+        }
     }
 }

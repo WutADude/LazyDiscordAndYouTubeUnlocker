@@ -1,27 +1,28 @@
-﻿using System.Diagnostics;
+﻿using LazyDisYTUnlocker.Properties;
+using System.Diagnostics;
 
-namespace LazyDisYTUnloker
+namespace LazyDisYTUnlocker
 {
     internal static class ProcessManager
     {
         internal static MainForm Form { get; set; } = null!;
 
         private static Process? _discordUnlockProcess { get; set; }
-        private static Process? _youtubeUnlockProcess { get; set; } 
+        private static Process? _youtubeUnlockProcess { get; set; }
+
+        private static string _winwsExecutablePath => $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}\\winws.exe";
 
         internal static bool RunStrategies()
         {
             try
             {
-                _discordUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}\\winws.exe", Arguments = Strategies.DiscordStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
-                _youtubeUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}\\winws.exe", Arguments = Strategies.YouTubeStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
+                _discordUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = _winwsExecutablePath, Arguments = Strategies.DiscordStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
+                _youtubeUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = _winwsExecutablePath, Arguments = Strategies.YouTubeStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Не удалось запустить обход!\n\n" +
-                    $"" +
-                    $"Ошибка: {ex.Message}", "Ох ё!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(StringsLocalization.ProcessManagerStartErrorText.Replace("%error%", ex.Message), StringsLocalization.ProcessManagerStartErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -42,9 +43,7 @@ namespace LazyDisYTUnloker
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Не удалось убить службу Windivert.\n\n" +
-                $"" +
-                $"Ошибка: {ex.Message}", "Пора нанимать нового хитмана...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(StringsLocalization.WindivertKillErrorText.Replace("%error%", ex.Message), StringsLocalization.WindivertKillErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

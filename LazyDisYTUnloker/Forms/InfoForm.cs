@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace LazyDisYTUnloker.Forms
+namespace LazyDisYTUnlocker.Forms
 {
     public partial class InfoForm : Form
     {

@@ -1,6 +1,7 @@
+using LazyDisYTUnlocker.Properties;
 using System.Security.Principal;
 
-namespace LazyDisYTUnloker
+namespace LazyDisYTUnlocker
 {
     internal static class Program
     {
@@ -15,10 +16,13 @@ namespace LazyDisYTUnloker
             if (new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
             {
                 ApplicationConfiguration.Initialize();
+                ConfigManager.SetupConfig();
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(ConfigManager.CurrentConfig.ChoosenCulture);
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(ConfigManager.CurrentConfig.ChoosenCulture);
                 Application.Run(new MainForm());
             }
             else
-                MessageBox.Show("Для работы нужны права администратора!", "Важно, и очень :О", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(StringsLocalization.AdminRightsMessageText, StringsLocalization.AdminRightsMessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }
