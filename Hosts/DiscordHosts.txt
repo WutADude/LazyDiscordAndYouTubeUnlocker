@@ -31,4 +31,8 @@ discordcdn.com
 discord.dev
 discord.new
 discord.gift
-discord.co
+cdn.discordapp.com
+gateway.discord.gg
+media.discordapp.net
+images-ext-1.discordapp.net
+cloudflare-ech.com
