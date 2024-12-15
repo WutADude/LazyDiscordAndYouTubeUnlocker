@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace LazyDisYTUnlocker
 {
-    public partial class MainForm : Form // TODO: Сделать отдельное окно для стратегий пользователя для пользовательских сервисов. (Можно сделать проверку доступности при помощи запроса на получение иконки сайта `https://{domain}/favicon.ico` и получения кода ответа)
+    public partial class MainForm : Form
     {
         private bool _currentlyWorking = false;
         private NotifyIcon? _notifIcon { get; set; } = null;
