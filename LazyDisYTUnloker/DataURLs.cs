@@ -14,7 +14,7 @@
 
         internal const string YouTubeStrategiesURL = "https://raw.githubusercontent.com/WutADude/LazyDiscordAndYouTubeUnlocker/refs/heads/master/Strategies/YouTube%20Zapret%20strategy.txt";
 
-        internal const string UserServicesStrategiesURL = "https://raw.githubusercontent.com/WutADude/LazyDiscordAndYouTubeUnlocker/refs/heads/master/Strategies/UserServices%20Zapret%20strategy.txt"; // TODO: Создать файл со стратегиями на гитхабе, подгружать стратегии оттуда.
+        internal const string UserServicesStrategiesURL = "https://raw.githubusercontent.com/WutADude/LazyDiscordAndYouTubeUnlocker/refs/heads/master/Strategies/UserServices%20Zapret%20strategy.txt";
 
     }
 }
