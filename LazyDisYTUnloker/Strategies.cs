@@ -24,6 +24,7 @@ namespace LazyDisYTUnlocker
                 {
                     Form.ChangeYTStrategyButton.Enabled = false;
                     Form.ChangeDSStrategyButton.Enabled = false;
+                    Form.ChangeUserServicesStrategiesButton.Enabled = false;
                 });
                 if (!update)
                 {
