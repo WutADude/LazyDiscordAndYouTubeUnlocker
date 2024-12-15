@@ -172,7 +172,9 @@
     <value>something went wrong....</value>
   </data>
   <data name="ZapretUpdateErrorMessageText" xml:space="preserve">
-    <value>Failed to update Zapret!\n\Error: %error%</value>
+    <value>Failed to update Zapret!
+
+Error: %error%</value>
   </data>
   <data name="ZapretUpdateErrorMessageCaption" xml:space="preserve">
     <value>So, there will be no update!</value>
@@ -193,13 +195,15 @@
     <value>Start</value>
   </data>
   <data name="UserZapretInfoText" xml:space="preserve">
-    <value>Nothing will work without it, but it's your right :)\n\nIf you change your mind, just restart the program!</value>
+    <value>Nothing will work without it, but it's your right :)
+
+If you change your mind, just restart the program!</value>
   </data>
   <data name="UserZapretInfoCaption" xml:space="preserve">
     <value>Well that... As you wish!</value>
   </data>
   <data name="StrategiesUpdateErrorMessageText" xml:space="preserve">
-    <value>An error occurred while receiving/updating crawl strategies: \n\nError: %error%</value>
+    <value>An error occurred while receiving/updating crawl strategies: %error%</value>
   </data>
   <data name="StrategiesUpdateErrorMessageCaption" xml:space="preserve">
     <value>Error when receiving/updating strategies</value>
@@ -208,13 +212,17 @@
     <value>I'm checking the launcher version...</value>
   </data>
   <data name="ProcessManagerStartErrorText" xml:space="preserve">
-    <value>Failed to start the crawl!\n\nError: %error%</value>
+    <value>Failed to start the crawl!
+
+Error: %error%</value>
   </data>
   <data name="ProcessManagerStartErrorCaption" xml:space="preserve">
     <value>Oh damn!</value>
   </data>
   <data name="WindivertKillErrorText" xml:space="preserve">
-    <value>Failed to kill the Windivert service.\n\nError: %error%</value>
+    <value>Failed to kill the Windivert service.
+
+Error: %error%</value>
   </data>
   <data name="WindivertKillErrorCaption" xml:space="preserve">
     <value>It's time to hire a new hitman...</value>
@@ -224,5 +232,17 @@
   </data>
   <data name="AdminRightsMessageCaption" xml:space="preserve">
     <value>It's really important :O</value>
+  </data>
+  <data name="USDomainsCountLabel" xml:space="preserve">
+    <value>Your services domains count: %count%</value>
+  </data>
+  <data name="USStrategiesCountLabel" xml:space="preserve">
+    <value>Count of available strategies for your services: %available% | Selected strategy: №%selected%</value>
+  </data>
+  <data name="USSavingMessageText" xml:space="preserve">
+    <value>Your services changes saved successfully!</value>
+  </data>
+  <data name="USSavingMessageCaption" xml:space="preserve">
+    <value>Your services changed.</value>
   </data>
 </root>

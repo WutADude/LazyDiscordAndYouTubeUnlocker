@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -117,27 +117,140 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="UserServicesDomainsCountLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="UserServicesDomainsCountLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="SoftwareAboutLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 12</value>
+  <data name="UserServicesDomainsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 15</value>
   </data>
-  <data name="UpdateStrategiesButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>489, 25</value>
+  <data name="UserServicesDomainsCountLabel.Text" xml:space="preserve">
+    <value>Число доменов ваших сервисов: ...</value>
   </data>
-  <data name="ChangeYTStrategyButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 25</value>
-  </data>
-  <data name="LocalizationLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>480, 17</value>
+  <data name="StatusGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 86</value>
   </data>
   <data name="ReinstallZapretLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>249, 17</value>
   </data>
+  <data name="Status.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 446</value>
+  </data>
+  <data name="LocalizationLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LocalizationLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 6.5pt</value>
+  </data>
+  <data name="LocalizationLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LocalizationLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>480, 17</value>
+  </data>
+  <data name="LocalizationLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 12</value>
+  </data>
+  <data name="LocalizationLabel.Text" xml:space="preserve">
+    <value>En</value>
+  </data>
+  <data name="LocalizationLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="SoftwareAboutLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SoftwareAboutLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>408, 17</value>
+  </data>
+  <data name="SoftwareAboutLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 12</value>
+  </data>
   <data name="SoftwareAboutLabel.Text" xml:space="preserve">
     <value>О программе</value>
   </data>
+  <data name="InfoGB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 408</value>
+  </data>
+  <data name="AdditionalOptionsGB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 348</value>
+  </data>
+  <data name="StrategiesUpdateDateLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 183</value>
+  </data>
+  <data name="UpdateHostsAndStrategiesButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="UpdateHostsAndStrategiesButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="UpdateHostsAndStrategiesButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>489, 25</value>
+  </data>
+  <data name="UpdateHostsAndStrategiesButton.Text" xml:space="preserve">
+    <value>Обновить хосты и стратегии обхода замедлений/блокировок</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 138</value>
+  </data>
+  <data name="ChangeUserServicesStrategiesButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ChangeUserServicesStrategiesButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ChangeUserServicesStrategiesButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChangeUserServicesStrategiesButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 25</value>
+  </data>
+  <data name="ChangeUserServicesStrategiesButton.Text" xml:space="preserve">
+    <value>Изменить стратегию для ваших сервисов</value>
+  </data>
+  <data name="UserServicesStrategiesLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="UserServicesStrategiesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 55</value>
+  </data>
+  <data name="UserServicesStrategiesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>486, 23</value>
+  </data>
+  <data name="UserServicesStrategiesLabel.Text" xml:space="preserve">
+    <value>Число доступных стратегий для ваших сервисов: ... | Выбранная стратегия: ...</value>
+  </data>
+  <data name="UserServicesStrategiesLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="ChangeDSStrategyButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>267, 79</value>
+  </data>
+  <data name="ChangeDSStrategyButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 25</value>
+  </data>
+  <data name="ChangeYTStrategyButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 79</value>
+  </data>
+  <data name="ChangeYTStrategyButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 25</value>
+  </data>
+  <data name="StrategiesInfoGB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 149</value>
+  </data>
+  <data name="StrategiesInfoGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 199</value>
+  </data>
   <data name="StrategiesInfoGB.Text" xml:space="preserve">
     <value>Стратегии обхода замедлений/блокировок:</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>525, 468</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -425,37 +538,5 @@
         /////+D//wf/////8D/8D//////4H/gf//////gH4B///////AAAP///////AAD///////+AAf//////
         //AP//////////////////////////////////////////////8=
 </value>
-  </data>
-  <data name="ChangeDSStrategyButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 25</value>
-  </data>
-  <data name="SoftwareAboutLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 17</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LocalizationLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LocalizationLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 6.5pt</value>
-  </data>
-  <data name="LocalizationLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 12</value>
-  </data>
-  <data name="LocalizationLabel.Text" xml:space="preserve">
-    <value>En</value>
-  </data>
-  <data name="SoftwareAboutLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LocalizationLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LocalizationLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="ZapretLoadMessageCaption" xml:space="preserve">
-    <value>Чего-то не хватает, но чего?</value>
   </data>
 </root>

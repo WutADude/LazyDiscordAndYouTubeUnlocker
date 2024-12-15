@@ -8,7 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
 	<ApplicationIcon>lock.ico</ApplicationIcon>
-    <Version>1.0.0.4</Version>
+    <Version>1.0.0.5</Version>
     <Authors>WutADude (aka wDude)</Authors>
     <Company>wDude</Company>
     <Copyright>wDude</Copyright>

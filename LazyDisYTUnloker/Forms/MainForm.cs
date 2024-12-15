@@ -1,14 +1,15 @@
-using LazyDisYTUnlocker.Properties;
+﻿using LazyDisYTUnlocker.Properties;
 using LazyDisYTUnlocker.Forms;
 using System.Diagnostics;
 
 namespace LazyDisYTUnlocker
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form // TODO: Сделать отдельное окно для стратегий пользователя для пользовательских сервисов. (Можно сделать проверку доступности при помощи запроса на получение иконки сайта `https://{domain}/favicon.ico` и получения кода ответа)
     {
-        private bool currentlyWorking = false;
-        NotifyIcon? notifIcon { get; set; } = null;
-        private InfoForm? InfoForm { get; set; }
+        private bool _currentlyWorking = false;
+        private NotifyIcon? _notifIcon { get; set; } = null;
+        private InfoForm? _infoForm { get; set; }
+        private DomainsAppenderForm _userServicesDomainsForm { get; set; }
 
         public MainForm()
         {
@@ -23,34 +24,39 @@ namespace LazyDisYTUnlocker
 
         private void MainButton_Click(object sender, EventArgs e)
         {
-            if (!currentlyWorking)
+            if (!_currentlyWorking)
             {
                 if (ProcessManager.RunStrategies())
                 {
-                    currentlyWorking = true;
+                    _currentlyWorking = true;
                     ChangeStatus(StringsLocalization.MainStatusEureekaWorking);
                     MainButton.Text = StringsLocalization.MainButtonStopText;
                     ChangeYTStrategyButton.Enabled = false;
                     ChangeDSStrategyButton.Enabled = false;
+                    ChangeUserServicesStrategiesButton.Enabled = false;
+                    UpdateHostsAndStrategiesButton.Enabled = false;
                 }
 
             }
             else
             {
                 ProcessManager.StopStrategies();
-                currentlyWorking = false;
+                _currentlyWorking = false;
                 ChangeStatus(StringsLocalization.MainStatusReadyToWork);
                 MainButton.Text = StringsLocalization.MainButtonStartText;
                 if (Strategies.YTStrategiesCount > 1)
                     ChangeYTStrategyButton.Enabled = true;
                 if (Strategies.DSStrategiesCount > 1)
                     ChangeDSStrategyButton.Enabled = true;
+                if (Strategies.USStrategiesCount > 1)
+                    ChangeUserServicesStrategiesButton.Enabled = true;
+                UpdateHostsAndStrategiesButton.Enabled = true;
             }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (currentlyWorking)
+            if (_currentlyWorking)
                 ProcessManager.StopStrategies();
         }
 
@@ -70,14 +76,14 @@ namespace LazyDisYTUnlocker
                 BeginInvoke(() =>
                 {
                     MainButton.Enabled = false;
-                    UpdateStrategiesButton.Enabled = false;
+                    UpdateHostsAndStrategiesButton.Enabled = false;
                 });
                 if (await Strategies.GetStrategies(true))
                 {
                     BeginInvoke(() =>
                     {
                         MainButton.Enabled = true;
-                        UpdateStrategiesButton.Enabled = true;
+                        UpdateHostsAndStrategiesButton.Enabled = true;
                     });
                     ChangeStatus(StringsLocalization.MainStatusReadyToWork);
                 }
@@ -108,7 +114,7 @@ namespace LazyDisYTUnlocker
                             BeginInvoke(() =>
                             {
                                 MainButton.Enabled = true;
-                                UpdateStrategiesButton.Enabled = true;
+                                UpdateHostsAndStrategiesButton.Enabled = true;
                             });
                             ChangeStatus(StringsLocalization.MainStatusReadyToWork);
                         }
@@ -125,7 +131,7 @@ namespace LazyDisYTUnlocker
                         BeginInvoke(() =>
                         {
                             MainButton.Enabled = true;
-                            UpdateStrategiesButton.Enabled = true;
+                            UpdateHostsAndStrategiesButton.Enabled = true;
                         });
                         ChangeStatus(StringsLocalization.MainStatusReadyToWork);
                     }
@@ -139,7 +145,7 @@ namespace LazyDisYTUnlocker
             {
                 try
                 {
-                    if (currentlyWorking)
+                    if (_currentlyWorking)
                         MainButton.PerformClick();
                     ProcessManager.KillWinDivertService();
                     BeginInvoke(() =>
@@ -155,7 +161,7 @@ namespace LazyDisYTUnlocker
                         BeginInvoke(() =>
                         {
                             MainButton.Enabled = true;
-                            UpdateStrategiesButton.Enabled = true;
+                            UpdateHostsAndStrategiesButton.Enabled = true;
                             ReinstallZapretLinkLabel.Enabled = true;
                         });
                         ChangeStatus(StringsLocalization.MainStatusReadyToWork);
@@ -176,20 +182,20 @@ namespace LazyDisYTUnlocker
 
         private void HideInTray()
         {
-            notifIcon ??= new NotifyIcon();
-            notifIcon.BalloonTipText = StringsLocalization.NotificonMessage;
-            notifIcon.Text = "DS and YT unlock launcher";
-            notifIcon.Icon = Icon;
-            notifIcon.Visible = true;
-            notifIcon.ShowBalloonTip(500);
-            notifIcon.DoubleClick += NotifIcon_DoubleClick;
+            _notifIcon ??= new NotifyIcon();
+            _notifIcon.BalloonTipText = StringsLocalization.NotificonMessage;
+            _notifIcon.Text = "DS and YT unlock launcher";
+            _notifIcon.Icon = Icon;
+            _notifIcon.Visible = true;
+            _notifIcon.ShowBalloonTip(500);
+            _notifIcon.DoubleClick += NotifIcon_DoubleClick;
             ShowInTaskbar = false;
             Hide();
         }
 
         private void RevealFromTray()
         {
-            notifIcon.Visible = false;
+            _notifIcon.Visible = false;
             ShowInTaskbar = true;
             Show();
         }
@@ -201,29 +207,15 @@ namespace LazyDisYTUnlocker
 
         private void SoftwareAboutLabel_Click(object sender, EventArgs e)
         {
-            InfoForm ??= new InfoForm();
-            InfoForm.ShowDialog(this);
+            _infoForm ??= new InfoForm();
+            _infoForm.ShowDialog(this);
         }
 
-        private void ChangeYTStrategyButton_Click(object sender, EventArgs e) => Strategies.ChangeStrategy(0);
-
-        private void ChangeDSStrategyButton_Click(object sender, EventArgs e) => Strategies.ChangeStrategy(1);
-
-        internal void ChangeZapretBundleStatus(string status) => BeginInvoke(() => BundleStatusLabel.Text = StringsLocalization.ZapretStatusMain.Replace("%status%", status));
-
-        internal void ChangeDiscordDomainsCountLabel(int count) => BeginInvoke(() => DiscordDomainsCountLabel.Text = StringsLocalization.DiscordDomainsCountLabel.Replace("%count%", count.ToString()));
-
-        internal void ChangeYouTubeDomainsCountLabel(int count) => BeginInvoke(() => YouTubeDomainsCountLabel.Text = StringsLocalization.YouTubeDomainsCountLabel.Replace("%count%", count.ToString()));
-
-        internal void ChangeStatus(string status) => BeginInvoke(() => SoftStatus.Text = status);
-
-        internal void ChangeLastStrategiesUpdateDate(DateTime dateTime) => BeginInvoke(() => StrategiesUpdateDateLabel.Text =  StringsLocalization.StrategiesUpdateDateLabel.Replace("%date%", dateTime.ToString("HH:mm:ss dd.MM.yyyy")));
-
-        internal void ChangeSoftwareVersionLabel(string currentVersion, string latestVersion) => BeginInvoke(() => SoftwareVersionLabel.Text = StringsLocalization.SoftwareVersionLabel.Replace("%current%", currentVersion).Replace("%latest%", latestVersion));
-
-        internal void ChangeYTStrategiesLabel(int strategiesCount, int choosenStrategyIndex) => BeginInvoke(() => YTStrategiesCountLabel.Text = StringsLocalization.YouTubeStrategiesLabel.Replace("%available%", strategiesCount.ToString()).Replace("%selected%", (++choosenStrategyIndex).ToString()));
-
-        internal void ChangeDSStrategiesLabel(int strategiesCount, int choosenStrategyIndex) => BeginInvoke(() => DSStrategiesLabel.Text = StringsLocalization.DiscordStrategiesLabel.Replace("%available%", strategiesCount.ToString()).Replace("%selected%", (++choosenStrategyIndex).ToString()));
+        private void UserServicesDomainsCountLabel_Click(object sender, EventArgs e)
+        {
+            _userServicesDomainsForm ??= new DomainsAppenderForm();
+            _userServicesDomainsForm.ShowDialog(this);
+        }
 
         private void HideInTrayCB_Click(object sender, EventArgs e)
         {
@@ -241,9 +233,45 @@ namespace LazyDisYTUnlocker
         {
             ConfigManager.CurrentConfig.ChoosenCulture = LocalizationLabel.Text;
             ConfigManager.SaveConfig();
-            if (currentlyWorking)
+            if (_currentlyWorking)
                 MainButton.PerformClick();
             Application.Restart();
         }
+
+        private void ChangeYTStrategyButton_Click(object sender, EventArgs e) => Strategies.ChangeStrategy(0);
+
+        private void ChangeDSStrategyButton_Click(object sender, EventArgs e) => Strategies.ChangeStrategy(1);
+
+        private void ChangeUserServicesStrategiesButton_Click(object sender, EventArgs e) => Strategies.ChangeStrategy(2);
+
+        private void UserServicesDomainsCountLabel_MouseEnter(object sender, EventArgs e) => AddSymbolToLabel(sender);
+
+        private void UserServicesDomainsCountLabel_MouseLeave(object sender, EventArgs e) => RemoveSymbolFromLabel(sender);
+
+        internal void ChangeZapretBundleStatus(string status) => BeginInvoke(() => BundleStatusLabel.Text = StringsLocalization.ZapretStatusMain.Replace("%status%", status));
+
+        internal void ChangeDiscordDomainsCountLabel(int count) => BeginInvoke(() => DiscordDomainsCountLabel.Text = StringsLocalization.DiscordDomainsCountLabel.Replace("%count%", count.ToString()));
+
+        internal void ChangeYouTubeDomainsCountLabel(int count) => BeginInvoke(() => YouTubeDomainsCountLabel.Text = StringsLocalization.YouTubeDomainsCountLabel.Replace("%count%", count.ToString()));
+
+        internal void ChangeUserServicesDomainsCountLabel(int count) => BeginInvoke(() => UserServicesDomainsCountLabel.Text = StringsLocalization.USDomainsCountLabel.Replace("%count%", count.ToString()));
+
+        internal void ChangeStatus(string status) => BeginInvoke(() => SoftStatus.Text = status);
+
+        internal void ChangeLastStrategiesUpdateDate(DateTime dateTime) => BeginInvoke(() => StrategiesUpdateDateLabel.Text = StringsLocalization.StrategiesUpdateDateLabel.Replace("%date%", dateTime.ToString("HH:mm:ss dd.MM.yyyy")));
+
+        internal void ChangeSoftwareVersionLabel(string currentVersion, string latestVersion) => BeginInvoke(() => SoftwareVersionLabel.Text = StringsLocalization.SoftwareVersionLabel.Replace("%current%", currentVersion).Replace("%latest%", latestVersion));
+
+        internal void ChangeYTStrategiesLabel(int strategiesCount, int choosenStrategyIndex) => BeginInvoke(() => YTStrategiesCountLabel.Text = StringsLocalization.YouTubeStrategiesLabel.Replace("%available%", strategiesCount.ToString()).Replace("%selected%", (++choosenStrategyIndex).ToString()));
+
+        internal void ChangeDSStrategiesLabel(int strategiesCount, int choosenStrategyIndex) => BeginInvoke(() => DSStrategiesLabel.Text = StringsLocalization.DiscordStrategiesLabel.Replace("%available%", strategiesCount.ToString()).Replace("%selected%", (++choosenStrategyIndex).ToString()));
+
+        internal void ChangeUserServicesStrategiesLabel(int strategiesCount, int choosenStrategy) => BeginInvoke(() => UserServicesStrategiesLabel.Text = StringsLocalization.USStrategiesCountLabel.Replace("%available%", strategiesCount.ToString()).Replace("%selected%", (++choosenStrategy).ToString()));
+
+        private void AddSymbolToLabel(object sender) => (sender as Label).Text = "⚙️" + (sender as Label).Text;
+
+        private void RemoveSymbolFromLabel(object sender) => (sender as Label).Text = (sender as Label).Text.Replace("⚙️", "");
+
+        
     }
 }

@@ -9,6 +9,7 @@ namespace LazyDisYTUnlocker
 
         private static Process? _discordUnlockProcess { get; set; }
         private static Process? _youtubeUnlockProcess { get; set; }
+        private static Process? _userServicesUnlockProcess { get; set; }
 
         private static string _winwsExecutablePath => $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}\\winws.exe";
 
@@ -18,6 +19,8 @@ namespace LazyDisYTUnlocker
             {
                 _discordUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = _winwsExecutablePath, Arguments = Strategies.DiscordStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
                 _youtubeUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = _winwsExecutablePath, Arguments = Strategies.YouTubeStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
+                if (FilesAndDirectories.GetUserServicesDomainsLines.Length > 0)
+                    _userServicesUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = _winwsExecutablePath, Arguments = Strategies.UserServicesStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
                 return true;
             }
             catch (Exception ex)
@@ -31,6 +34,8 @@ namespace LazyDisYTUnlocker
         {
             _discordUnlockProcess?.Kill();
             _youtubeUnlockProcess?.Kill();
+            if (_userServicesUnlockProcess is not null || Process.GetProcesses().Contains(_userServicesUnlockProcess))
+                _userServicesUnlockProcess?.Kill();
             if (Form.WindivertServiceCB.Checked)
                 KillWinDivertService();
         }

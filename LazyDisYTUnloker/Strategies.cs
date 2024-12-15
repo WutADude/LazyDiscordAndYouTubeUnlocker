@@ -10,9 +10,11 @@ namespace LazyDisYTUnlocker
 
         private static List<string> _youTubeStrategies { get; set; } = null!;
         private static List<string> _discordStrategies { get; set; } = null!;
+        private static List<string> _userServicesStrategies { get; set; } = null!;
 
         internal static string DiscordStrategy { get => _discordStrategies[ConfigManager.CurrentConfig.ChoosenDiscordStrategy]; }
         internal static string YouTubeStrategy { get => _youTubeStrategies[ConfigManager.CurrentConfig.ChoosenYouTubeStrategy]; }
+        internal static string UserServicesStrategy { get => _userServicesStrategies[ConfigManager.CurrentConfig.ChoosenUserServicesStrategy]; }
 
         internal static async Task<bool> GetStrategies(bool update)
         {
@@ -25,19 +27,23 @@ namespace LazyDisYTUnlocker
                 });
                 if (!update)
                 {
-                    if (File.Exists("dsstrat.txt") && File.Exists("ytstrat.txt") && File.Exists($"{FilesAndDirectories.GetWinwsPath}\\list-youtube.txt") && File.Exists($"{FilesAndDirectories.GetWinwsPath}\\list-discord.txt"))
+                    if (FilesAndDirectories.StrategiesAndHostsFilesExist)
                         return true;
                     return await GetStrategies(true);
                 }
                 using (HttpClient client = new HttpClient())
                 {
-                    File.WriteAllText($"{FilesAndDirectories.GetWinwsPath}\\list-discord.txt", await client.GetStringAsync(DataURLs.DiscordHostsURL));
-                    File.WriteAllText($"{FilesAndDirectories.GetWinwsPath}\\list-youtube.txt", await client.GetStringAsync(DataURLs.YouTubeHostsURL));
-                    File.WriteAllText("dsstrat.txt", await client.GetStringAsync(DataURLs.DiscordStrategiesURL));
-                    File.WriteAllText("ytstrat.txt", await client.GetStringAsync(DataURLs.YouTubeStrategiesURL));
+                    File.WriteAllText(FilesAndDirectories.DiscordHostsFilePath, await client.GetStringAsync(DataURLs.DiscordHostsURL));
+                    File.WriteAllText(FilesAndDirectories.YouTubeHostsFilePath, await client.GetStringAsync(DataURLs.YouTubeHostsURL));
+                    File.WriteAllText(FilesAndDirectories.DiscordStrategiesFileName, await client.GetStringAsync(DataURLs.DiscordStrategiesURL));
+                    File.WriteAllText(FilesAndDirectories.YouTubeStrategiesFileName, await client.GetStringAsync(DataURLs.YouTubeStrategiesURL));
+                    File.WriteAllText(FilesAndDirectories.UserServicesStrategiesFileName, await client.GetStringAsync(DataURLs.UserServicesStrategiesURL));
                 }
+                if (!File.Exists(FilesAndDirectories.UserServicesHostsFilePath))
+                    File.Create(FilesAndDirectories.UserServicesHostsFilePath).Close();
                 ConfigManager.CurrentConfig.ChoosenYouTubeStrategy = 0;
                 ConfigManager.CurrentConfig.ChoosenDiscordStrategy = 0;
+                ConfigManager.CurrentConfig.ChoosenUserServicesStrategy = 0;
                 ConfigManager.SaveConfig();
                 return true;
             }
@@ -48,17 +54,22 @@ namespace LazyDisYTUnlocker
             }
             finally
             {
-                _discordStrategies = new List<string>(File.ReadAllText("dsstrat.txt").Split(_strategiesSplitter));
-                _youTubeStrategies = new List<string>(File.ReadAllText("ytstrat.txt").Split(_strategiesSplitter));
-                Form.ChangeLastStrategiesUpdateDate(new FileInfo("dsstrat.txt").LastWriteTime);
-                Form.ChangeDiscordDomainsCountLabel(File.ReadAllLines($"{FilesAndDirectories.GetWinwsPath}\\list-discord.txt").Count());
-                Form.ChangeYouTubeDomainsCountLabel(File.ReadAllLines($"{FilesAndDirectories.GetWinwsPath}\\list-youtube.txt").Count());
+                _discordStrategies = new List<string>(File.ReadAllText(FilesAndDirectories.DiscordStrategiesFileName).Split(_strategiesSplitter));
+                _youTubeStrategies = new List<string>(File.ReadAllText(FilesAndDirectories.YouTubeStrategiesFileName).Split(_strategiesSplitter));
+                _userServicesStrategies = new List<string>(File.ReadAllText(FilesAndDirectories.UserServicesStrategiesFileName).Split(_strategiesSplitter));
+                Form.ChangeLastStrategiesUpdateDate(File.GetLastWriteTime(Directory.GetFiles(Directory.GetCurrentDirectory(), "*.txt").OrderByDescending(f => new FileInfo(f).LastWriteTime).First()));
+                Form.ChangeDiscordDomainsCountLabel(File.ReadAllLines(FilesAndDirectories.DiscordHostsFilePath).Length);
+                Form.ChangeYouTubeDomainsCountLabel(File.ReadAllLines(FilesAndDirectories.YouTubeHostsFilePath).Length);
+                Form.ChangeUserServicesDomainsCountLabel(File.ReadAllLines(FilesAndDirectories.UserServicesHostsFilePath).Length);
                 Form.ChangeYTStrategiesLabel(_youTubeStrategies.Count, ConfigManager.CurrentConfig.ChoosenYouTubeStrategy);
                 Form.ChangeDSStrategiesLabel(_discordStrategies.Count, ConfigManager.CurrentConfig.ChoosenDiscordStrategy);
-                if (_youTubeStrategies.Count > 1)
+                Form.ChangeUserServicesStrategiesLabel(_userServicesStrategies.Count, ConfigManager.CurrentConfig.ChoosenUserServicesStrategy);
+                if (YTStrategiesCount > 1)
                     Form.BeginInvoke(() => Form.ChangeYTStrategyButton.Enabled = true);
-                if (_discordStrategies.Count > 1)
+                if (DSStrategiesCount > 1)
                     Form.BeginInvoke(() => Form.ChangeDSStrategyButton.Enabled = true);
+                if (USStrategiesCount > 1)
+                    Form.BeginInvoke(() => Form.ChangeUserServicesStrategiesButton.Enabled = true);
             }
         }
 
@@ -80,6 +91,13 @@ namespace LazyDisYTUnlocker
                         ConfigManager.CurrentConfig.ChoosenDiscordStrategy = 0;
                     Form.ChangeDSStrategiesLabel(_discordStrategies.Count, ConfigManager.CurrentConfig.ChoosenDiscordStrategy);
                     break;
+                case 2:
+                    if ((ConfigManager.CurrentConfig.ChoosenUserServicesStrategy + 1) < _userServicesStrategies.Count)
+                        ConfigManager.CurrentConfig.ChoosenUserServicesStrategy++;
+                    else
+                        ConfigManager.CurrentConfig.ChoosenUserServicesStrategy = 0;
+                    Form.ChangeUserServicesStrategiesLabel(_userServicesStrategies.Count, ConfigManager.CurrentConfig.ChoosenUserServicesStrategy);
+                    break;
             }
             ConfigManager.SaveConfig();
         }
@@ -87,5 +105,7 @@ namespace LazyDisYTUnlocker
         internal static int YTStrategiesCount => _youTubeStrategies.Count;
 
         internal static int DSStrategiesCount => _discordStrategies.Count;
+
+        internal static int USStrategiesCount => _userServicesStrategies.Count;
     }
 }

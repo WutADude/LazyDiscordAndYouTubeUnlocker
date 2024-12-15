@@ -35,10 +35,12 @@ namespace LazyDisYTUnlocker
 
         public int ChoosenDiscordStrategy { get; set; }
 
+        public int ChoosenUserServicesStrategy { get; set; }
+
         public bool HideInTrayOnMinimize { get; set; } = false;
 
         public bool KillWindivertOnStop { get; set; } = true;
 
-        public string ChoosenCulture { get; set; } = "En";
+        public string ChoosenCulture { get; set; } = "Ru";
     }
 }

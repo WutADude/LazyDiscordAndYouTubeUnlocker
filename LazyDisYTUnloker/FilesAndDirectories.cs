@@ -11,6 +11,14 @@ namespace LazyDisYTUnlocker
         internal const string MainZapretDirectory = "zapret-win-bundle-master";
         internal const string _winwsDirectory = "zapret-winws";
 
+        internal static string YouTubeHostsFilePath { get => $"{GetWinwsPath}\\list-youtube.txt"; }
+        internal static string DiscordHostsFilePath { get => $"{GetWinwsPath}\\list-discord.txt"; }
+        internal static string UserServicesHostsFilePath { get => $"{GetWinwsPath}\\list-user_services.txt"; }
+
+        internal const string DiscordStrategiesFileName = "dsstrat.txt";
+        internal const string YouTubeStrategiesFileName = "ytstrat.txt";
+        internal const string UserServicesStrategiesFileName = "usstrat.txt";
+
         internal static bool IsZapretBundleDirectoriesLoaded()
         {
             if (Directory.Exists(MainZapretDirectory))
@@ -44,6 +52,16 @@ namespace LazyDisYTUnlocker
             }
         }
 
+        internal static void RewriteUserServicesHostsFile(IEnumerable<string> lines)
+        {
+            File.WriteAllLines(UserServicesHostsFilePath, lines);
+            Form.ChangeUserServicesDomainsCountLabel(File.ReadAllLines(UserServicesHostsFilePath).Length);
+        }
+
         internal static string GetWinwsPath => $"{MainZapretDirectory}\\{_winwsDirectory}";
+
+        internal static bool StrategiesAndHostsFilesExist { get => File.Exists(DiscordStrategiesFileName) && File.Exists(YouTubeStrategiesFileName) && File.Exists(YouTubeHostsFilePath) && File.Exists(DiscordHostsFilePath) && File.Exists(UserServicesHostsFilePath); }
+
+        internal static string[] GetUserServicesDomainsLines { get => File.ReadAllLines(UserServicesHostsFilePath); }
     }
 }

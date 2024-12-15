@@ -120,10 +120,23 @@
   <data name="MainButton.Text" xml:space="preserve">
     <value>Start</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="StatusGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 86</value>
+  </data>
   <data name="StatusGB.Text" xml:space="preserve">
     <value>Status information:</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="UserServicesDomainsCountLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="UserServicesDomainsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 15</value>
+  </data>
+  <data name="UserServicesDomainsCountLabel.Text" xml:space="preserve">
+    <value>Your services domains count: ...</value>
+  </data>
   <data name="YouTubeDomainsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 15</value>
   </data>
@@ -142,9 +155,6 @@
   <data name="BundleStatusLabel.Text" xml:space="preserve">
     <value>"Zapret" status: ...</value>
   </data>
-  <data name="StatusGB.Text" xml:space="preserve">
-    <value>Status information:</value>
-  </data>
   <data name="ReinstallZapretLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>321, 17</value>
   </data>
@@ -155,7 +165,7 @@
     <value>Reinstall/Update "Zapret"</value>
   </data>
   <data name="Status.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 381</value>
+    <value>0, 448</value>
   </data>
   <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 17</value>
@@ -164,9 +174,8 @@
     <value>Working status:</value>
   </data>
   <data name="InfoGB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 343</value>
+    <value>12, 408</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="LocalizationLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -207,9 +216,6 @@
   <data name="SoftwareVersionLabel.Text" xml:space="preserve">
     <value>Current version: ... (latest: ...)</value>
   </data>
-  <data name="InfoGB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 343</value>
-  </data>
   <data name="WarningInfoLabel.Text" xml:space="preserve">
     <value>The developer of the launcher does not guarantee the functionality of anything after launch!</value>
   </data>
@@ -219,14 +225,8 @@
   <data name="HideInTrayCB.Text" xml:space="preserve">
     <value>Hide the window in the tray when minimizing</value>
   </data>
-  <data name="WindivertServiceCB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 19</value>
-  </data>
-  <data name="WindivertServiceCB.Text" xml:space="preserve">
-    <value>Disabling the WinDivert service after stopping</value>
-  </data>
   <data name="AdditionalOptionsGB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 283</value>
+    <value>12, 348</value>
   </data>
   <data name="AdditionalOptionsGB.Text" xml:space="preserve">
     <value>Additional parameters:</value>
@@ -238,40 +238,73 @@
     <value>Disabling the WinDivert service after stopping</value>
   </data>
   <data name="StrategiesUpdateDateLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 130</value>
+    <value>6, 183</value>
   </data>
   <data name="StrategiesUpdateDateLabel.Text" xml:space="preserve">
     <value>Date of the last update of the strategies: ...</value>
   </data>
-  <data name="UpdateStrategiesButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 103</value>
+  <data name="UpdateHostsAndStrategiesButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
-  <data name="UpdateStrategiesButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="UpdateHostsAndStrategiesButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 156</value>
+  </data>
+  <data name="UpdateHostsAndStrategiesButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>483, 25</value>
   </data>
-  <data name="UpdateStrategiesButton.Text" xml:space="preserve">
-    <value>Update strategies to bypass slowdowns/blockages</value>
+  <data name="UpdateHostsAndStrategiesButton.Text" xml:space="preserve">
+    <value>Update hosts and strategies to bypass slowdowns/blockages</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 85</value>
+    <value>6, 137</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Is something not working? Try clicking on the button below to update your strategies</value>
   </data>
+  <data name="StrategiesInfoGB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 149</value>
+  </data>
   <data name="StrategiesInfoGB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>501, 146</value>
+    <value>501, 199</value>
   </data>
   <data name="StrategiesInfoGB.Text" xml:space="preserve">
     <value>Strategies for bypassing slowdowns/blockages</value>
   </data>
+  <data name="ChangeUserServicesStrategiesButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ChangeUserServicesStrategiesButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 108</value>
+  </data>
+  <data name="ChangeUserServicesStrategiesButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 25</value>
+  </data>
+  <data name="ChangeUserServicesStrategiesButton.Text" xml:space="preserve">
+    <value>Change the strategy for your services</value>
+  </data>
+  <data name="UserServicesStrategiesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>489, 23</value>
+  </data>
+  <data name="UserServicesStrategiesLabel.Text" xml:space="preserve">
+    <value>Count of available strategies for your services: ... | Selected strategy: ...</value>
+  </data>
+  <data name="UserServicesStrategiesLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
   <data name="DSStrategiesLabel.Text" xml:space="preserve">
     <value>Count of Discord strategies available: ... | Selected strategy: ...</value>
+  </data>
+  <data name="ChangeDSStrategyButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>268, 79</value>
   </data>
   <data name="ChangeDSStrategyButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 25</value>
   </data>
   <data name="ChangeDSStrategyButton.Text" xml:space="preserve">
     <value>Change the strategy for Discord</value>
+  </data>
+  <data name="ChangeYTStrategyButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 79</value>
   </data>
   <data name="ChangeYTStrategyButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 25</value>
@@ -282,14 +315,8 @@
   <data name="YTStrategiesCountLabel.Text" xml:space="preserve">
     <value>Count of YouTube strategies available: ... | Selected strategy: ...</value>
   </data>
-  <data name="StrategiesInfoGB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>501, 146</value>
-  </data>
-  <data name="StrategiesInfoGB.Text" xml:space="preserve">
-    <value>Strategies for bypassing slowdowns/blockages</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>525, 403</value>
+    <value>525, 470</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

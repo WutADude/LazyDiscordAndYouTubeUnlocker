@@ -160,7 +160,7 @@ namespace LazyDisYTUnlocker.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на спрячусь здесь!.
+        ///   Ищет локализованную строку, похожую на Спрячусь здесь!.
         /// </summary>
         internal static string NotificonMessage {
             get {
@@ -178,7 +178,9 @@ namespace LazyDisYTUnlocker.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Не удалось запустить обход!\n\nОшибка: %error%.
+        ///   Ищет локализованную строку, похожую на Не удалось запустить обход!
+        ///
+        ///Ошибка: %error%.
         /// </summary>
         internal static string ProcessManagerStartErrorText {
             get {
@@ -223,11 +225,20 @@ namespace LazyDisYTUnlocker.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на При получении/обновлении стратегий обхода произошла ошибка: \n\nОшибка: %error%.
+        ///   Ищет локализованную строку, похожую на При получении/обновлении стратегий обхода произошла ошибка: %error%.
         /// </summary>
         internal static string StrategiesUpdateErrorMessageText {
             get {
                 return ResourceManager.GetString("StrategiesUpdateErrorMessageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Число доменов ваших сервисов: %count%.
+        /// </summary>
+        internal static string USDomainsCountLabel {
+            get {
+                return ResourceManager.GetString("USDomainsCountLabel", resourceCulture);
             }
         }
         
@@ -241,11 +252,42 @@ namespace LazyDisYTUnlocker.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Без этого ничего работать не будет, но это ваше право :)\n\nЕсли передумаете - просто перезапустите программу!.
+        ///   Ищет локализованную строку, похожую на Без этого ничего работать не будет, но это ваше право :)
+        ///
+        ///Если передумаете - просто перезапустите программу!.
         /// </summary>
         internal static string UserZapretInfoText {
             get {
                 return ResourceManager.GetString("UserZapretInfoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Изменения ваших сервисов успешно сохранены!.
+        /// </summary>
+        internal static string USSavingMessageText {
+            get {
+                return ResourceManager.GetString("USSavingMessageText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ваши сервисы сохранены.
+        /// </summary>
+        internal static string USSavingMessageCaption
+        {
+            get
+            {
+                return ResourceManager.GetString("USSavingMessageCaption", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Число доступных стратегий для ваших сервисов: %available% | Выбранная стратегия: №%selected%.
+        /// </summary>
+        internal static string USStrategiesCountLabel {
+            get {
+                return ResourceManager.GetString("USStrategiesCountLabel", resourceCulture);
             }
         }
         
@@ -259,7 +301,9 @@ namespace LazyDisYTUnlocker.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Не удалось убить службу Windivert.\n\nОшибка: %error%.
+        ///   Ищет локализованную строку, похожую на Не удалось убить службу Windivert.
+        ///
+        ///Ошибка: %error%.
         /// </summary>
         internal static string WindivertKillErrorText {
             get {
@@ -367,7 +411,9 @@ namespace LazyDisYTUnlocker.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Не удалось обновить Zapret!\n\nОшибка: %error%.
+        ///   Ищет локализованную строку, похожую на Не удалось обновить Zapret!
+        ///
+        ///Ошибка: %error%.
         /// </summary>
         internal static string ZapretUpdateErrorMessageText {
             get {

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             MainButton = new Button();
             StatusGB = new GroupBox();
+            UserServicesDomainsCountLabel = new Label();
             YouTubeDomainsCountLabel = new Label();
             DiscordDomainsCountLabel = new Label();
             BundleStatusLabel = new Label();
@@ -47,9 +48,11 @@
             AdditionalOptionsGB = new GroupBox();
             WindivertServiceCB = new CheckBox();
             StrategiesUpdateDateLabel = new Label();
-            UpdateStrategiesButton = new Button();
+            UpdateHostsAndStrategiesButton = new Button();
             label2 = new Label();
             StrategiesInfoGB = new GroupBox();
+            ChangeUserServicesStrategiesButton = new Button();
+            UserServicesStrategiesLabel = new Label();
             DSStrategiesLabel = new Label();
             ChangeDSStrategyButton = new Button();
             ChangeYTStrategyButton = new Button();
@@ -72,11 +75,21 @@
             // StatusGB
             // 
             resources.ApplyResources(StatusGB, "StatusGB");
+            StatusGB.Controls.Add(UserServicesDomainsCountLabel);
             StatusGB.Controls.Add(YouTubeDomainsCountLabel);
             StatusGB.Controls.Add(DiscordDomainsCountLabel);
             StatusGB.Controls.Add(BundleStatusLabel);
             StatusGB.Name = "StatusGB";
             StatusGB.TabStop = false;
+            // 
+            // UserServicesDomainsCountLabel
+            // 
+            resources.ApplyResources(UserServicesDomainsCountLabel, "UserServicesDomainsCountLabel");
+            UserServicesDomainsCountLabel.Cursor = Cursors.Hand;
+            UserServicesDomainsCountLabel.Name = "UserServicesDomainsCountLabel";
+            UserServicesDomainsCountLabel.Click += UserServicesDomainsCountLabel_Click;
+            UserServicesDomainsCountLabel.MouseEnter += UserServicesDomainsCountLabel_MouseEnter;
+            UserServicesDomainsCountLabel.MouseLeave += UserServicesDomainsCountLabel_MouseLeave;
             // 
             // YouTubeDomainsCountLabel
             // 
@@ -187,13 +200,13 @@
             resources.ApplyResources(StrategiesUpdateDateLabel, "StrategiesUpdateDateLabel");
             StrategiesUpdateDateLabel.Name = "StrategiesUpdateDateLabel";
             // 
-            // UpdateStrategiesButton
+            // UpdateHostsAndStrategiesButton
             // 
-            resources.ApplyResources(UpdateStrategiesButton, "UpdateStrategiesButton");
-            UpdateStrategiesButton.Cursor = Cursors.Hand;
-            UpdateStrategiesButton.Name = "UpdateStrategiesButton";
-            UpdateStrategiesButton.UseVisualStyleBackColor = true;
-            UpdateStrategiesButton.Click += UpdateStrategiesButton_Click;
+            resources.ApplyResources(UpdateHostsAndStrategiesButton, "UpdateHostsAndStrategiesButton");
+            UpdateHostsAndStrategiesButton.Cursor = Cursors.Hand;
+            UpdateHostsAndStrategiesButton.Name = "UpdateHostsAndStrategiesButton";
+            UpdateHostsAndStrategiesButton.UseVisualStyleBackColor = true;
+            UpdateHostsAndStrategiesButton.Click += UpdateStrategiesButton_Click;
             // 
             // label2
             // 
@@ -204,15 +217,30 @@
             // StrategiesInfoGB
             // 
             resources.ApplyResources(StrategiesInfoGB, "StrategiesInfoGB");
+            StrategiesInfoGB.Controls.Add(ChangeUserServicesStrategiesButton);
+            StrategiesInfoGB.Controls.Add(UserServicesStrategiesLabel);
             StrategiesInfoGB.Controls.Add(DSStrategiesLabel);
             StrategiesInfoGB.Controls.Add(ChangeDSStrategyButton);
             StrategiesInfoGB.Controls.Add(ChangeYTStrategyButton);
             StrategiesInfoGB.Controls.Add(YTStrategiesCountLabel);
             StrategiesInfoGB.Controls.Add(StrategiesUpdateDateLabel);
-            StrategiesInfoGB.Controls.Add(UpdateStrategiesButton);
+            StrategiesInfoGB.Controls.Add(UpdateHostsAndStrategiesButton);
             StrategiesInfoGB.Controls.Add(label2);
             StrategiesInfoGB.Name = "StrategiesInfoGB";
             StrategiesInfoGB.TabStop = false;
+            // 
+            // ChangeUserServicesStrategiesButton
+            // 
+            resources.ApplyResources(ChangeUserServicesStrategiesButton, "ChangeUserServicesStrategiesButton");
+            ChangeUserServicesStrategiesButton.Cursor = Cursors.Hand;
+            ChangeUserServicesStrategiesButton.Name = "ChangeUserServicesStrategiesButton";
+            ChangeUserServicesStrategiesButton.UseVisualStyleBackColor = true;
+            ChangeUserServicesStrategiesButton.Click += ChangeUserServicesStrategiesButton_Click;
+            // 
+            // UserServicesStrategiesLabel
+            // 
+            resources.ApplyResources(UserServicesStrategiesLabel, "UserServicesStrategiesLabel");
+            UserServicesStrategiesLabel.Name = "UserServicesStrategiesLabel";
             // 
             // DSStrategiesLabel
             // 
@@ -286,7 +314,7 @@
         private CheckBox HideInTrayCB;
         private GroupBox AdditionalOptionsGB;
         public CheckBox WindivertServiceCB;
-        private Button UpdateStrategiesButton;
+        private Button UpdateHostsAndStrategiesButton;
         private Label label2;
         private Label StrategiesUpdateDateLabel;
         private Label SoftwareAboutLabel;
@@ -296,8 +324,10 @@
         private Label DSStrategiesLabel;
         public Button ChangeDSStrategyButton;
         public Button ChangeYTStrategyButton;
-        private Button button1;
         private LinkLabel ReinstallZapretLinkLabel;
         private Label LocalizationLabel;
+        private Label UserServicesDomainsCountLabel;
+        private Label UserServicesStrategiesLabel;
+        public Button ChangeUserServicesStrategiesButton;
     }
 }

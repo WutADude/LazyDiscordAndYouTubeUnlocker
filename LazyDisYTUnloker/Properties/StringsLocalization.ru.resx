@@ -172,13 +172,15 @@
     <value>что-то не то...</value>
   </data>
   <data name="ZapretUpdateErrorMessageText" xml:space="preserve">
-    <value>Не удалось обновить Zapret!\n\nОшибка: %error%</value>
+    <value>Не удалось обновить Zapret!
+
+Ошибка: %error%</value>
   </data>
   <data name="ZapretUpdateErrorMessageCaption" xml:space="preserve">
     <value>Так, обновления не будет!</value>
   </data>
   <data name="NotificonMessage" xml:space="preserve">
-    <value>спрячусь здесь!</value>
+    <value>Спрячусь здесь!</value>
   </data>
   <data name="StrategiesUpdate" xml:space="preserve">
     <value>обновляю стратегии...</value>
@@ -193,13 +195,15 @@
     <value>Запустить</value>
   </data>
   <data name="UserZapretInfoText" xml:space="preserve">
-    <value>Без этого ничего работать не будет, но это ваше право :)\n\nЕсли передумаете - просто перезапустите программу!</value>
+    <value>Без этого ничего работать не будет, но это ваше право :)
+
+Если передумаете - просто перезапустите программу!</value>
   </data>
   <data name="UserZapretInfoCaption" xml:space="preserve">
     <value>Ну чтож... как хотите!</value>
   </data>
   <data name="StrategiesUpdateErrorMessageText" xml:space="preserve">
-    <value>При получении/обновлении стратегий обхода произошла ошибка: \n\nОшибка: %error%</value>
+    <value>При получении/обновлении стратегий обхода произошла ошибка: %error%</value>
   </data>
   <data name="StrategiesUpdateErrorMessageCaption" xml:space="preserve">
     <value>Ошибка при получении/обновлении стратегий</value>
@@ -208,13 +212,17 @@
     <value>проверяю версию лаунчера...</value>
   </data>
   <data name="ProcessManagerStartErrorText" xml:space="preserve">
-    <value>Не удалось запустить обход!\n\nОшибка: %error%</value>
+    <value>Не удалось запустить обход!
+
+Ошибка: %error%</value>
   </data>
   <data name="ProcessManagerStartErrorCaption" xml:space="preserve">
     <value>Ох ё!</value>
   </data>
   <data name="WindivertKillErrorText" xml:space="preserve">
-    <value>Не удалось убить службу Windivert.\n\nОшибка: %error%</value>
+    <value>Не удалось убить службу Windivert.
+
+Ошибка: %error%</value>
   </data>
   <data name="WindivertKillErrorCaption" xml:space="preserve">
     <value>Пора нанимать нового хитмана...</value>
@@ -224,5 +232,17 @@
   </data>
   <data name="AdminRightsMessageCaption" xml:space="preserve">
     <value>Важно, и очень :О</value>
+  </data>
+  <data name="USDomainsCountLabel" xml:space="preserve">
+    <value>Число доменов ваших сервисов: %count%</value>
+  </data>
+  <data name="USStrategiesCountLabel" xml:space="preserve">
+    <value>Число доступных стратегий для ваших сервисов: %available% | Выбранная стратегия: №%selected%</value>
+  </data>
+  <data name="USSavingMessageText" xml:space="preserve">
+    <value>Изменения ваших сервисов успешно сохранены!</value>
+  </data>
+  <data name="USSavingMessageCaption" xml:space="preserve">
+    <value>Ваши сервисы изменены.</value>
   </data>
 </root>
