@@ -24,6 +24,8 @@ l.google.com
 googleusercontent.com
 gstatic.com
 nhacmp3youtube.com
-youtubei.googleapis.com 
 yt4.ggpht.com
 ytimg.l.google.com
+youtubeembeddedplayer.googleapis.com
+jnn-pa.googleapis.com
+yt-video-upload.l.google.com
