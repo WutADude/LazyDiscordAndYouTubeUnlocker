@@ -1,5 +1,6 @@
 ﻿using LazyDisYTUnlocker.Properties;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace LazyDisYTUnlocker
 {
@@ -7,20 +8,27 @@ namespace LazyDisYTUnlocker
     {
         internal static MainForm Form { get; set; } = null!;
 
-        private static Process? _discordUnlockProcess { get; set; }
-        private static Process? _youtubeUnlockProcess { get; set; }
-        private static Process? _userServicesUnlockProcess { get; set; }
+        private static List<Process?> _processList = new List<Process?>();
 
-        private static string _winwsExecutablePath => $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}\\winws.exe";
+        private static readonly Dictionary<string, string> _pathsReplace = new Dictionary<string, string>()
+        {
+            { "[zapret]", FilesAndDirectories.NewZapretDirectory },
+            { "[bins]", Path.GetFullPath(FilesAndDirectories.BinarysDirPath) },
+            { "[hosts]", Path.GetFullPath(FilesAndDirectories.HostsDirectory) },
+            { "[winwsdir]", FilesAndDirectories.NewZapretDirectory }
+        };
 
-        internal static bool RunStrategies()
+        private static readonly Regex _replacementRegex = new Regex(string.Join('|', _pathsReplace.Keys.Select(Regex.Escape)));
+
+        internal static async Task<bool> RunStrategies()
         {
             try
             {
-                _discordUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = _winwsExecutablePath, Arguments = Strategies.DiscordStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
-                _youtubeUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = _winwsExecutablePath, Arguments = Strategies.YouTubeStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
+                _processList.Add(Process.Start(new ProcessStartInfo() { FileName = FilesAndDirectories.WinwsPath, Arguments = _replacementRegex.Replace(Strategies.DiscordStrategy, match => _pathsReplace[match.Value]), CreateNoWindow = true, UseShellExecute = false }));
+                _processList.Add(Process.Start(new ProcessStartInfo() { FileName = FilesAndDirectories.WinwsPath, Arguments = _replacementRegex.Replace(Strategies.YouTubeStrategy, match => _pathsReplace[match.Value]), CreateNoWindow = true, UseShellExecute = false }));
                 if (FilesAndDirectories.GetUserServicesDomainsLines.Length > 0)
-                    _userServicesUnlockProcess = Process.Start(new ProcessStartInfo() { FileName = _winwsExecutablePath, Arguments = Strategies.UserServicesStrategy.Replace("[winwsdir]", $"{FilesAndDirectories.MainZapretDirectory}\\{FilesAndDirectories._winwsDirectory}"), CreateNoWindow = true, UseShellExecute = false });
+                    _processList.Add(Process.Start(new ProcessStartInfo() { FileName = FilesAndDirectories.WinwsPath, Arguments = _replacementRegex.Replace(Strategies.UserServicesStrategy, match => _pathsReplace[match.Value]), CreateNoWindow = true, UseShellExecute = false }));
+                StartProcessMonitoring().ConfigureAwait(false);
                 return true;
             }
             catch (Exception ex)
@@ -32,10 +40,8 @@ namespace LazyDisYTUnlocker
 
         internal static void StopStrategies()
         {
-            _discordUnlockProcess?.Kill();
-            _youtubeUnlockProcess?.Kill();
-            if (_userServicesUnlockProcess is not null || Process.GetProcesses().Contains(_userServicesUnlockProcess))
-                _userServicesUnlockProcess?.Kill();
+            _processList.ForEach(p => p?.Kill());
+            _processList.Clear();
             if (Form.WindivertServiceCB.Checked)
                 KillWinDivertService();
         }
@@ -49,6 +55,21 @@ namespace LazyDisYTUnlocker
             catch (Exception ex)
             {
                 MessageBox.Show(StringsLocalization.WindivertKillErrorText.Replace("%error%", ex.Message), StringsLocalization.WindivertKillErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private static async Task StartProcessMonitoring()
+        {
+            while (_processList.Count > 0)
+            {
+                await Task.Delay(TimeSpan.FromMinutes(2));
+                if (_processList.Any(p => p.HasExited))
+                {
+                    StopStrategies();
+                    Form.BeginInvoke(Form.MainButton.PerformClick);
+                    MessageBox.Show(StringsLocalization.ZapretProcessesClosed, "Error O_o", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                }
             }
         }
     }

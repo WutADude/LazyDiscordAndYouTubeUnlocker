@@ -300,8 +300,6 @@
         }
 
         #endregion
-
-        private Button MainButton;
         private GroupBox StatusGB;
         private Label DiscordDomainsCountLabel;
         private Label BundleStatusLabel;
@@ -314,7 +312,6 @@
         private CheckBox HideInTrayCB;
         private GroupBox AdditionalOptionsGB;
         public CheckBox WindivertServiceCB;
-        private Button UpdateHostsAndStrategiesButton;
         private Label label2;
         private Label StrategiesUpdateDateLabel;
         private Label SoftwareAboutLabel;
@@ -329,5 +326,7 @@
         private Label UserServicesDomainsCountLabel;
         private Label UserServicesStrategiesLabel;
         public Button ChangeUserServicesStrategiesButton;
+        public Button MainButton;
+        public Button UpdateHostsAndStrategiesButton;
     }
 }

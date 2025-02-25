@@ -263,6 +263,15 @@ namespace LazyDisYTUnlocker.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Ваши сервисы изменены..
+        /// </summary>
+        internal static string USSavingMessageCaption {
+            get {
+                return ResourceManager.GetString("USSavingMessageCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Изменения ваших сервисов успешно сохранены!.
         /// </summary>
         internal static string USSavingMessageText {
@@ -270,18 +279,7 @@ namespace LazyDisYTUnlocker.Properties {
                 return ResourceManager.GetString("USSavingMessageText", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Ваши сервисы сохранены.
-        /// </summary>
-        internal static string USSavingMessageCaption
-        {
-            get
-            {
-                return ResourceManager.GetString("USSavingMessageCaption", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Ищет локализованную строку, похожую на Число доступных стратегий для ваших сервисов: %available% | Выбранная стратегия: №%selected%.
         /// </summary>
@@ -357,11 +355,29 @@ namespace LazyDisYTUnlocker.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Привожу файлы &quot;Zapret&quot; к новому виду....
+        /// </summary>
+        internal static string ZapretMovingStatus {
+            get {
+                return ResourceManager.GetString("ZapretMovingStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на не загружен и не готов к работе.
         /// </summary>
         internal static string ZapretNotReadyToWorkStatus {
             get {
                 return ResourceManager.GetString("ZapretNotReadyToWorkStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Процессы &quot;Zapret&quot; по какой-то причине были остановлены..
+        /// </summary>
+        internal static string ZapretProcessesClosed {
+            get {
+                return ResourceManager.GetString("ZapretProcessesClosed", resourceCulture);
             }
         }
         

@@ -117,79 +117,767 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;UpdateStrategiesButton.Parent" xml:space="preserve">
-    <value>StrategiesInfoGB</value>
+  <data name="&gt;&gt;UserServicesStrategiesLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="SoftwareVersionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 12</value>
-  </data>
-  <data name="UpdateStrategiesButton.Text" xml:space="preserve">
-    <value>Обновить стратегии обхода замедлений/блокировок</value>
+  <data name="&gt;&gt;ChangeYTStrategyButton.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="InfoGB.TabIndex" type="System.Int32, mscorlib">
+  <data name="StrategiesInfoGB.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="&gt;&gt;UpdateStrategiesButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="DiscordDomainsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 15</value>
+  </data>
+  <data name="&gt;&gt;ChangeDSStrategyButton.Parent" xml:space="preserve">
+    <value>StrategiesInfoGB</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel1.Name" xml:space="preserve">
+    <value>toolStripStatusLabel1</value>
+  </data>
+  <data name="&gt;&gt;WindivertServiceCB.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;StrategiesInfoGB.Name" xml:space="preserve">
     <value>StrategiesInfoGB</value>
   </data>
-  <data name="SoftwareVersionLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="SoftStatus.Text" xml:space="preserve">
+    <value>...</value>
   </data>
-  <data name="&gt;&gt;ChangeYTStrategyButton.Name" xml:space="preserve">
-    <value>ChangeYTStrategyButton</value>
+  <data name="&gt;&gt;StrategiesInfoGB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ReinstallZapretLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;UserServicesDomainsCountLabel.Name" xml:space="preserve">
+    <value>UserServicesDomainsCountLabel</value>
   </data>
-  <data name="&gt;&gt;AdditionalOptionsGB.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="WarningInfoLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 15</value>
   </data>
-  <data name="&gt;&gt;LocalizationLabel.ZOrder" xml:space="preserve">
+  <data name="StrategiesUpdateDateLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 66</value>
+  </data>
+  <data name="MainButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="&gt;&gt;UsersServicesSettingsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AdditionalOptionsGB.Name" xml:space="preserve">
+    <value>AdditionalOptionsGB</value>
+  </data>
+  <data name="MainButton.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;ChangeUserServicesStrategiesButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="WindivertServiceCB.Text" xml:space="preserve">
+    <value>Отключаем WinDivert сервис после остановки</value>
   </data>
-  <data name="&gt;&gt;UserDomainsCountLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ReinstallZapretLinkLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="UpdateStrategiesButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>489, 24</value>
+  <data name="SoftStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 17</value>
   </data>
   <data name="&gt;&gt;ChangeDSStrategyButton.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;BundleStatusLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="WindivertServiceCB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 34</value>
   </data>
-  <data name="YouTubeDomainsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 15</value>
-  </data>
-  <data name="&gt;&gt;SoftwareAboutLabel.ZOrder" xml:space="preserve">
+  <data name="Status.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;WindivertServiceCB.Parent" xml:space="preserve">
+  <data name="SoftwareVersionLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="StrategiesUpdateDateLabel.Text" xml:space="preserve">
+    <value>Дата последнего обновления стратегий: ...</value>
+  </data>
+  <data name="YTStrategiesCountLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 17</value>
+  </data>
+  <data name="&gt;&gt;StrategiesUpdateDateLabel.Parent" xml:space="preserve">
+    <value>StrategiesInfoGB</value>
+  </data>
+  <data name="UsersServicesSettingsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;StatusGB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DSStrategiesLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;HideInTrayCB.Parent" xml:space="preserve">
     <value>AdditionalOptionsGB</value>
   </data>
-  <data name="ReinstallZapretLinkLabel.Text" xml:space="preserve">
-    <value>Переустановить/Обновить Zapret</value>
+  <data name="StrategiesUpdateDateLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 6pt</value>
   </data>
-  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
-    <value>Статус работы:</value>
+  <data name="&gt;&gt;HideInTrayCB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HideInTrayCB.Name" xml:space="preserve">
+    <value>HideInTrayCB</value>
+  </data>
+  <data name="&gt;&gt;ChangeDSStrategyButton.Name" xml:space="preserve">
+    <value>ChangeDSStrategyButton</value>
+  </data>
+  <data name="&gt;&gt;UserServicesStrategiesLabel.Name" xml:space="preserve">
+    <value>UserServicesStrategiesLabel</value>
+  </data>
+  <data name="&gt;&gt;MainButton.Name" xml:space="preserve">
+    <value>MainButton</value>
+  </data>
+  <data name="UserServicesDomainsCountLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="UserServicesStrategiesLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="YTStrategiesCountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>489, 23</value>
+  </data>
+  <data name="Status.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="YouTubeDomainsCountLabel.Text" xml:space="preserve">
+    <value>Число доменов YouTube: ...</value>
+  </data>
+  <data name="AdditionalOptionsGB.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="WarningInfoLabel.Text" xml:space="preserve">
     <value>Разработчик лаунчера не гарантирует работоспособность чего-либо после запуска!</value>
   </data>
+  <data name="StatusGB.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;HideInTrayCB.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ChangeUserServicesStrategiesButton.Parent" xml:space="preserve">
+    <value>StrategiesInfoGB</value>
+  </data>
+  <data name="&gt;&gt;ChangeYTStrategyButton.Parent" xml:space="preserve">
+    <value>StrategiesInfoGB</value>
+  </data>
+  <data name="YouTubeDomainsCountLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SoftwareAboutLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>422, 17</value>
+  </data>
+  <data name="&gt;&gt;ChangeDSStrategyButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BundleStatusLabel.Parent" xml:space="preserve">
+    <value>StatusGB</value>
+  </data>
+  <data name="&gt;&gt;UpdateStrategiesButton.Parent" xml:space="preserve">
+    <value>StrategiesInfoGB</value>
+  </data>
+  <data name="&gt;&gt;SoftwareVersionLabel.Parent" xml:space="preserve">
+    <value>InfoGB</value>
+  </data>
+  <data name="BundleStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 15</value>
+  </data>
+  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
+    <value>Статус работы:</value>
+  </data>
+  <data name="InfoGB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 349</value>
+  </data>
+  <data name="LocalizationLabel.ImeMode" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DiscordDomainsCountLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 34</value>
+  </data>
+  <data name="&gt;&gt;LocalizationLabel.Parent" xml:space="preserve">
+    <value>InfoGB</value>
+  </data>
+  <data name="WindivertServiceCB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 19</value>
+  </data>
+  <data name="YouTubeDomainsCountLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 50</value>
+  </data>
+  <data name="UpdateStrategiesButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;UpdateStrategiesButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>96, 96</value>
+  </data>
+  <data name="&gt;&gt;BundleStatusLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StatusGB.Name" xml:space="preserve">
+    <value>StatusGB</value>
+  </data>
+  <data name="&gt;&gt;YouTubeDomainsCountLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LocalizationLabel.Font" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;DiscordDomainsCountLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;YTStrategiesCountLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserServicesDomainsCountLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="HideInTrayCB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 19</value>
+  </data>
+  <data name="UserServicesDomainsCountLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 66</value>
+  </data>
+  <data name="HideInTrayCB.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Что-то не работает? Попробуйте нажать на кнопку ниже чтобы обновить стратегии</value>
+  </data>
+  <data name="ChangeDSStrategyButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 24</value>
+  </data>
+  <data name="&gt;&gt;DiscordDomainsCountLabel.Parent" xml:space="preserve">
+    <value>StatusGB</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 87</value>
+  </data>
+  <data name="&gt;&gt;LocalizationLabel.Name" xml:space="preserve">
+    <value>LocalizationLabel</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ChangeDSStrategyButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;SoftwareAboutLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="LocalizationLabel.Size" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DSStrategiesLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;WarningInfoLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;WindivertServiceCB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BundleStatusLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="YTStrategiesCountLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;DSStrategiesLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UpdateStrategiesButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>489, 24</value>
+  </data>
+  <data name="&gt;&gt;InfoGB.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="StatusGB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 63</value>
+  </data>
+  <data name="MainButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;UserDomainsCountLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="WarningInfoLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;BundleStatusLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;WindivertServiceCB.Name" xml:space="preserve">
+    <value>WindivertServiceCB</value>
+  </data>
+  <data name="&gt;&gt;UsersServicesSettingsLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ChangeDSStrategyButton.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="ChangeYTStrategyButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 24</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>StatusGB</value>
+  </data>
+  <data name="&gt;&gt;InfoGB.Name" xml:space="preserve">
+    <value>InfoGB</value>
+  </data>
+  <data name="&gt;&gt;ReinstallZapretLinkLabel.Parent" xml:space="preserve">
+    <value>InfoGB</value>
+  </data>
+  <data name="DSStrategiesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>489, 23</value>
+  </data>
+  <data name="ReinstallZapretLinkLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;DSStrategiesLabel.Parent" xml:space="preserve">
+    <value>StrategiesInfoGB</value>
+  </data>
+  <data name="StatusGB.Text" xml:space="preserve">
+    <value>Статусная информация:</value>
+  </data>
+  <data name="AdditionalOptionsGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 60</value>
+  </data>
+  <data name="ChangeDSStrategyButton.Text" xml:space="preserve">
+    <value>Изменить стратегию для Discord</value>
+  </data>
+  <data name="&gt;&gt;YouTubeDomainsCountLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ChangeYTStrategyButton.Text" xml:space="preserve">
+    <value>Изменить стратегию для YouTube</value>
+  </data>
+  <data name="&gt;&gt;YTStrategiesCountLabel.Parent" xml:space="preserve">
+    <value>StrategiesInfoGB</value>
+  </data>
+  <data name="&gt;&gt;UpdateStrategiesButton.Name" xml:space="preserve">
+    <value>UpdateStrategiesButton</value>
+  </data>
+  <data name="InfoGB.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="WindivertServiceCB.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ChangeDSStrategyButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>267, 59</value>
+  </data>
+  <data name="HideInTrayCB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 17</value>
+  </data>
+  <data name="SoftwareVersionLabel.Text" xml:space="preserve">
+    <value>Текущая версия: ... (актуальная: ...)</value>
+  </data>
+  <data name="SoftwareVersionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 12</value>
+  </data>
+  <data name="&gt;&gt;StrategiesUpdateDateLabel.Name" xml:space="preserve">
+    <value>StrategiesUpdateDateLabel</value>
+  </data>
+  <data name="MainButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;SoftStatus.Name" xml:space="preserve">
+    <value>SoftStatus</value>
+  </data>
+  <data name="HideInTrayCB.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>525, 409</value>
+  </data>
+  <data name="LocalizationLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>470, 17</value>
+  </data>
+  <data name="&gt;&gt;InfoGB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BundleStatusLabel.Text" xml:space="preserve">
+    <value>Состояние Zapret: ...</value>
+  </data>
+  <data name="&gt;&gt;AdditionalOptionsGB.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="LocalizationLabel.TextAlign" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;AdditionalOptionsGB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ReinstallZapretLinkLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 6.5pt</value>
+  </data>
+  <data name="&gt;&gt;StatusGB.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Status.Size" type="System.Drawing.Size, System.Drawing">
+    <value>525, 22</value>
+  </data>
+  <data name="&gt;&gt;AdditionalOptionsGB.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="MainButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 35</value>
+  </data>
+  <data name="Status.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="AdditionalOptionsGB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 289</value>
+  </data>
+  <data name="DSStrategiesLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;ReinstallZapretLinkLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="UserServicesStrategiesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 55</value>
+  </data>
+  <data name="&gt;&gt;StrategiesUpdateDateLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SoftwareVersionLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ChangeDSStrategyButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;ChangeUserServicesStrategiesButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SoftwareVersionLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 6.5pt</value>
+  </data>
+  <data name="DiscordDomainsCountLabel.Text" xml:space="preserve">
+    <value>Число доменов Discord: ...</value>
+  </data>
+  <data name="&gt;&gt;Status.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;YouTubeDomainsCountLabel.Parent" xml:space="preserve">
+    <value>StatusGB</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Status.Name" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="&gt;&gt;StatusGB.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;UpdateHostsAndStrategiesButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LocalizationLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DiscordDomainsCountLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="HideInTrayCB.Text" xml:space="preserve">
+    <value>Cпрятать окно в трей при сворачивании</value>
+  </data>
+  <data name="SoftwareAboutLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;UserServicesStrategiesLabel.Parent" xml:space="preserve">
+    <value>StrategiesInfoGB</value>
+  </data>
+  <data name="WarningInfoLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 48</value>
+  </data>
+  <data name="UpdateStrategiesButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 105</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>489, 15</value>
+  </data>
+  <data name="ZapretLoadMessageCaption" xml:space="preserve">
+    <value>Чего-то не хватает, но чего?</value>
+  </data>
+  <data name="ChangeYTStrategyButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="DSStrategiesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 36</value>
+  </data>
+  <data name="SoftwareVersionLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;SoftwareAboutLabel.Parent" xml:space="preserve">
+    <value>InfoGB</value>
+  </data>
+  <data name="BundleStatusLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 18</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="InfoGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 39</value>
+  </data>
+  <data name="ChangeUserServicesStrategiesButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 110</value>
+  </data>
+  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 17</value>
+  </data>
+  <data name="ReinstallZapretLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;ReinstallZapretLinkLabel.Name" xml:space="preserve">
     <value>ReinstallZapretLinkLabel</value>
   </data>
+  <data name="&gt;&gt;MainButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="StrategiesInfoGB.Text" xml:space="preserve">
+    <value>Стратегии обхода замедлений/блокировок</value>
+  </data>
+  <data name="&gt;&gt;YTStrategiesCountLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ChangeYTStrategyButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;ChangeUserServicesStrategiesButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="WindivertServiceCB.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Status.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;InfoGB.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Status.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;MainButton.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="SoftwareAboutLabel.AutoSize" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ChangeUserServicesStrategiesButton.Name" xml:space="preserve">
+    <value>ChangeUserServicesStrategiesButton</value>
+  </data>
+  <data name="&gt;&gt;SoftwareAboutLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WarningInfoLabel.Name" xml:space="preserve">
+    <value>WarningInfoLabel</value>
+  </data>
+  <data name="UpdateStrategiesButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="YouTubeDomainsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 15</value>
+  </data>
+  <data name="&gt;&gt;UserDomainsCountLabel.Name" xml:space="preserve">
+    <value>UserDomainsCountLabel</value>
+  </data>
+  <data name="MainButton.Text" xml:space="preserve">
+    <value>Запустить</value>
+  </data>
+  <data name="BundleStatusLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;UserServicesStrategiesLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="YTStrategiesCountLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="YouTubeDomainsCountLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="ReinstallZapretLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>271, 17</value>
+  </data>
+  <data name="DiscordDomainsCountLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AdditionalOptionsGB.Text" xml:space="preserve">
+    <value>Доп. параметры:</value>
+  </data>
+  <data name="ReinstallZapretLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 12</value>
+  </data>
+  <data name="&gt;&gt;ChangeYTStrategyButton.Name" xml:space="preserve">
+    <value>ChangeYTStrategyButton</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="StatusGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 74</value>
+  </data>
+  <data name="&gt;&gt;WarningInfoLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UpdateStrategiesButton.Text" xml:space="preserve">
+    <value>Обновить стратегии обхода замедлений/блокировок</value>
+  </data>
+  <data name="&gt;&gt;StrategiesInfoGB.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;UserServicesDomainsCountLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SoftwareVersionLabel.Name" xml:space="preserve">
+    <value>SoftwareVersionLabel</value>
+  </data>
+  <data name="SoftwareVersionLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LocalizationLabel.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UpdateHostsAndStrategiesButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;UpdateHostsAndStrategiesButton.Name" xml:space="preserve">
+    <value>UpdateHostsAndStrategiesButton</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BundleStatusLabel.Name" xml:space="preserve">
+    <value>BundleStatusLabel</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>StrategiesInfoGB</value>
+  </data>
+  <data name="ChangeYTStrategyButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 59</value>
+  </data>
+  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;SoftStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ChangeYTStrategyButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;WindivertServiceCB.Parent" xml:space="preserve">
+    <value>AdditionalOptionsGB</value>
+  </data>
+  <data name="&gt;&gt;ChangeYTStrategyButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StrategiesInfoGB.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="WarningInfoLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;UpdateHostsAndStrategiesButton.Parent" xml:space="preserve">
+    <value>StrategiesInfoGB</value>
+  </data>
+  <data name="&gt;&gt;UsersServicesSettingsLabel.Name" xml:space="preserve">
+    <value>UsersServicesSettingsLabel</value>
+  </data>
+  <data name="UpdateHostsAndStrategiesButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 156</value>
+  </data>
+  <data name="&gt;&gt;YouTubeDomainsCountLabel.Name" xml:space="preserve">
+    <value>YouTubeDomainsCountLabel</value>
+  </data>
+  <data name="SoftwareAboutLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="UserDomainsCountLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 66</value>
+  </data>
+  <data name="UpdateStrategiesButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;DSStrategiesLabel.Name" xml:space="preserve">
+    <value>DSStrategiesLabel</value>
+  </data>
+  <data name="LocalizationLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;UsersServicesSettingsLabel.Parent" xml:space="preserve">
+    <value>StatusGB</value>
+  </data>
+  <data name="ReinstallZapretLinkLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;StrategiesUpdateDateLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;UpdateHostsAndStrategiesButton.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;DiscordDomainsCountLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="StrategiesUpdateDateLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 132</value>
+  </data>
+  <data name="UserDomainsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="ChangeUserServicesStrategiesButton.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="StrategiesInfoGB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 137</value>
+  </data>
+  <data name="UsersServicesSettingsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 66</value>
+  </data>
+  <data name="&gt;&gt;UserDomainsCountLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserServicesDomainsCountLabel.Parent" xml:space="preserve">
+    <value>StatusGB</value>
+  </data>
+  <data name="&gt;&gt;WarningInfoLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="SoftwareAboutLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="LocalizationLabel.AutoSize" xml:space="preserve">
+    <value />
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -478,771 +1166,83 @@
         //AP//////////////////////////////////////////////8=
 </value>
   </data>
-  <data name="&gt;&gt;SoftwareAboutLabel.Parent" xml:space="preserve">
-    <value>InfoGB</value>
-  </data>
-  <data name="&gt;&gt;UserServicesDomainsCountLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ChangeYTStrategyButton.Parent" xml:space="preserve">
-    <value>StrategiesInfoGB</value>
-  </data>
-  <data name="&gt;&gt;ChangeUserServicesStrategiesButton.Name" xml:space="preserve">
-    <value>ChangeUserServicesStrategiesButton</value>
-  </data>
-  <data name="SoftwareVersionLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="UserServicesStrategiesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 55</value>
-  </data>
-  <data name="BundleStatusLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ChangeUserServicesStrategiesButton.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 87</value>
-  </data>
-  <data name="&gt;&gt;UserServicesDomainsCountLabel.Name" xml:space="preserve">
-    <value>UserServicesDomainsCountLabel</value>
-  </data>
-  <data name="AdditionalOptionsGB.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="DSStrategiesLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="UsersServicesSettingsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="LocalizationLabel.Font" xml:space="preserve">
-    <value />
-  </data>
-  <data name="WindivertServiceCB.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;YouTubeDomainsCountLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ChangeYTStrategyButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 24</value>
-  </data>
-  <data name="UserServicesStrategiesLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="MainButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;YTStrategiesCountLabel.Parent" xml:space="preserve">
-    <value>StrategiesInfoGB</value>
-  </data>
-  <data name="ReinstallZapretLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 12</value>
-  </data>
-  <data name="&gt;&gt;ChangeYTStrategyButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="WarningInfoLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 48</value>
-  </data>
-  <data name="&gt;&gt;UpdateStrategiesButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="&gt;&gt;BundleStatusLabel.Name" xml:space="preserve">
-    <value>BundleStatusLabel</value>
-  </data>
-  <data name="&gt;&gt;UserServicesDomainsCountLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="YTStrategiesCountLabel.Text" xml:space="preserve">
-    <value>Число доступных стратегий YouTube: ... | Выбранная стратегия: ...</value>
-  </data>
-  <data name="&gt;&gt;Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="LocalizationLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>470, 17</value>
-  </data>
-  <data name="WindivertServiceCB.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="MainButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>501, 35</value>
-  </data>
-  <data name="ChangeYTStrategyButton.Text" xml:space="preserve">
-    <value>Изменить стратегию для YouTube</value>
-  </data>
-  <data name="YTStrategiesCountLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 17</value>
-  </data>
-  <data name="&gt;&gt;SoftwareVersionLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SoftwareVersionLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="HideInTrayCB.Text" xml:space="preserve">
-    <value>Cпрятать окно в трей при сворачивании</value>
-  </data>
-  <data name="&gt;&gt;YouTubeDomainsCountLabel.Name" xml:space="preserve">
-    <value>YouTubeDomainsCountLabel</value>
-  </data>
-  <data name="&gt;&gt;toolStripStatusLabel1.Name" xml:space="preserve">
-    <value>toolStripStatusLabel1</value>
-  </data>
-  <data name="UserDomainsCountLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;WarningInfoLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;SoftwareAboutLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="StatusGB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 63</value>
-  </data>
-  <data name="&gt;&gt;YouTubeDomainsCountLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;YTStrategiesCountLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;ChangeDSStrategyButton.Name" xml:space="preserve">
-    <value>ChangeDSStrategyButton</value>
-  </data>
-  <data name="ZapretLoadMessageCaption" xml:space="preserve">
-    <value>Чего-то не хватает, но чего?</value>
-  </data>
-  <data name="WindivertServiceCB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 19</value>
-  </data>
-  <data name="MainButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ChangeDSStrategyButton.Parent" xml:space="preserve">
-    <value>StrategiesInfoGB</value>
-  </data>
-  <data name="StrategiesUpdateDateLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 132</value>
-  </data>
-  <data name="&gt;&gt;UserServicesStrategiesLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="HideInTrayCB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 17</value>
-  </data>
-  <data name="DSStrategiesLabel.Text" xml:space="preserve">
-    <value>Число доступных стратегий Discord: ... | Выбранная стратегия: ...</value>
-  </data>
-  <data name="AdditionalOptionsGB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>501, 60</value>
-  </data>
-  <data name="DiscordDomainsCountLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 34</value>
-  </data>
-  <data name="&gt;&gt;UsersServicesSettingsLabel.Name" xml:space="preserve">
-    <value>UsersServicesSettingsLabel</value>
-  </data>
-  <data name="YouTubeDomainsCountLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="SoftwareAboutLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 6.5pt</value>
-  </data>
-  <data name="&gt;&gt;AdditionalOptionsGB.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="DSStrategiesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 36</value>
-  </data>
-  <data name="&gt;&gt;WarningInfoLabel.Name" xml:space="preserve">
-    <value>WarningInfoLabel</value>
-  </data>
-  <data name="&gt;&gt;Status.Name" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="InfoGB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 349</value>
-  </data>
-  <data name="Status.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 387</value>
-  </data>
-  <data name="&gt;&gt;ReinstallZapretLinkLabel.Parent" xml:space="preserve">
-    <value>InfoGB</value>
-  </data>
-  <data name="&gt;&gt;YTStrategiesCountLabel.Name" xml:space="preserve">
-    <value>YTStrategiesCountLabel</value>
-  </data>
-  <data name="UserDomainsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
-  </data>
-  <data name="StatusGB.Text" xml:space="preserve">
-    <value>Статусная информация:</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="ChangeDSStrategyButton.Text" xml:space="preserve">
-    <value>Изменить стратегию для Discord</value>
-  </data>
-  <data name="HideInTrayCB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 19</value>
-  </data>
-  <data name="ChangeDSStrategyButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="HideInTrayCB.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>StatusGB</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ChangeUserServicesStrategiesButton.Parent" xml:space="preserve">
-    <value>StrategiesInfoGB</value>
-  </data>
-  <data name="UpdateStrategiesButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="UpdateStrategiesButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;InfoGB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;StatusGB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UpdateHostsAndStrategiesButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;HideInTrayCB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UpdateHostsAndStrategiesButton.Parent" xml:space="preserve">
-    <value>StrategiesInfoGB</value>
-  </data>
-  <data name="MainButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="&gt;&gt;UpdateHostsAndStrategiesButton.Name" xml:space="preserve">
-    <value>UpdateHostsAndStrategiesButton</value>
-  </data>
-  <data name="ReinstallZapretLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 17</value>
-  </data>
-  <data name="&gt;&gt;UserDomainsCountLabel.Parent" xml:space="preserve">
-    <value>StatusGB</value>
-  </data>
-  <data name="&gt;&gt;StrategiesInfoGB.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="ChangeYTStrategyButton.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;SoftStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Status.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;InfoGB.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;UserServicesStrategiesLabel.Parent" xml:space="preserve">
-    <value>StrategiesInfoGB</value>
-  </data>
-  <data name="YTStrategiesCountLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;InfoGB.Name" xml:space="preserve">
-    <value>InfoGB</value>
-  </data>
-  <data name="ReinstallZapretLinkLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 6.5pt</value>
-  </data>
-  <data name="&gt;&gt;UpdateStrategiesButton.Name" xml:space="preserve">
-    <value>UpdateStrategiesButton</value>
-  </data>
-  <data name="&gt;&gt;HideInTrayCB.Parent" xml:space="preserve">
-    <value>AdditionalOptionsGB</value>
-  </data>
-  <data name="SoftwareAboutLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="UpdateStrategiesButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="SoftStatus.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;WindivertServiceCB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="SoftwareAboutLabel.Text" xml:space="preserve">
     <value>О программе
 </value>
   </data>
-  <data name="&gt;&gt;MainButton.Name" xml:space="preserve">
-    <value>MainButton</value>
-  </data>
-  <data name="&gt;&gt;DSStrategiesLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DSStrategiesLabel.Name" xml:space="preserve">
-    <value>DSStrategiesLabel</value>
-  </data>
-  <data name="WindivertServiceCB.Text" xml:space="preserve">
-    <value>Отключаем WinDivert сервис после остановки</value>
-  </data>
-  <data name="DiscordDomainsCountLabel.Text" xml:space="preserve">
-    <value>Число доменов Discord: ...</value>
-  </data>
-  <data name="DiscordDomainsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 15</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Что-то не работает? Попробуйте нажать на кнопку ниже чтобы обновить стратегии</value>
-  </data>
-  <data name="&gt;&gt;Status.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="DSStrategiesLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="SoftwareAboutLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 13</value>
-  </data>
-  <data name="SoftwareAboutLabel.AutoSize" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ChangeDSStrategyButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>267, 59</value>
-  </data>
-  <data name="&gt;&gt;LocalizationLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DiscordDomainsCountLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;BundleStatusLabel.Parent" xml:space="preserve">
-    <value>StatusGB</value>
-  </data>
-  <data name="ReinstallZapretLinkLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;UserServicesStrategiesLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DSStrategiesLabel.Parent" xml:space="preserve">
-    <value>StrategiesInfoGB</value>
-  </data>
-  <data name="&gt;&gt;UsersServicesSettingsLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AdditionalOptionsGB.Name" xml:space="preserve">
-    <value>AdditionalOptionsGB</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;ChangeUserServicesStrategiesButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;WindivertServiceCB.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ChangeDSStrategyButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="InfoGB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>501, 39</value>
-  </data>
-  <data name="UpdateHostsAndStrategiesButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 156</value>
-  </data>
-  <data name="&gt;&gt;UserServicesStrategiesLabel.Name" xml:space="preserve">
-    <value>UserServicesStrategiesLabel</value>
-  </data>
-  <data name="StrategiesUpdateDateLabel.Text" xml:space="preserve">
-    <value>Дата последнего обновления стратегий: ...</value>
-  </data>
-  <data name="UpdateHostsAndStrategiesButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="BundleStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 15</value>
-  </data>
-  <data name="UsersServicesSettingsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 66</value>
-  </data>
-  <data name="StatusGB.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;DiscordDomainsCountLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UsersServicesSettingsLabel.Parent" xml:space="preserve">
-    <value>StatusGB</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MainForm</value>
-  </data>
-  <data name="Status.Text" xml:space="preserve">
-    <value>statusStrip1</value>
-  </data>
-  <data name="ChangeDSStrategyButton.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
   <data name="StrategiesUpdateDateLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>489, 13</value>
-  </data>
-  <data name="ChangeYTStrategyButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 59</value>
-  </data>
-  <data name="MainButton.Text" xml:space="preserve">
-    <value>Запустить</value>
-  </data>
-  <data name="LocalizationLabel.Size" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StrategiesUpdateDateLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="LocalizationLabel.TextAlign" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SoftwareVersionLabel.Text" xml:space="preserve">
-    <value>Текущая версия: ... (актуальная: ...)</value>
-  </data>
-  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="SoftwareVersionLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;UserDomainsCountLabel.Name" xml:space="preserve">
-    <value>UserDomainsCountLabel</value>
-  </data>
-  <data name="WarningInfoLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="UserDomainsCountLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 66</value>
-  </data>
-  <data name="StatusGB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>501, 74</value>
-  </data>
-  <data name="&gt;&gt;YouTubeDomainsCountLabel.Parent" xml:space="preserve">
-    <value>StatusGB</value>
-  </data>
-  <data name="BundleStatusLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="LocalizationLabel.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="WarningInfoLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;AdditionalOptionsGB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;WarningInfoLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;ReinstallZapretLinkLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;DSStrategiesLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="DSStrategiesLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>489, 23</value>
-  </data>
-  <data name="&gt;&gt;StrategiesInfoGB.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="MainButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="SoftwareAboutLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>422, 17</value>
-  </data>
-  <data name="SoftStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>16, 17</value>
-  </data>
-  <data name="ChangeDSStrategyButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 24</value>
-  </data>
-  <data name="StrategiesInfoGB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 137</value>
-  </data>
-  <data name="&gt;&gt;StatusGB.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;StrategiesUpdateDateLabel.Name" xml:space="preserve">
-    <value>StrategiesUpdateDateLabel</value>
-  </data>
-  <data name="&gt;&gt;StatusGB.Name" xml:space="preserve">
-    <value>StatusGB</value>
-  </data>
-  <data name="&gt;&gt;SoftStatus.Name" xml:space="preserve">
-    <value>SoftStatus</value>
-  </data>
-  <data name="&gt;&gt;UsersServicesSettingsLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="SoftwareVersionLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 6.5pt</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="AdditionalOptionsGB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 289</value>
-  </data>
-  <data name="&gt;&gt;ChangeYTStrategyButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="StrategiesInfoGB.Text" xml:space="preserve">
-    <value>Стратегии обхода замедлений/блокировок</value>
-  </data>
-  <data name="LocalizationLabel.ImeMode" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StrategiesUpdateDateLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>489, 15</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>96, 96</value>
-  </data>
-  <data name="&gt;&gt;Status.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="WarningInfoLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>501, 15</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 66</value>
-  </data>
-  <data name="&gt;&gt;WarningInfoLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainButton.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;HideInTrayCB.Name" xml:space="preserve">
-    <value>HideInTrayCB</value>
-  </data>
-  <data name="YTStrategiesCountLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="YTStrategiesCountLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>489, 23</value>
-  </data>
-  <data name="StrategiesInfoGB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>501, 152</value>
-  </data>
-  <data name="&gt;&gt;StrategiesInfoGB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UserServicesDomainsCountLabel.Parent" xml:space="preserve">
-    <value>StatusGB</value>
-  </data>
-  <data name="&gt;&gt;LocalizationLabel.Name" xml:space="preserve">
-    <value>LocalizationLabel</value>
-  </data>
-  <data name="Status.Size" type="System.Drawing.Size, System.Drawing">
-    <value>525, 22</value>
-  </data>
-  <data name="&gt;&gt;DiscordDomainsCountLabel.Parent" xml:space="preserve">
-    <value>StatusGB</value>
-  </data>
-  <data name="UserServicesDomainsCountLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 66</value>
-  </data>
-  <data name="&gt;&gt;WindivertServiceCB.Name" xml:space="preserve">
-    <value>WindivertServiceCB</value>
-  </data>
-  <data name="ChangeYTStrategyButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="YouTubeDomainsCountLabel.Text" xml:space="preserve">
-    <value>Число доменов YouTube: ...</value>
-  </data>
-  <data name="&gt;&gt;BundleStatusLabel.ZOrder" xml:space="preserve">
+  <data name="UserDomainsCountLabel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="Status.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="LocalizationLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;HideInTrayCB.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;toolStripStatusLabel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="WindivertServiceCB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 34</value>
-  </data>
-  <data name="&gt;&gt;UserDomainsCountLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SoftwareVersionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 17</value>
-  </data>
-  <data name="&gt;&gt;MainButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SoftwareAboutLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="BundleStatusLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 18</value>
-  </data>
-  <data name="BundleStatusLabel.Text" xml:space="preserve">
-    <value>Состояние Zapret: ...</value>
-  </data>
-  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 17</value>
-  </data>
-  <data name="&gt;&gt;ChangeDSStrategyButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="LocalizationLabel.AutoSize" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;SoftwareVersionLabel.Name" xml:space="preserve">
-    <value>SoftwareVersionLabel</value>
-  </data>
-  <data name="StrategiesUpdateDateLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 6pt</value>
-  </data>
-  <data name="&gt;&gt;UpdateStrategiesButton.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;StatusGB.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="ChangeUserServicesStrategiesButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>114, 110</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>525, 409</value>
-  </data>
-  <data name="&gt;&gt;SoftwareVersionLabel.Parent" xml:space="preserve">
-    <value>InfoGB</value>
-  </data>
-  <data name="UpdateStrategiesButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 105</value>
-  </data>
-  <data name="StrategiesInfoGB.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;StrategiesUpdateDateLabel.Parent" xml:space="preserve">
-    <value>StrategiesInfoGB</value>
-  </data>
-  <data name="UserServicesDomainsCountLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;SoftwareAboutLabel.Name" xml:space="preserve">
-    <value>SoftwareAboutLabel</value>
-  </data>
-  <data name="HideInTrayCB.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="DiscordDomainsCountLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>StrategiesInfoGB</value>
-  </data>
-  <data name="&gt;&gt;LocalizationLabel.Parent" xml:space="preserve">
-    <value>InfoGB</value>
-  </data>
-  <data name="&gt;&gt;ReinstallZapretLinkLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;DiscordDomainsCountLabel.Name" xml:space="preserve">
     <value>DiscordDomainsCountLabel</value>
   </data>
-  <data name="&gt;&gt;InfoGB.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="ReinstallZapretLinkLabel.Text" xml:space="preserve">
+    <value>Переустановить/Обновить Zapret</value>
   </data>
-  <data name="AdditionalOptionsGB.Text" xml:space="preserve">
-    <value>Доп. параметры:</value>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
   </data>
-  <data name="&gt;&gt;YTStrategiesCountLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="SoftwareAboutLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 6.5pt</value>
   </data>
-  <data name="&gt;&gt;StrategiesUpdateDateLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;UserDomainsCountLabel.Parent" xml:space="preserve">
+    <value>StatusGB</value>
   </data>
-  <data name="DiscordDomainsCountLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="Status.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 387</value>
   </data>
-  <data name="ChangeYTStrategyButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;SoftwareAboutLabel.Name" xml:space="preserve">
+    <value>SoftwareAboutLabel</value>
   </data>
-  <data name="YouTubeDomainsCountLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 50</value>
+  <data name="SoftwareVersionLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 17</value>
+  </data>
+  <data name="StrategiesInfoGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 152</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>DS &amp; YT unlock launcher (огромная благодарность bol-van &lt;3)</value>
   </data>
-  <data name="&gt;&gt;StrategiesUpdateDateLabel.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;SoftwareVersionLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;UpdateHostsAndStrategiesButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="DSStrategiesLabel.Text" xml:space="preserve">
+    <value>Число доступных стратегий Discord: ... | Выбранная стратегия: ...</value>
   </data>
-  <data name="YouTubeDomainsCountLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;ReinstallZapretLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>ru</value>
+  <data name="StrategiesUpdateDateLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="YTStrategiesCountLabel.Text" xml:space="preserve">
+    <value>Число доступных стратегий YouTube: ... | Выбранная стратегия: ...</value>
+  </data>
+  <data name="&gt;&gt;YTStrategiesCountLabel.Name" xml:space="preserve">
+    <value>YTStrategiesCountLabel</value>
+  </data>
+  <data name="&gt;&gt;LocalizationLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="Status.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="Status.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Status.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+    <value>ru</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>81</value>
-  </metadata>
-  <metadata name="Status.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
   </metadata>
 </root>

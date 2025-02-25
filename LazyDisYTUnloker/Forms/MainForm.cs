@@ -9,7 +9,7 @@ namespace LazyDisYTUnlocker
         private bool _currentlyWorking = false;
         private NotifyIcon? _notifIcon { get; set; } = null;
         private InfoForm? _infoForm { get; set; }
-        private DomainsAppenderForm _userServicesDomainsForm { get; set; }
+        private DomainsAppenderForm? _userServicesDomainsForm { get; set; }
 
         public MainForm()
         {
@@ -17,16 +17,16 @@ namespace LazyDisYTUnlocker
             (FilesAndDirectories.Form, Strategies.Form, ProcessManager.Form, Version.Form) = (this, this, this, this);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
             CheckFilesAndSetup().ConfigureAwait(false);
         }
 
-        private void MainButton_Click(object sender, EventArgs e)
+        private async void MainButton_Click(object sender, EventArgs e)
         {
             if (!_currentlyWorking)
             {
-                if (ProcessManager.RunStrategies())
+                if (await ProcessManager.RunStrategies())
                 {
                     _currentlyWorking = true;
                     ChangeStatus(StringsLocalization.MainStatusEureekaWorking);
@@ -70,15 +70,44 @@ namespace LazyDisYTUnlocker
 
         private async void UpdateStrategiesButton_Click(object sender, EventArgs e)
         {
-            Task.Run(async () =>
+            Strategies.UpdateStrategies().ConfigureAwait(false);
+        }
+
+        private async void ReinstallZapretLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => UpdateZapret().ConfigureAwait(false);
+
+        private async Task CheckFilesAndSetup()
+        {
+            BeginInvoke(() =>
             {
-                ChangeStatus(StringsLocalization.StrategiesUpdate);
-                BeginInvoke(() =>
+                HideInTrayCB.Checked = ConfigManager.CurrentConfig.HideInTrayOnMinimize;
+                WindivertServiceCB.Checked = ConfigManager.CurrentConfig.KillWindivertOnStop;
+            });
+            if (await Version.IsNewVersionAvailable())
+                BeginInvoke(() => SoftwareVersionLabel.Font = new Font(SoftwareVersionLabel.Font, FontStyle.Underline));
+            if (!FilesAndDirectories.IsZapretBundleDirectoriesLoaded())
+            {
+                if (MessageBox.Show(StringsLocalization.ZapretLoadMessageText, StringsLocalization.ZapretLoadMessageCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MainButton.Enabled = false;
-                    UpdateHostsAndStrategiesButton.Enabled = false;
-                });
-                if (await Strategies.GetStrategies(true))
+                    ChangeStatus(StringsLocalization.DownloadFilesAndStrategiesStatus);
+                    if (await FilesAndDirectories.DownloadUnpackAndSetupZapret() && FilesAndDirectories.IsZapretBundleDirectoriesLoaded() && await Strategies.GetStrategies(true))
+                    {
+                        ChangeZapretBundleStatus(StringsLocalization.ZapretReadyToWorkStatus);
+                        BeginInvoke(() =>
+                        {
+                            MainButton.Enabled = true;
+                            UpdateHostsAndStrategiesButton.Enabled = true;
+                        });
+                        ChangeStatus(StringsLocalization.MainStatusReadyToWork);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(StringsLocalization.UserZapretInfoText, StringsLocalization.UserZapretInfoCaption);
+                }
+            }
+            else
+            {
+                if (await Strategies.GetStrategies(false))
                 {
                     BeginInvoke(() =>
                     {
@@ -87,97 +116,43 @@ namespace LazyDisYTUnlocker
                     });
                     ChangeStatus(StringsLocalization.MainStatusReadyToWork);
                 }
-            });
-        }
-
-        private void ReinstallZapretLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => UpdateZapret().ConfigureAwait(false);
-
-        private async Task CheckFilesAndSetup()
-        {
-            Task.Run(async () =>
-            {
-                BeginInvoke(() =>
-                {
-                    HideInTrayCB.Checked = ConfigManager.CurrentConfig.HideInTrayOnMinimize;
-                    WindivertServiceCB.Checked = ConfigManager.CurrentConfig.KillWindivertOnStop;
-                });
-                if (await Version.IsNewVersionAvailable())
-                    BeginInvoke(() => SoftwareVersionLabel.Font = new Font(SoftwareVersionLabel.Font, FontStyle.Underline));
-                if (!FilesAndDirectories.IsZapretBundleDirectoriesLoaded())
-                {
-                    if (MessageBox.Show(StringsLocalization.ZapretLoadMessageText, StringsLocalization.ZapretLoadMessageCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        ChangeStatus(StringsLocalization.DownloadFilesAndStrategiesStatus);
-                        if (await FilesAndDirectories.DownloadUnpackAndSetupZapret() && FilesAndDirectories.IsZapretBundleDirectoriesLoaded() && await Strategies.GetStrategies(true))
-                        {
-                            ChangeZapretBundleStatus(StringsLocalization.ZapretReadyToWorkStatus);
-                            BeginInvoke(() =>
-                            {
-                                MainButton.Enabled = true;
-                                UpdateHostsAndStrategiesButton.Enabled = true;
-                            });
-                            ChangeStatus(StringsLocalization.MainStatusReadyToWork);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show(StringsLocalization.UserZapretInfoText, StringsLocalization.UserZapretInfoCaption);
-                    }
-                }
-                else
-                {
-                    if (await Strategies.GetStrategies(false))
-                    {
-                        BeginInvoke(() =>
-                        {
-                            MainButton.Enabled = true;
-                            UpdateHostsAndStrategiesButton.Enabled = true;
-                        });
-                        ChangeStatus(StringsLocalization.MainStatusReadyToWork);
-                    }
-                }
-            });
+            }
         }
 
         private async Task UpdateZapret()
         {
-            Task.Run(async () =>
+            try
             {
-                try
+                if (_currentlyWorking)
+                    MainButton.PerformClick();
+                ProcessManager.KillWinDivertService();
+                BeginInvoke(() =>
                 {
-                    if (_currentlyWorking)
-                        MainButton.PerformClick();
-                    ProcessManager.KillWinDivertService();
+                    ReinstallZapretLinkLabel.Enabled = false;
+                    MainButton.Enabled = false;
+                });
+                ChangeStatus(StringsLocalization.ZapretUpdateStatus);
+                if (await FilesAndDirectories.DownloadUnpackAndSetupZapret(zapretUpdateOrReinstall: true) && FilesAndDirectories.IsZapretBundleDirectoriesLoaded())
+                {
                     BeginInvoke(() =>
                     {
-                        ReinstallZapretLinkLabel.Enabled = false;
-                        MainButton.Enabled = false;
+                        MainButton.Enabled = true;
+                        UpdateHostsAndStrategiesButton.Enabled = true;
+                        ReinstallZapretLinkLabel.Enabled = true;
                     });
-                    if (Directory.Exists(FilesAndDirectories.MainZapretDirectory))
-                        Directory.Delete(FilesAndDirectories.MainZapretDirectory, true);
-                    ChangeStatus(StringsLocalization.ZapretUpdateStatus);
-                    if (await FilesAndDirectories.DownloadUnpackAndSetupZapret() && FilesAndDirectories.IsZapretBundleDirectoriesLoaded())
-                    {
-                        BeginInvoke(() =>
-                        {
-                            MainButton.Enabled = true;
-                            UpdateHostsAndStrategiesButton.Enabled = true;
-                            ReinstallZapretLinkLabel.Enabled = true;
-                        });
-                        ChangeStatus(StringsLocalization.MainStatusReadyToWork);
-                        ChangeZapretBundleStatus(StringsLocalization.ZapretReadyToWorkStatus);
-                    }
-                    else
-                    {
-                        ChangeStatus(StringsLocalization.MainStatusSomethingWentWrong);
-                        ChangeZapretBundleStatus(StringsLocalization.ZapretUnsuccessfullDownloadAndPrepare);
-                    }
+                    ChangeStatus(StringsLocalization.MainStatusReadyToWork);
+                    ChangeZapretBundleStatus(StringsLocalization.ZapretReadyToWorkStatus);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(StringsLocalization.ZapretUpdateErrorMessageText.Replace("%error%", ex.Message), StringsLocalization.ZapretUpdateErrorMessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ChangeStatus(StringsLocalization.MainStatusSomethingWentWrong);
+                    ChangeZapretBundleStatus(StringsLocalization.ZapretUnsuccessfullDownloadAndPrepare);
                 }
-            });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(StringsLocalization.ZapretUpdateErrorMessageText.Replace("%error%", ex.Message), StringsLocalization.ZapretUpdateErrorMessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void HideInTray()
@@ -198,6 +173,7 @@ namespace LazyDisYTUnlocker
             _notifIcon.Visible = false;
             ShowInTaskbar = true;
             Show();
+            WindowState = FormWindowState.Normal;
         }
 
         private void SoftwareVersionLabel_Click(object sender, EventArgs e)
@@ -271,7 +247,5 @@ namespace LazyDisYTUnlocker
         private void AddSymbolToLabel(object sender) => (sender as Label).Text = "⚙️" + (sender as Label).Text;
 
         private void RemoveSymbolFromLabel(object sender) => (sender as Label).Text = (sender as Label).Text.Replace("⚙️", "");
-
-        
     }
 }

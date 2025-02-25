@@ -245,4 +245,10 @@ Error: %error%</value>
   <data name="USSavingMessageCaption" xml:space="preserve">
     <value>Your services changed.</value>
   </data>
+  <data name="ZapretMovingStatus" xml:space="preserve">
+    <value>Bringing the "Zapret" files to a new look...</value>
+  </data>
+  <data name="ZapretProcessesClosed" xml:space="preserve">
+    <value>"Zapret" processes were stopped by external programs for some reason,or perhaps due to errors in strategies.</value>
+  </data>
 </root>

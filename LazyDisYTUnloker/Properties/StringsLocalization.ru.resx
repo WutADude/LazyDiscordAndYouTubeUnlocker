@@ -245,4 +245,10 @@
   <data name="USSavingMessageCaption" xml:space="preserve">
     <value>Ваши сервисы изменены.</value>
   </data>
+  <data name="ZapretMovingStatus" xml:space="preserve">
+    <value>Привожу файлы "Zapret" к новому виду...</value>
+  </data>
+  <data name="ZapretProcessesClosed" xml:space="preserve">
+    <value>Процессы "Zapret" по какой-то причине были остановлены внешними программами, или возможно из-за ошибок в стратегиях.</value>
+  </data>
 </root>

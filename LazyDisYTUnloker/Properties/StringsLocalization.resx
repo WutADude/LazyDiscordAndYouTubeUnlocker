@@ -242,4 +242,13 @@
   <data name="USSavingMessageText" xml:space="preserve">
     <value>Изменения ваших сервисов успешно сохранены!</value>
   </data>
+  <data name="USSavingMessageCaption" xml:space="preserve">
+    <value>Ваши сервисы изменены.</value>
+  </data>
+  <data name="ZapretMovingStatus" xml:space="preserve">
+    <value>Привожу файлы "Zapret" к новому виду...</value>
+  </data>
+  <data name="ZapretProcessesClosed" xml:space="preserve">
+    <value>Процессы "Zapret" по какой-то причине были остановлены.</value>
+  </data>
 </root>
