@@ -66,6 +66,7 @@ namespace LazyDisYTUnlocker
                 var data = await client.DownloadDataTaskAsync(new Uri("https://github.com/bol-van/zapret-win-bundle/archive/refs/heads/master.zip"));
                 Form.ChangeZapretBundleStatus(StringsLocalization.ZapretUnpackingAndPreparing);
                 UnzipZapret(data);
+                Form.ChangeZapretBundleStatus(StringsLocalization.ZapretReadyToWorkStatus);
                 return true;
             }
             catch (FileNotFoundException ex)
@@ -99,6 +100,11 @@ namespace LazyDisYTUnlocker
                 Directory.CreateDirectory(StrategiesDirectory);
             if (File.Exists($"{OldWinwsPath}\\list-user_services.txt"))
                 File.Move($"{OldWinwsPath}\\list-user_services.txt", $"{UserServicesHostsFilePath}");
+            foreach (var file in new string[3]{"dsstrat.txt","ytstrat.txt","usstrat.txt"})
+            {
+                if (File.Exists(file))
+                    File.Delete(file);
+            }    
             if (Directory.Exists(OldZapretDirectory))
                 Directory.Delete(OldZapretDirectory, true);
             await DownloadUnpackAndSetupZapret();
