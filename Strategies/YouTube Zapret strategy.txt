@@ -1,5 +1,7 @@
 --wf-tcp=80,443 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=fake,split2 --dpi-desync-split-pos=1 --dpi-desync-fooling=md5sig,badsum --dpi-desync-repeats=20 --dpi-desync-any-protocol --dpi-desync-cutoff=d4 --dpi-desync-fake-tls="[bins]\tls_clienthello_www_google_com.bin"
 >NEW_STRATEGY
---wf-tcp=443,444 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=fake,split --dpi-desync-repeats=6 --dpi-desync-fake-tls="[bins]\tls_clienthello_www_google_com.bin" --dpi-desync-fooling=badseq
+--wf-tcp=80,443 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=fake,split --dpi-desync-repeats=6 --dpi-desync-fake-tls="[bins]\tls_clienthello_www_google_com.bin" --dpi-desync-fooling=badseq
 >NEW_STRATEGY
---wf-tcp=443,444 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=fake,split2 --dpi-desync-split-pos=1 --dpi-desync-repeats=6 --dpi-desync-fake-tls="[bins]\tls_clienthello_www_google_com.bin" --dpi-desync-fooling=badseq,md5sig --dpi-desync-autottl=5
+--wf-tcp=80,443 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=fake,split2 --dpi-desync-split-pos=1 --dpi-desync-repeats=6 --dpi-desync-fake-tls="[bins]\tls_clienthello_www_google_com.bin" --dpi-desync-fooling=badseq,md5sig --dpi-desync-autottl=5
+>NEW_STRATEGY
+--wf-tcp=80,443 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=fake,multidisorder --dpi-desync-fooling=badsum --wssize 1:6 --dpi-desync-split-pos=1
