@@ -3,5 +3,3 @@
 --wf-tcp=80,443 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=fake,split --dpi-desync-repeats=6 --dpi-desync-fake-tls="[bins]\tls_clienthello_www_google_com.bin" --dpi-desync-fooling=badseq
 >NEW_STRATEGY
 --wf-tcp=80,443 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=fake,split2 --dpi-desync-split-pos=1 --dpi-desync-repeats=6 --dpi-desync-fake-tls="[bins]\tls_clienthello_www_google_com.bin" --dpi-desync-fooling=badseq,md5sig --dpi-desync-autottl=5
->NEW_STRATEGY
---wf-tcp=80,443 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=fake,multidisorder --dpi-desync-fooling=badsum --wssize 1:6 --dpi-desync-split-pos=1
