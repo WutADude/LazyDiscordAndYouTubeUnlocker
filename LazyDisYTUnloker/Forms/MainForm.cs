@@ -6,15 +6,29 @@ namespace LazyDisYTUnlocker
 {
     public partial class MainForm : Form
     {
-        private bool _currentlyWorking = false;
+        internal bool CurrentlyWorking = false;
         private NotifyIcon? _notifIcon { get; set; } = null;
         private InfoForm? _infoForm { get; set; }
         private DomainsAppenderForm? _userServicesDomainsForm { get; set; }
+
+        ContextMenuStrip _contextMenu = new ContextMenuStrip();
+        private ToolStripButton _miniMainButton { get; set; } = null!;
+        private ToolStripButton _exitButton { get; set; } = null!;
 
         public MainForm()
         {
             InitializeComponent();
             (FilesAndDirectories.Form, Strategies.Form, ProcessManager.Form, Version.Form) = (this, this, this, this);
+            _miniMainButton = new ToolStripButton((CurrentlyWorking ? StringsLocalization.MainButtonStopText : StringsLocalization.MainButtonStartText),
+                null,
+                onClick: (s, e) =>
+                {
+                    MainButton_Click(s, e);
+                    _miniMainButton.Text = CurrentlyWorking ? StringsLocalization.MainButtonStopText : StringsLocalization.MainButtonStartText;
+                });
+            _exitButton = new ToolStripButton("EXIT", null, onClick: (_, _) => Close());
+            _contextMenu.Items.Add(_miniMainButton);
+            _contextMenu.Items.Add(_exitButton);
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
@@ -22,41 +36,35 @@ namespace LazyDisYTUnlocker
             CheckFilesAndSetup().ConfigureAwait(false);
         }
 
-        private async void MainButton_Click(object sender, EventArgs e)
+        private void MainButton_Click(object sender, EventArgs e)
         {
-            if (!_currentlyWorking)
+            if (!CurrentlyWorking)
             {
-                if (await ProcessManager.RunStrategies())
+                if (ProcessManager.RunStrategies())
                 {
-                    _currentlyWorking = true;
+                    CurrentlyWorking = true;
                     ChangeStatus(StringsLocalization.MainStatusEureekaWorking);
-                    MainButton.Text = StringsLocalization.MainButtonStopText;
-                    ChangeYTStrategyButton.Enabled = false;
-                    ChangeDSStrategyButton.Enabled = false;
-                    ChangeUserServicesStrategiesButton.Enabled = false;
-                    UpdateHostsAndStrategiesButton.Enabled = false;
+                    MainButton.Text = _miniMainButton.Text = StringsLocalization.MainButtonStopText;
+                    ChangeYTStrategyButton.Enabled = ChangeDSStrategyButton.Enabled = ChangeUserServicesStrategiesButton.Enabled = UpdateHostsAndStrategiesButton.Enabled = false;
                 }
 
             }
             else
             {
                 ProcessManager.StopStrategies();
-                _currentlyWorking = false;
+                CurrentlyWorking = false;
                 ChangeStatus(StringsLocalization.MainStatusReadyToWork);
-                MainButton.Text = StringsLocalization.MainButtonStartText;
-                if (Strategies.YTStrategiesCount > 1)
-                    ChangeYTStrategyButton.Enabled = true;
-                if (Strategies.DSStrategiesCount > 1)
-                    ChangeDSStrategyButton.Enabled = true;
-                if (Strategies.USStrategiesCount > 1)
-                    ChangeUserServicesStrategiesButton.Enabled = true;
+                MainButton.Text = _miniMainButton.Text = StringsLocalization.MainButtonStartText;
+                ChangeYTStrategyButton.Enabled = Strategies.YTStrategiesCount > 1;
+                ChangeDSStrategyButton.Enabled = Strategies.DSStrategiesCount > 1;
+                ChangeUserServicesStrategiesButton.Enabled = Strategies.USStrategiesCount > 1;
                 UpdateHostsAndStrategiesButton.Enabled = true;
             }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_currentlyWorking)
+            if (CurrentlyWorking)
                 ProcessManager.StopStrategies();
         }
 
@@ -123,7 +131,7 @@ namespace LazyDisYTUnlocker
         {
             try
             {
-                if (_currentlyWorking)
+                if (CurrentlyWorking)
                     MainButton.PerformClick();
                 ProcessManager.KillWinDivertService();
                 BeginInvoke(() =>
@@ -159,11 +167,12 @@ namespace LazyDisYTUnlocker
         {
             _notifIcon ??= new NotifyIcon();
             _notifIcon.BalloonTipText = StringsLocalization.NotificonMessage;
-            _notifIcon.Text = "DS and YT unlock launcher";
+            _notifIcon.Text = "LazyUnlocker";
             _notifIcon.Icon = Icon;
             _notifIcon.Visible = true;
             _notifIcon.ShowBalloonTip(500);
             _notifIcon.DoubleClick += NotifIcon_DoubleClick;
+            _notifIcon.ContextMenuStrip = _contextMenu;
             ShowInTaskbar = false;
             Hide();
         }
@@ -209,7 +218,7 @@ namespace LazyDisYTUnlocker
         {
             ConfigManager.CurrentConfig.ChoosenCulture = LocalizationLabel.Text;
             ConfigManager.SaveConfig();
-            if (_currentlyWorking)
+            if (CurrentlyWorking)
                 MainButton.PerformClick();
             Application.Restart();
         }

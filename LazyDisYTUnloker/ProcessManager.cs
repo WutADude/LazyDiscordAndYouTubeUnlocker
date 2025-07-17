@@ -1,6 +1,5 @@
 ﻿using LazyDisYTUnlocker.Properties;
 using System.Diagnostics;
-using System.Text.RegularExpressions;
 
 namespace LazyDisYTUnlocker
 {
@@ -8,27 +7,23 @@ namespace LazyDisYTUnlocker
     {
         internal static MainForm Form { get; set; } = null!;
 
-        private static List<Process?> _processList = new List<Process?>();
+        private static Process? _winws { get; set; }
 
-        private static readonly Dictionary<string, string> _pathsReplace = new Dictionary<string, string>()
-        {
-            { "[zapret]", FilesAndDirectories.NewZapretDirectory },
-            { "[bins]", Path.GetFullPath(FilesAndDirectories.BinarysDirPath) },
-            { "[hosts]", Path.GetFullPath(FilesAndDirectories.HostsDirectory) },
-            { "[winwsdir]", FilesAndDirectories.NewZapretDirectory }
-        };
-
-        private static readonly Regex _replacementRegex = new Regex(string.Join('|', _pathsReplace.Keys.Select(Regex.Escape)));
-
-        internal static async Task<bool> RunStrategies()
+        internal static bool RunStrategies()
         {
             try
             {
-                _processList.Add(Process.Start(new ProcessStartInfo() { FileName = FilesAndDirectories.WinwsPath, Arguments = _replacementRegex.Replace(Strategies.DiscordStrategy, match => _pathsReplace[match.Value]), CreateNoWindow = true, UseShellExecute = false }));
-                _processList.Add(Process.Start(new ProcessStartInfo() { FileName = FilesAndDirectories.WinwsPath, Arguments = _replacementRegex.Replace(Strategies.YouTubeStrategy, match => _pathsReplace[match.Value]), CreateNoWindow = true, UseShellExecute = false }));
-                if (FilesAndDirectories.GetUserServicesDomainsLines.Length > 0)
-                    _processList.Add(Process.Start(new ProcessStartInfo() { FileName = FilesAndDirectories.WinwsPath, Arguments = _replacementRegex.Replace(Strategies.UserServicesStrategy, match => _pathsReplace[match.Value]), CreateNoWindow = true, UseShellExecute = false }));
-                StartProcessMonitoring().ConfigureAwait(false);
+                string finStrategy = Strategies.FinalStrategy;
+                _winws = new Process();
+                _winws.StartInfo = new ProcessStartInfo() {
+                    FileName = FilesAndDirectories.WinwsPath,
+                    Arguments = finStrategy,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+                _winws.Exited += P_Exited;
+                _winws.EnableRaisingEvents = true;
+                _winws.Start();
                 return true;
             }
             catch (Exception ex)
@@ -38,10 +33,21 @@ namespace LazyDisYTUnlocker
             }
         }
 
+        private static void P_Exited(object? sender, EventArgs e)
+        {
+            if (Form.CurrentlyWorking)
+                MessageBox.Show(StringsLocalization.ZapretProcessesClosed);
+            StopStrategies();
+        }
+
         internal static void StopStrategies()
         {
-            _processList.ForEach(p => p?.Kill());
-            _processList.Clear();
+            try
+            {
+                _winws?.Kill();
+                _winws?.Dispose();
+            }
+            catch { }
             if (Form.WindivertServiceCB.Checked)
                 KillWinDivertService();
         }
@@ -55,21 +61,6 @@ namespace LazyDisYTUnlocker
             catch (Exception ex)
             {
                 MessageBox.Show(StringsLocalization.WindivertKillErrorText.Replace("%error%", ex.Message), StringsLocalization.WindivertKillErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private static async Task StartProcessMonitoring()
-        {
-            while (_processList.Count > 0)
-            {
-                await Task.Delay(TimeSpan.FromMinutes(2));
-                if (_processList.Any(p => p.HasExited))
-                {
-                    StopStrategies();
-                    Form.BeginInvoke(Form.MainButton.PerformClick);
-                    MessageBox.Show(StringsLocalization.ZapretProcessesClosed, "Error O_o", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                }
             }
         }
     }

@@ -9,34 +9,50 @@ namespace LazyDisYTUnlocker
     {
         internal static MainForm Form { get; set; } = null!;
 
-        internal const string OldZapretDirectory = "zapret-win-bundle-master";
-        internal const string OldWinwsDirectory = "zapret-winws";
-        internal static string OldWinwsPath => $"{OldZapretDirectory}\\{OldWinwsDirectory}";
+        internal const string WinwsPath = $"{_zapretDirectory}\\winws.exe";
 
-        internal const string NewZapretDirectory = "Zapret";
-        internal const string StrategiesDirectory = $"Strategies";
-        internal const string HostsDirectory = $"Hosts";
-        internal const string BinarysDirPath = $"{NewZapretDirectory}\\Bins";
-        internal const string WinwsPath = $"{NewZapretDirectory}\\winws.exe";
-        
+        private const string _oldZapretDirectory = "zapret-win-bundle-master";
+        private const string _oldWinwsDirectory = "zapret-winws";
+        private static string _oldWinwsPath => $"{_oldZapretDirectory}\\{_oldWinwsDirectory}";
+        private const string _zapretDirectory = "Zapret";
+        private const string _strategiesDirectory = "Strategies";
+        private const string _hostsDirectory = "Hosts";
+        private const string _binarysDirPath = $"{_zapretDirectory}\\Bins";
 
-        internal static string YouTubeHostsFilePath { get => $"{HostsDirectory}\\YouTubeList.txt"; }
-        internal static string DiscordHostsFilePath { get => $"{HostsDirectory}\\DiscordList.txt"; }
-        internal static string UserServicesHostsFilePath { get => $"{HostsDirectory}\\UserServicesList.txt"; }
+        public static readonly Dictionary<string, string> PathsReplace = new Dictionary<string, string>()
+        {
+            { "[zapret]", _zapretDirectory },
+            { "[bins]", Path.GetFullPath(_binarysDirPath) },
+            { "[hosts]", Path.GetFullPath(_hostsDirectory) },
+            { "[winwsdir]", _zapretDirectory }
+        };
 
-        internal const string DiscordStrategiesPath = $"{StrategiesDirectory}\\DiscordStrats.txt";
-        internal const string YouTubeStrategiesPath = $"{StrategiesDirectory}\\YouTubeStrats.txt";
-        internal const string UserServicesStrategiesPAth = $"{StrategiesDirectory}\\UserServicesStrats.txt";
+        internal static Dictionary<string, string> HostsPaths = new Dictionary<string, string>()
+        {
+            { "YouTubeHostsPath", $"{_hostsDirectory}\\YouTubeList.txt" },
+            { "DiscordHostsPath", $"{_hostsDirectory}\\DiscordList.txt" },
+            { "UserServicesHostsPath", $"{_hostsDirectory}\\UserServicesList.txt" }
+        };
+
+        internal static Dictionary<string, string> StrategiesPaths = new Dictionary<string, string>()
+        {
+            { "YouTubeStrategiesPath", $"{_strategiesDirectory}\\YouTubeStrats.txt" },
+            { "DiscordStrategiesPath", $"{_strategiesDirectory}\\DiscordStrats.txt" },
+            { "UserServicesStrategiesPath", $"{_strategiesDirectory}\\UserServicesStrats.txt" }
+        };
+
 
         private static readonly List<string> _zapretFiles = new List<string>() { "winws.exe", "WinDivert.dll", "WinDivert64.sys", "cygwin1.dll" };
 
         internal static bool IsZapretBundleDirectoriesLoaded()
         {
-            if (Directory.Exists(OldZapretDirectory))
+            if (Directory.Exists(_oldZapretDirectory))
                 ReinstallOldZapret();
             if (Directory.Exists("Zapret"))
             {
                 Form.ChangeZapretBundleStatus(StringsLocalization.ZapretReadyToWorkStatus);
+                SetupStrategyFilesWathcer();
+                SetupHostsFilesWatcher();
                 return true;
             }
             Form.ChangeZapretBundleStatus(StringsLocalization.ZapretNotReadyToWorkStatus);
@@ -49,18 +65,13 @@ namespace LazyDisYTUnlocker
             {
                 if (zapretUpdateOrReinstall)
                 {
-                    if (Directory.Exists(NewZapretDirectory))
-                        Directory.Delete(NewZapretDirectory, true);
+                    if (Directory.Exists(_zapretDirectory))
+                        Directory.Delete(_zapretDirectory, true);
                     Process.Start(new ProcessStartInfo() { FileName = "cmd.exe", Arguments = "/C sc delete Windivert", CreateNoWindow = true, UseShellExecute = false });
                 }
-                if (!Directory.Exists(NewZapretDirectory))
-                    Directory.CreateDirectory(NewZapretDirectory);
-                if (!Directory.Exists(BinarysDirPath))
-                    Directory.CreateDirectory(BinarysDirPath);
-                if (!Directory.Exists(HostsDirectory))
-                    Directory.CreateDirectory(HostsDirectory);
-                if (!Directory.Exists(StrategiesDirectory))
-                    Directory.CreateDirectory(StrategiesDirectory);
+                foreach (var dir in new string[] {_zapretDirectory, _binarysDirPath, _hostsDirectory, _strategiesDirectory })
+                    if (!Directory.Exists(dir))
+                        Directory.CreateDirectory(dir);
                 using WebClient client = new WebClient();
                 client.DownloadProgressChanged += (s, e) => Form.ChangeZapretBundleStatus(StringsLocalization.ZapretDownloadingProgress.Replace("%progress%", e.ProgressPercentage.ToString()));
                 var data = await client.DownloadDataTaskAsync(new Uri("https://github.com/bol-van/zapret-win-bundle/archive/refs/heads/master.zip"));
@@ -83,30 +94,32 @@ namespace LazyDisYTUnlocker
 
         internal static void RewriteUserServicesHostsFile(IEnumerable<string> lines)
         {
-            File.WriteAllLines(UserServicesHostsFilePath, lines);
-            Form.ChangeUserServicesDomainsCountLabel(File.ReadAllLines(UserServicesHostsFilePath).Length);
+            File.WriteAllLines(HostsPaths["UserServicesHostsPath"], lines);
+            Form.ChangeUserServicesDomainsCountLabel(GetLinesCount(HostsPaths["UserServicesHostsPath"]));
+        }
+
+        internal static string GetStrategy(string fullPath, int strategyIndex)
+        {
+            using (FileStream fileStream = new FileStream(fullPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (StreamReader streamReader = new StreamReader(fileStream))
+                return streamReader.ReadToEnd().Trim().Split(ConfigManager.CurrentConfig.StrategiesSplitString)[strategyIndex];
         }
 
         private static async void ReinstallOldZapret()
         {
             Form.ChangeZapretBundleStatus(StringsLocalization.ZapretMovingStatus);
-            if (!Directory.Exists(NewZapretDirectory))
-                Directory.CreateDirectory(NewZapretDirectory);
-            if (!Directory.Exists(BinarysDirPath))
-                Directory.CreateDirectory(BinarysDirPath);
-            if (!Directory.Exists(HostsDirectory))
-                Directory.CreateDirectory(HostsDirectory);
-            if (!Directory.Exists(StrategiesDirectory))
-                Directory.CreateDirectory(StrategiesDirectory);
-            if (File.Exists($"{OldWinwsPath}\\list-user_services.txt"))
-                File.Move($"{OldWinwsPath}\\list-user_services.txt", $"{UserServicesHostsFilePath}");
+            foreach (var dir in new string[] { _zapretDirectory, _binarysDirPath, _hostsDirectory, _strategiesDirectory })
+                if (!Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
+            if (File.Exists($"{_oldWinwsPath}\\list-user_services.txt"))
+                File.Move($"{_oldWinwsPath}\\list-user_services.txt", HostsPaths["UserServicesHostsPath"]);
             foreach (var file in new string[3]{"dsstrat.txt","ytstrat.txt","usstrat.txt"})
             {
                 if (File.Exists(file))
                     File.Delete(file);
             }    
-            if (Directory.Exists(OldZapretDirectory))
-                Directory.Delete(OldZapretDirectory, true);
+            if (Directory.Exists(_oldZapretDirectory))
+                Directory.Delete(_oldZapretDirectory, true);
             await DownloadUnpackAndSetupZapret();
         }
 
@@ -121,7 +134,7 @@ namespace LazyDisYTUnlocker
                     ZipArchiveEntry? zapretEntry = entriesList.Where(e => e.Name.Equals(file, StringComparison.OrdinalIgnoreCase) && e.FullName.Contains("winws")).FirstOrDefault();
                     if (zapretEntry is null)
                         throw new FileNotFoundException($"{file} not found in archive!");
-                    zapretEntry.ExtractToFile($"{NewZapretDirectory}\\{file}");
+                    zapretEntry.ExtractToFile($"{_zapretDirectory}\\{file}");
                 }
                 List<ZipArchiveEntry> bins = entriesList.Where(e =>
                 {
@@ -131,14 +144,78 @@ namespace LazyDisYTUnlocker
                     throw new FileNotFoundException("Fake Quic or Tls or DTls files not found in archive!");
                 foreach (var entry in bins)
                 {
-                    if (!File.Exists($"{BinarysDirPath}\\{entry.Name}"))
-                        entry.ExtractToFile($"{BinarysDirPath}\\{entry.Name}");
+                    if (!File.Exists($"{_binarysDirPath}\\{entry.Name}"))
+                        entry.ExtractToFile($"{_binarysDirPath}\\{entry.Name}");
                 }
             }
         }
 
-        internal static bool StrategiesAndHostsFilesExist { get => File.Exists(DiscordStrategiesPath) && File.Exists(YouTubeStrategiesPath) && File.Exists(YouTubeHostsFilePath) && File.Exists(DiscordHostsFilePath) && File.Exists(UserServicesHostsFilePath); }
+        private static void SetupHostsFilesWatcher()
+        {
+            FileSystemWatcher fileWatcher = new FileSystemWatcher()
+            {
+                Path = _hostsDirectory,
+                Filter = "*.txt"
+            };
+            fileWatcher.NotifyFilter = NotifyFilters.LastWrite;
+            fileWatcher.Changed += HostsFilesChanged;
+            fileWatcher.EnableRaisingEvents = true;
+        }
 
-        internal static string[] GetUserServicesDomainsLines { get => File.ReadAllLines(UserServicesHostsFilePath); }
+        private static void SetupStrategyFilesWathcer()
+        {
+            FileSystemWatcher fileWatcher = new FileSystemWatcher()
+            {
+                Path = _strategiesDirectory,
+                Filter = "*.txt"
+            };
+            fileWatcher.NotifyFilter = NotifyFilters.LastWrite;
+            fileWatcher.Changed += StrategyFilesChanged;
+            fileWatcher.EnableRaisingEvents = true;
+        }
+
+        private static void StrategyFilesChanged(object sender, FileSystemEventArgs e)
+        {
+            if (e.Name is not null)
+                Strategies.UpdateCounts(e.Name, GetLinesCount(e.FullPath, ConfigManager.CurrentConfig.StrategiesSplitString));
+        }
+
+        private static void HostsFilesChanged(object sender, FileSystemEventArgs e)
+        {
+            if (e.Name is not null)
+                Strategies.UpdateCounts(e.Name, GetLinesCount(e.FullPath));
+        }
+
+        internal static int GetLinesCount(string fullPath, string? splitter = null)
+        {
+            using (FileStream fileStream = new FileStream(fullPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (StreamReader sr = new StreamReader(fileStream))
+            {
+                string lines = sr.ReadToEnd().Trim();
+                if (string.IsNullOrWhiteSpace(lines))
+                    return 0;
+                if (string.IsNullOrWhiteSpace(splitter))
+                    return lines.Split('\n').Length;
+                return lines.Split(splitter).Length;
+            }
+        }
+
+        internal static bool StrategiesAndHostsFilesExist
+        {
+           get 
+           {
+                foreach (var hosts in HostsPaths)
+                    if (!File.Exists(hosts.Value))
+                        return false;
+                foreach (var strategies in StrategiesPaths)
+                    if (!File.Exists(strategies.Value))
+                        return false;
+                return true;
+           }
+        }
+
+        internal static string[] GetUserServicesDomainsLines { get => File.ReadAllLines(HostsPaths["UserServicesHostsPath"]); }
+
+        internal static DateTime GetLatestStrategiesUpdateTime { get => File.GetLastWriteTime(Directory.GetFiles(_strategiesDirectory, "*.txt").OrderByDescending(f => new FileInfo(f).LastWriteTime).First()); }
     }
 }

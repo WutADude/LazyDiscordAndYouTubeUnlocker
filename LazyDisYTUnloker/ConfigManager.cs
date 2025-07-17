@@ -23,24 +23,31 @@ namespace LazyDisYTUnlocker
             }
         }
 
-        internal static void SaveConfig()
+        internal static void ResetChoosenStrategies()
         {
-            File.WriteAllText(_configName,JsonSerializer.Serialize(CurrentConfig));
+            CurrentConfig.ChoosenYouTubeStrategy = CurrentConfig.ChoosenDiscordStrategy = CurrentConfig.ChoosenUserServicesStrategy = 0;
+            SaveConfig();
         }
+
+        internal static void SaveConfig() => File.WriteAllText(_configName, JsonSerializer.Serialize(CurrentConfig));
     }
 
     public class Config
     {
-        public int ChoosenYouTubeStrategy { get; set; }
+        public int ChoosenYouTubeStrategy { get; set; } // Выбранная стратегия для YouTube (индекс)
 
-        public int ChoosenDiscordStrategy { get; set; }
+        public int ChoosenDiscordStrategy { get; set; } // Выбранная стратегия для Discord (индекс)
 
-        public int ChoosenUserServicesStrategy { get; set; }
+        public int ChoosenUserServicesStrategy { get; set; } // Выбранная стратегия для пользовательсих сервисов (индекс)
 
-        public bool HideInTrayOnMinimize { get; set; } = false;
+        public bool HideInTrayOnMinimize { get; set; } = false; // Прячемся в Трей, или нет.
 
-        public bool KillWindivertOnStop { get; set; } = true;
+        public bool KillWindivertOnStop { get; set; } = true; // Убиваем Windivert сервис после нажатия кнопки остановки, или нет.
 
-        public string ChoosenCulture { get; set; } = "Ru";
+        public string StrategiesSplitString { get; set; } = ">NEW_STRATEGY"; // Разделитель стратегий
+
+        public string ChoosenCulture { get; set; } = "Ru"; // Локализация
+
+        public bool ConcatPortRanges { get; set; } = true; // Разрешение на объединение диапазонов портов в один диапазон. (Например, было 443,500-900,1200-4900 | стало 443,500-4900)
     }
 }

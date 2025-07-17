@@ -249,6 +249,6 @@ Error: %error%</value>
     <value>Bringing the "Zapret" files to a new look...</value>
   </data>
   <data name="ZapretProcessesClosed" xml:space="preserve">
-    <value>"Zapret" processes were stopped by external programs for some reason,or perhaps due to errors in strategies.</value>
+    <value>"Zapret" processes were stopped for some reason, possibly due to errors in strategies, or by external programs.</value>
   </data>
 </root>

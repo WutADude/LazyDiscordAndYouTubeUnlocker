@@ -23,9 +23,7 @@ namespace LazyDisYTUnlocker
                     {
                         var rootElement = jsonDocument.RootElement;
                         LatestAppVersion = (rootElement.GetProperty("tag_name").GetString()??CurrentAppVersion).Replace("V", "");
-                        if (CurrentAppVersion != LatestAppVersion)
-                            return true;
-                        return false;
+                        return CurrentAppVersion != LatestAppVersion;
                     }
                 }
             }
