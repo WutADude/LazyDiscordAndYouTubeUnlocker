@@ -46,6 +46,7 @@
             WarningInfoLabel = new Label();
             HideInTrayCB = new CheckBox();
             AdditionalOptionsGB = new GroupBox();
+            AutoRunCB = new CheckBox();
             WindivertServiceCB = new CheckBox();
             StrategiesUpdateDateLabel = new Label();
             UpdateHostsAndStrategiesButton = new Button();
@@ -183,10 +184,18 @@
             // AdditionalOptionsGB
             // 
             resources.ApplyResources(AdditionalOptionsGB, "AdditionalOptionsGB");
+            AdditionalOptionsGB.Controls.Add(AutoRunCB);
             AdditionalOptionsGB.Controls.Add(WindivertServiceCB);
             AdditionalOptionsGB.Controls.Add(HideInTrayCB);
             AdditionalOptionsGB.Name = "AdditionalOptionsGB";
             AdditionalOptionsGB.TabStop = false;
+            // 
+            // AutoRunCB
+            // 
+            resources.ApplyResources(AutoRunCB, "AutoRunCB");
+            AutoRunCB.Name = "AutoRunCB";
+            AutoRunCB.UseVisualStyleBackColor = true;
+            AutoRunCB.Click += AutoRunCB_Click;
             // 
             // WindivertServiceCB
             // 
@@ -328,5 +337,6 @@
         public Button ChangeUserServicesStrategiesButton;
         public Button MainButton;
         public Button UpdateHostsAndStrategiesButton;
+        private CheckBox AutoRunCB;
     }
 }

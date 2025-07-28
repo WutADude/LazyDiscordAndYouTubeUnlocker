@@ -165,7 +165,7 @@
     <value>Reinstall/Update "Zapret"</value>
   </data>
   <data name="Status.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 448</value>
+    <value>0, 460</value>
   </data>
   <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 17</value>
@@ -174,7 +174,7 @@
     <value>Working status:</value>
   </data>
   <data name="InfoGB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 408</value>
+    <value>12, 423</value>
   </data>
   <data name="LocalizationLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -228,8 +228,20 @@
   <data name="AdditionalOptionsGB.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 348</value>
   </data>
+  <data name="AdditionalOptionsGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 75</value>
+  </data>
   <data name="AdditionalOptionsGB.Text" xml:space="preserve">
     <value>Additional parameters:</value>
+  </data>
+  <data name="AutoRunCB.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AutoRunCB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>347, 19</value>
+  </data>
+  <data name="AutoRunCB.Text" xml:space="preserve">
+    <value>AutoRun when the system is turned on (with hide in the tray)</value>
   </data>
   <data name="WindivertServiceCB.Size" type="System.Drawing.Size, System.Drawing">
     <value>266, 19</value>
@@ -316,7 +328,7 @@
     <value>Count of YouTube strategies available: ... | Selected strategy: ...</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>525, 470</value>
+    <value>525, 482</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

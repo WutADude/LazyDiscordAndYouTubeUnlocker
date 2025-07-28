@@ -251,4 +251,38 @@
   <data name="ZapretProcessesClosed" xml:space="preserve">
     <value>Процессы "Zapret" по какой-то причине были остановлены, возможно из-за ошибок в стратегиях, либо же внешними программами.</value>
   </data>
+  <data name="AutoRunStatusError" xml:space="preserve">
+    <value>Не удалось получить статус автозапуска!
+
+Ошибка: %error%</value>
+  </data>
+  <data name="AutoRunEnableError" xml:space="preserve">
+    <value>Не удалось включить автозапуск!
+
+Ошибка: %error%</value>
+  </data>
+  <data name="AutoRunDisableError" xml:space="preserve">
+    <value>Не удалось отключить автозапуск!
+
+Ошибка: %error%</value>
+  </data>
+  <data name="AutoRunErrorMessageCaption" xml:space="preserve">
+    <value>Ошибка автозапуска</value>
+  </data>
+  <data name="UnhandledErrorMessageCaption" xml:space="preserve">
+    <value>Произошла необработанная ошибка!
+
+Ошибка: %error%</value>
+  </data>
+  <data name="UnhandledErrorMessage" xml:space="preserve">
+    <value>Произошла необработанная ошибка!
+
+Ошибка: %error%</value>
+  </data>
+  <data name="AppAlreadyExistsMessageCaption" xml:space="preserve">
+    <value>Приложение уже запущено!</value>
+  </data>
+  <data name="AppAlreadyExistsMessage" xml:space="preserve">
+    <value>Приложение уже запущено, нет смысла запускать несколько экземпляров.</value>
+  </data>
 </root>

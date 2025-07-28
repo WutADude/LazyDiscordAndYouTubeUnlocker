@@ -9,15 +9,12 @@ namespace LazyDisYTUnlocker
     {
         internal static MainForm Form { get; set; } = null!;
 
-        internal const string WinwsPath = $"{_zapretDirectory}\\winws.exe";
+        private readonly static string _zapretDirectory = $"{Application.StartupPath}\\Zapret";
+        private readonly static string _strategiesDirectory = $"{Application.StartupPath}\\Strategies";
+        private readonly static string _hostsDirectory = $"{Application.StartupPath}\\Hosts";
+        private readonly static string _binarysDirPath = $"{_zapretDirectory}\\Bins";
 
-        private const string _oldZapretDirectory = "zapret-win-bundle-master";
-        private const string _oldWinwsDirectory = "zapret-winws";
-        private static string _oldWinwsPath => $"{_oldZapretDirectory}\\{_oldWinwsDirectory}";
-        private const string _zapretDirectory = "Zapret";
-        private const string _strategiesDirectory = "Strategies";
-        private const string _hostsDirectory = "Hosts";
-        private const string _binarysDirPath = $"{_zapretDirectory}\\Bins";
+        internal readonly static string WinwsPath = $"{_zapretDirectory}\\winws.exe";
 
         public static readonly Dictionary<string, string> PathsReplace = new Dictionary<string, string>()
         {
@@ -46,9 +43,7 @@ namespace LazyDisYTUnlocker
 
         internal static bool IsZapretBundleDirectoriesLoaded()
         {
-            if (Directory.Exists(_oldZapretDirectory))
-                ReinstallOldZapret();
-            if (Directory.Exists("Zapret"))
+            if (Directory.Exists($"{Application.StartupPath}\\Zapret"))
             {
                 Form.ChangeZapretBundleStatus(StringsLocalization.ZapretReadyToWorkStatus);
                 SetupStrategyFilesWathcer();
@@ -105,26 +100,10 @@ namespace LazyDisYTUnlocker
                 return streamReader.ReadToEnd().Trim().Split(ConfigManager.CurrentConfig.StrategiesSplitString)[strategyIndex];
         }
 
-        private static async void ReinstallOldZapret()
-        {
-            Form.ChangeZapretBundleStatus(StringsLocalization.ZapretMovingStatus);
-            foreach (var dir in new string[] { _zapretDirectory, _binarysDirPath, _hostsDirectory, _strategiesDirectory })
-                if (!Directory.Exists(dir))
-                    Directory.CreateDirectory(dir);
-            if (File.Exists($"{_oldWinwsPath}\\list-user_services.txt"))
-                File.Move($"{_oldWinwsPath}\\list-user_services.txt", HostsPaths["UserServicesHostsPath"]);
-            foreach (var file in new string[3]{"dsstrat.txt","ytstrat.txt","usstrat.txt"})
-            {
-                if (File.Exists(file))
-                    File.Delete(file);
-            }    
-            if (Directory.Exists(_oldZapretDirectory))
-                Directory.Delete(_oldZapretDirectory, true);
-            await DownloadUnpackAndSetupZapret();
-        }
-
         private static void UnzipZapret(byte[]? zipBytes)
         {
+            if (zipBytes is null || zipBytes.Length == 0)
+                throw new ArgumentNullException(nameof(zipBytes));
             using (MemoryStream ms = new MemoryStream(zipBytes))
             using (ZipArchive archive = new ZipArchive(ms, ZipArchiveMode.Read))
             {

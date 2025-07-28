@@ -251,4 +251,36 @@ Error: %error%</value>
   <data name="ZapretProcessesClosed" xml:space="preserve">
     <value>"Zapret" processes were stopped for some reason, possibly due to errors in strategies, or by external programs.</value>
   </data>
+  <data name="AutoRunStatusError" xml:space="preserve">
+    <value>Couldn't get the autorun status!
+
+Error: %error%</value>
+  </data>
+  <data name="AutoRunEnableError" xml:space="preserve">
+    <value>Couldn't enable autorun!
+
+Error: %error%</value>
+  </data>
+  <data name="AutoRunDisableError" xml:space="preserve">
+    <value>Couldn't disable autorun!
+
+Error: %error%</value>
+  </data>
+  <data name="AutoRunErrorMessageCaption" xml:space="preserve">
+    <value>AutoRun error</value>
+  </data>
+  <data name="UnhandledErrorMessageCaption" xml:space="preserve">
+    <value>Unhandled error!</value>
+  </data>
+  <data name="UnhandledErrorMessage" xml:space="preserve">
+    <value>Unhandled error has occurred!
+
+Error: %error%</value>
+  </data>
+  <data name="AppAlreadyExistsMessageCaption" xml:space="preserve">
+    <value>Application already running!</value>
+  </data>
+  <data name="AppAlreadyExistsMessage" xml:space="preserve">
+    <value>The application is already running, there is no point in running multiple instances.</value>
+  </data>
 </root>

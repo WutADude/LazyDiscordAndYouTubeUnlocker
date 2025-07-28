@@ -4,9 +4,9 @@ namespace LazyDisYTUnlocker
 {
     internal static class ConfigManager
     {
-        private const string _configName = "appconfig.json";
+        private static readonly string _configPath = $"{Application.StartupPath}\\appconfig.json";
 
-        private static bool _configExists { get => File.Exists(_configName); }
+        private static bool _configExists { get => File.Exists(_configPath); }
 
         internal static Config CurrentConfig { get; private set; } = null!;
         
@@ -15,11 +15,11 @@ namespace LazyDisYTUnlocker
             if (!_configExists)
             {
                 CurrentConfig = new Config();
-                File.WriteAllText(_configName, JsonSerializer.Serialize(CurrentConfig));
+                File.WriteAllText(_configPath, JsonSerializer.Serialize(CurrentConfig));
             }
             else
             {
-                CurrentConfig = JsonSerializer.Deserialize<Config>(File.ReadAllText(_configName)) ?? new Config();
+                CurrentConfig = JsonSerializer.Deserialize<Config>(File.ReadAllText(_configPath)) ?? new Config();
             }
         }
 
@@ -29,7 +29,7 @@ namespace LazyDisYTUnlocker
             SaveConfig();
         }
 
-        internal static void SaveConfig() => File.WriteAllText(_configName, JsonSerializer.Serialize(CurrentConfig));
+        internal static void SaveConfig() => File.WriteAllText(_configPath, JsonSerializer.Serialize(CurrentConfig));
     }
 
     public class Config

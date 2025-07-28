@@ -11,11 +11,13 @@ namespace LazyDisYTUnlocker
         private InfoForm? _infoForm { get; set; }
         private DomainsAppenderForm? _userServicesDomainsForm { get; set; }
 
-        ContextMenuStrip _contextMenu = new ContextMenuStrip();
+        private ContextMenuStrip _contextMenu = new ContextMenuStrip();
         private ToolStripButton _miniMainButton { get; set; } = null!;
         private ToolStripButton _exitButton { get; set; } = null!;
 
-        public MainForm()
+        private bool _isAutoRunning = false;
+
+        public MainForm(string[] args)
         {
             InitializeComponent();
             (FilesAndDirectories.Form, Strategies.Form, ProcessManager.Form, Version.Form) = (this, this, this, this);
@@ -23,18 +25,16 @@ namespace LazyDisYTUnlocker
                 null,
                 onClick: (s, e) =>
                 {
-                    MainButton_Click(s, e);
+                    MainButton_Click(s!, e);
                     _miniMainButton.Text = CurrentlyWorking ? StringsLocalization.MainButtonStopText : StringsLocalization.MainButtonStartText;
                 });
             _exitButton = new ToolStripButton("EXIT", null, onClick: (_, _) => Close());
             _contextMenu.Items.Add(_miniMainButton);
             _contextMenu.Items.Add(_exitButton);
+            _isAutoRunning = args.Contains("-auto_run");
         }
 
-        private async void MainForm_Load(object sender, EventArgs e)
-        {
-            CheckFilesAndSetup().ConfigureAwait(false);
-        }
+        private void MainForm_Load(object sender, EventArgs e) => _ = CheckFilesAndSetup();
 
         private void MainButton_Click(object sender, EventArgs e)
         {
@@ -76,12 +76,12 @@ namespace LazyDisYTUnlocker
 
         private void NotifIcon_DoubleClick(object? sender, EventArgs e) => RevealFromTray();
 
-        private async void UpdateStrategiesButton_Click(object sender, EventArgs e)
+        private void UpdateStrategiesButton_Click(object sender, EventArgs e)
         {
-            Strategies.UpdateStrategies().ConfigureAwait(false);
+            _ = Strategies.UpdateStrategies();
         }
 
-        private async void ReinstallZapretLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => UpdateZapret().ConfigureAwait(false);
+        private void ReinstallZapretLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => _ = UpdateZapret();
 
         private async Task CheckFilesAndSetup()
         {
@@ -89,6 +89,7 @@ namespace LazyDisYTUnlocker
             {
                 HideInTrayCB.Checked = ConfigManager.CurrentConfig.HideInTrayOnMinimize;
                 WindivertServiceCB.Checked = ConfigManager.CurrentConfig.KillWindivertOnStop;
+                AutoRunCB.Checked = ProcessManager.IsAutoRunTaskExists;
             });
             if (await Version.IsNewVersionAvailable())
                 BeginInvoke(() => SoftwareVersionLabel.Font = new Font(SoftwareVersionLabel.Font, FontStyle.Underline));
@@ -123,6 +124,12 @@ namespace LazyDisYTUnlocker
                         UpdateHostsAndStrategiesButton.Enabled = true;
                     });
                     ChangeStatus(StringsLocalization.MainStatusReadyToWork);
+                }
+                if (_isAutoRunning)
+                {
+                    MainButton_Click(null, null);
+                    WindowState = FormWindowState.Minimized;
+                    HideInTray();
                 }
             }
         }
@@ -179,7 +186,7 @@ namespace LazyDisYTUnlocker
 
         private void RevealFromTray()
         {
-            _notifIcon.Visible = false;
+            _notifIcon!.Visible = false;
             ShowInTaskbar = true;
             Show();
             WindowState = FormWindowState.Normal;
@@ -212,6 +219,15 @@ namespace LazyDisYTUnlocker
         {
             ConfigManager.CurrentConfig.KillWindivertOnStop = WindivertServiceCB.Checked;
             ConfigManager.SaveConfig();
+        }
+
+
+        private void AutoRunCB_Click(object sender, EventArgs e)
+        {
+            if (!AutoRunCB.Checked)
+                ProcessManager.DeleteAutoRunTask();
+            else
+                ProcessManager.CreateAutoRunTask();
         }
 
         private void LocalizationLabel_Click(object sender, EventArgs e)
@@ -253,8 +269,8 @@ namespace LazyDisYTUnlocker
 
         internal void ChangeUserServicesStrategiesLabel(int strategiesCount, int choosenStrategy) => BeginInvoke(() => UserServicesStrategiesLabel.Text = StringsLocalization.USStrategiesCountLabel.Replace("%available%", strategiesCount.ToString()).Replace("%selected%", (++choosenStrategy).ToString()));
 
-        private void AddSymbolToLabel(object sender) => (sender as Label).Text = "⚙️" + (sender as Label).Text;
+        private void AddSymbolToLabel(object sender) => (sender as Label)!.Text = "⚙️" + (sender as Label)!.Text;
 
-        private void RemoveSymbolFromLabel(object sender) => (sender as Label).Text = (sender as Label).Text.Replace("⚙️", "");
+        private void RemoveSymbolFromLabel(object sender) => (sender as Label)!.Text = (sender as Label)!.Text.Replace("⚙️", "");
     }
 }

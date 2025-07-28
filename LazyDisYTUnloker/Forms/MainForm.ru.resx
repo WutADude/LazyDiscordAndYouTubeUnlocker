@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="StatusGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 86</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="UserServicesDomainsCountLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -125,21 +129,20 @@
   <data name="UserServicesDomainsCountLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="UserServicesDomainsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>201, 15</value>
   </data>
   <data name="UserServicesDomainsCountLabel.Text" xml:space="preserve">
     <value>Число доменов ваших сервисов: ...</value>
   </data>
-  <data name="StatusGB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>501, 86</value>
-  </data>
   <data name="ReinstallZapretLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>249, 17</value>
   </data>
   <data name="Status.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 446</value>
+    <value>0, 460</value>
+  </data>
+  <data name="InfoGB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 423</value>
   </data>
   <data name="LocalizationLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -174,11 +177,20 @@
   <data name="SoftwareAboutLabel.Text" xml:space="preserve">
     <value>О программе</value>
   </data>
-  <data name="InfoGB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 408</value>
-  </data>
   <data name="AdditionalOptionsGB.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 348</value>
+  </data>
+  <data name="AdditionalOptionsGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 75</value>
+  </data>
+  <data name="AutoRunCB.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AutoRunCB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>381, 19</value>
+  </data>
+  <data name="AutoRunCB.Text" xml:space="preserve">
+    <value>Запускать вместе с включенеием системы (со скрытием в трей)</value>
   </data>
   <data name="StrategiesUpdateDateLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 183</value>
@@ -197,6 +209,15 @@
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 138</value>
+  </data>
+  <data name="StrategiesInfoGB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 149</value>
+  </data>
+  <data name="StrategiesInfoGB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 199</value>
+  </data>
+  <data name="StrategiesInfoGB.Text" xml:space="preserve">
+    <value>Стратегии обхода замедлений/блокировок:</value>
   </data>
   <data name="ChangeUserServicesStrategiesButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -240,17 +261,8 @@
   <data name="ChangeYTStrategyButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 25</value>
   </data>
-  <data name="StrategiesInfoGB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 149</value>
-  </data>
-  <data name="StrategiesInfoGB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>501, 199</value>
-  </data>
-  <data name="StrategiesInfoGB.Text" xml:space="preserve">
-    <value>Стратегии обхода замедлений/блокировок:</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>525, 468</value>
+    <value>525, 482</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

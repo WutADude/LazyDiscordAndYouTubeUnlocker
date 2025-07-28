@@ -79,6 +79,66 @@ namespace LazyDisYTUnlocker.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Приложение уже запущено, нет смысла запускать несколько экземпляров..
+        /// </summary>
+        internal static string AppAlreadyExistsMessage {
+            get {
+                return ResourceManager.GetString("AppAlreadyExistsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Приложение уже запущено!.
+        /// </summary>
+        internal static string AppAlreadyExistsMessageCaption {
+            get {
+                return ResourceManager.GetString("AppAlreadyExistsMessageCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Не удалось отключить автозапуск!
+        ///
+        ///Ошибка: %error%.
+        /// </summary>
+        internal static string AutoRunDisableError {
+            get {
+                return ResourceManager.GetString("AutoRunDisableError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Не удалось включить автозапуск!
+        ///
+        ///Ошибка: %error%.
+        /// </summary>
+        internal static string AutoRunEnableError {
+            get {
+                return ResourceManager.GetString("AutoRunEnableError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка автозапуска.
+        /// </summary>
+        internal static string AutoRunErrorMessageCaption {
+            get {
+                return ResourceManager.GetString("AutoRunErrorMessageCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Не удалось получить статус автозапуска!
+        ///
+        ///Ошибка: %error%.
+        /// </summary>
+        internal static string AutoRunStatusError {
+            get {
+                return ResourceManager.GetString("AutoRunStatusError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Число доменов Discord: %count%.
         /// </summary>
         internal static string DiscordDomainsCountLabel {
@@ -230,6 +290,26 @@ namespace LazyDisYTUnlocker.Properties {
         internal static string StrategiesUpdateErrorMessageText {
             get {
                 return ResourceManager.GetString("StrategiesUpdateErrorMessageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Произошла необработанная ошибка!
+        ///
+        ///Ошибка: %error%.
+        /// </summary>
+        internal static string UnhandledErrorMessage {
+            get {
+                return ResourceManager.GetString("UnhandledErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Необработанная ошибка!.
+        /// </summary>
+        internal static string UnhandledErrorMessageCaption {
+            get {
+                return ResourceManager.GetString("UnhandledErrorMessageCaption", resourceCulture);
             }
         }
         
