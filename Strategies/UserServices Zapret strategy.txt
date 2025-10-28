@@ -10,8 +10,8 @@
 >NEW_STRATEGY
 --wf-tcp=443 --filter-tcp=443 --hostlist="[hosts]\UserServicesList.txt" --filter-tcp=443 --dpi-desync=fake,fakedsplit --dpi-desync-split-pos=2 --dpi-desync-fake-tls-mod=rnd,dupsid --dpi-desync-fooling=badseq --dpi-desync-badseq-increment=321
 >NEW_STRATEGY
---wf-tcp=443 --wf-udp=443 --filter-tcp=443 --hostlist="[hosts]\UserServicesList.txt" --filter-tcp=443 --dpi-desync=fake,multisplit --dpi-desync-split-pos=1 --dpi-desync-fake-tls-mod=rnd,dupsid --dpi-desync-fooling=badseq --dpi-desync-badseq-increment=5225 --new --filter-udp=443 --hostlist="[hosts]\UserServicesList.txt" --dpi-desync=fake --dpi-desync-repeats=6 --dpi-desync-fake-quic="[bins]\quic_initial_www_google_com.bin"
+--wf-tcp=443 --wf-udp=443 --filter-tcp=443 --hostlist="[hosts]\UserServicesList.txt" --dpi-desync=fake,multisplit --dpi-desync-split-pos=1 --dpi-desync-fake-tls-mod=rnd,dupsid --dpi-desync-fooling=badseq --dpi-desync-badseq-increment=5225 --new --filter-udp=443 --hostlist="[hosts]\UserServicesList.txt" --dpi-desync=fake --dpi-desync-repeats=6 --dpi-desync-fake-quic="[bins]\quic_initial_www_google_com.bin"
 >NEW_STRATEGY
---wf-tcp=443 --filter-tcp=443 --hostlist="[hosts]\UserServicesList.txt" --filter-tcp=443 --dpi-desync=fake,fakedsplit --dpi-desync-split-pos=1 --dpi-desync-fake-tls-mod=none --dpi-desync-fooling=badseq --dpi-desync-badseq-increment=3100
+--wf-tcp=443 --filter-tcp=443 --hostlist="[hosts]\UserServicesList.txt" --dpi-desync=fake,fakedsplit --dpi-desync-split-pos=1 --dpi-desync-fake-tls-mod=none --dpi-desync-fooling=badseq --dpi-desync-badseq-increment=3100
 >NEW_STRATEGY
---wf-tcp=443 --filter-tcp=443 --hostlist="[hosts]\UserServicesList.txt" --filter-tcp=443 --dpi-desync=fake,multidisorder --dpi-desync-split-pos=1,midsld --dpi-desync-fake-tls-mod=rnd,dupsid --dpi-desync-fooling=badseq --dpi-desync-badseq-increment=2543
+--wf-tcp=443 --filter-tcp=443 --hostlist="[hosts]\UserServicesList.txt" --dpi-desync=fake,multidisorder --dpi-desync-split-pos=1,midsld --dpi-desync-fake-tls-mod=rnd,dupsid --dpi-desync-fooling=badseq --dpi-desync-badseq-increment=2543
