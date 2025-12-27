@@ -24,4 +24,4 @@
 >NEW_STRATEGY
 --wf-tcp=443 --filter-tcp=443 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=multidisorder --dpi-desync-split-pos=2,midsld --dpi-desync-repeats=3 --dpi-desync-fake-tls="[bins]\tls_clienthello_www_google_com.bin" --dpi-desync-fake-tls-mod=dupsid --dpi-desync-fooling=md5sig
 >NEW_STRATEGY
---wf-tcp=443 --filter-tcp=443 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=fake,multidisorder --dpi-desync-fooling=ts
+--wf-tcp=443 --filter-tcp=443 --hostlist="[hosts]\YouTubeList.txt" --dpi-desync=multidisorder --dpi-desync-fooling=ts
