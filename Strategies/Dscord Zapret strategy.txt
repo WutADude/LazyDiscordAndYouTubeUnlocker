@@ -5,3 +5,5 @@
 --wf-tcp=443 --wf-udp=19294-19344,50000-50099 --filter-tcp=443 --hostlist="[hosts]\DiscordList.txt" --dpi-desync=fake,fakedsplit --dpi-desync-fake-tls-mod=rnd,dupsid,sni=www.google.com --dpi-desync-fooling=ts --new --filter-udp=19294-19344,50000-50099 --filter-l7=discord,stun --dpi-desync=fake
 >NEW_STRATEGY
 --wf-tcp=443 --wf-udp=19294-19344,50000-50099 --filter-tcp=443 --hostlist="[hosts]\DiscordList.txt" --dpi-desync=fake,multisplit --dpi-desync-split-seqovl=654 --dpi-desync-split-pos=1 --dpi-desync-fooling=ts --dpi-desync-repeats=8  --dpi-desync-fake-tls="[bins]\tls_clienthello_www_google_com.bin" --new --filter-udp=19294-19344,50000-50099 --filter-l7=discord,stun --dpi-desync=fake
+>NEW_STRATEGY
+--wf-tcp=443 --wf-udp=19294-19344,50000-50099 --filter-tcp=443 --hostlist="[hosts]\DiscordList.txt" --dpi-desync=hostfakesplit --dpi-desync-repeats=4 --dpi-desync-fooling=ts --dpi-desync-hostfakesplit-mod=host=api.vk.com --new --filter-udp=19294-19344,50000-50099 --filter-l7=discord,stun --dpi-desync=fake
